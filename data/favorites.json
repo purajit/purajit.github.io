@@ -1,0 +1,82 @@
+{
+    "albums": [
+        {
+            "key": "we",
+            "link": "https://www.wilderun.com/"
+        },
+        {
+            "key": "kglwpgwl",
+            "link": "https://kinggizzard.bandcamp.com/album/polygondwanaland"
+        },
+        {
+            "key": "lisgr",
+            "link":"https://linguaignota.bandcamp.com/album/sinner-get-ready"
+        },
+        {
+            "key": "inwb",
+            "link": "https://iglooghost.bandcamp.com/album/ne-wax-bloom-2"
+        },
+        {
+            "key": "gybelysflath",
+            "link": "https://godspeedyoublackemperor.bandcamp.com/album/lift-your-skinny-fists-like-antennas-to-heaven"
+        },
+        {
+            "key": "bkftst",
+            "link": "https://bosskeloid.bandcamp.com/album/family-the-smiling-thrush"
+        }
+    ],
+    "movies": [
+        {
+            "key": "eeaao",
+            "link": "https://letterboxd.com/film/everything-everywhere-all-at-once/"
+        },
+        {
+            "key": "isabd",
+            "link": "https://letterboxd.com/film/its-such-a-beautiful-day/"
+        },
+        {
+            "key": "stby",
+            "link": "https://letterboxd.com/film/sorry-to-bother-you/"
+        }
+    ],
+    "television": [
+        {
+            "key": "tl",
+            "link": "https://www.hbo.com/the-leftovers"
+        },
+        {
+            "key": "iasip",
+            "link": "https://www.fxnetworks.com/shows/its-always-sunny-in-philadelphia"
+        },
+        {
+            "key": "bb",
+            "link": "https://www.fox.com/bobs-burgers/"
+        }
+    ],
+    "books": [
+        {
+            "key": "bcdmh",
+            "link": "https://www.goodreads.com/book/show/105999.Dear_Mr_Henshaw"
+        },
+        {
+            "key": "dahhgttg",
+            "link": "https://www.goodreads.com/book/show/13.The_Ultimate_Hitchhiker_s_Guide_to_the_Galaxy"
+        },
+        {
+            "key": "kswbw",
+            "link": "https://www.goodreads.com/book/show/30781490-word-by-word"
+        },
+        {
+            "key": "llm",
+            "link": "https://www.goodreads.com/book/show/12930.Messenger"
+        },
+        {
+            "key": "mzbt",
+            "link": "https://www.goodreads.com/book/show/19063.The_Book_Thief"
+        },
+        {
+            "key": "ulgp",
+            "link": "https://www.goodreads.com/book/show/68020.Powers"
+        }
+    ]
+}
