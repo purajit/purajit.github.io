@@ -53,6 +53,10 @@ body {
   margin-top: 10px;
 }
 
+.contents-subitem.writing {
+  white-space: pre-wrap;
+}
+
 a {
   color: inherit;
   text-decoration: none;
