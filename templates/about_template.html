@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% include './header.html' %}
+<div class="contents-item">
+    software engineer / writer (barely) / musician (not even)
+</div>
+<div class="contents-subitem">
+    i'd love to contribute to: public transit, biology, sustainability, lab research
+</div>
+<div class="contents-subitem">
+    don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services
+</div>
+<div class="contents-item">
+    worked at:
+</div>
+<div class="contents-item">
+    <a href="https://www.color.com"><img class="work-logo" src="../images/work-col.png"></a>
+    <a href="https://www.pinterest.com"><img class="work-logo" src="../images/work-pins.png"></a>
+    <a href="https://www.microsoft.com/"><img class="work-logo" src="../images/work-msft.png"></a>
+    <a href="https://illinois.edu"><img class="work-logo" src="../images/work-uiuc.png"></a>
+</div>
+<div class="contents-item">
+    some favorites:
+</div>
+<div class="contents-item">
+{% for album in favs['albums'] %}
+    <a href="{{ album['link'] }}"><img class="fav-music" src="../images/music-{{ album['key'] }}.png"></a>
+{% endfor %}
+</div>
+<div class="contents-item">
+    {% for movie in favs['movies'] %}
+    <a href="{{ movie['link'] }}"><img class="fav-media" src="../images/movie-{{ movie['key'] }}.png"></a>
+    {% endfor %}
+    {% for show in favs['television'] %}
+    <a href="{{ show['link'] }}"><img class="fav-media" src="../images/tv-{{ show['link'] }}.png"></a>
+    {% endfor %}
+</div>
+<div class="contents-item">
+    {% for book in favs['books'] %}
+    <a href="{{ book['link'] }}"><img class="fav-book" src="../images/book-{{ book['key'] }}.png"></a>
+    {% endfor %}
+</div>
+{% include './footer.html' %}
