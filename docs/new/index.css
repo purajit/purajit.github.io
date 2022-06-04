@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Libre Caslon Text';
+  src: local('Libre Caslon Text Regular'), url(LibreCaslonText-Regular.ttf) format('truetype');
+}
+
+:root {
+  --bg: #181a1b;
+  --text: #e8e6e3;
+}
+
+body {
+  color: var(--text);
+  background-color: var(--bg);
+  font-family: "Libre Caslon Text";
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 8%;
+  width: fit-content;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+#name {
+  font-size: 60px;
+  font-weight: bold;
+  background-color: var(--text);
+  color: var(--bg);
+  width: fit-content;
+  padding: 10px 10px 10px 10px;
+  margin-bottom: 30px;
+}
+
+#contents {
+  margin-bottom: 200px;
+}
+
+#footer {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.contents-item {
+  font-size: 45px;
+  margin-top: 10px;
+}
+
+.contents-subitem {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.contents-subitem.writing {
+  white-space: pre-wrap;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.fav-music {
+  width: 15%;
+}
+
+.fav-media {
+  width: 15%;
+}
+
+.fav-book {
+  width: 15%;
+}
+
+.work-logo {
+  height: 100px;
+  width: auto;
+}
