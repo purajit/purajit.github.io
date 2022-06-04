@@ -26,7 +26,7 @@ jobs:
         id: check_for_changes
         run: |
           result=0
-          if [[ `$(git status --porcelain)` ]]; then
+          if [[ -z "$(git status --porcelain)" ]]; then
             result=1
           fi
           echo ::set-output name=has_changes::$result
