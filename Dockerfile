@@ -1,3 +1,3 @@
-WORKDIR /
-COPY . .
-CMD ["sleep", "3600"]
+FROM nginx:1.22-alpine
+WORKDIR /usr/share/nginx/html
+COPY docs .

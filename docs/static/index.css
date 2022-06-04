@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Libre Caslon Text';
-  src: local('Libre Caslon Text Regular'), url(LibreCaslonText-Regular.ttf) format('truetype');
+  src: local('Libre Caslon Text Regular'), url(/static/LibreCaslonText-Regular.ttf) format('truetype');
 }
 
 :root {

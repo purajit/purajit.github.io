@@ -1,5 +1,3 @@
-{% for item in contents %}
-<div class="contents-item">
-    <a href="{{ item['link'] }}">{{ item['title'] }}</a>
-</div>
-{% endfor %}
+{% include './header.html' %}
+{% include './template_content_table.html' %}
+{% include './footer.html' %}

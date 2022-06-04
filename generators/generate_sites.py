@@ -9,22 +9,15 @@ TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 SITE_DIR = "docs/new"
 DATA_DIR = "data"
 
-# HEADER AND FOOTER
-HEADER_TEMPLATE = TEMPLATE_ENV.get_template("header.html")
-FOOTER_TEMPLATE = TEMPLATE_ENV.get_template("footer.html")
-
 def render_and_write(template_file, params, output_file):
-    header = HEADER_TEMPLATE.render(
+    output = TEMPLATE_ENV.get_template(template_file).render(
         title=params["title"],
         previous_page=params["previous_page"],
+        **params
     )
-    footer = FOOTER_TEMPLATE.render()
-    output = TEMPLATE_ENV.get_template(template_file).render(**params)
 
     with open(f"{SITE_DIR}/{output_file}", "w") as f:
-        f.write(header)
         f.write(output)
-        f.write(footer)
 
 
 def main():

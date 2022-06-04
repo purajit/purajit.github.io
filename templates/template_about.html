@@ -1,3 +1,4 @@
+{% include './header.html' %}
 <div class="contents-item">
     software engineer / writer (barely) / musician (not even)
 </div>
@@ -12,7 +13,7 @@
 </div>
 <div class="contents-item">
     {% for job in jobs %}
-    <a href="{{ job['link'] }}"><img class="work-logo" src="../images/work-{{ job['key'] }}.png"></a>
+    <a href="{{ job['link'] }}"><img class="work-logo" src="/static/images/work-{{ job['key'] }}.png"></a>
     {% endfor %}
 </div>
 <div class="contents-item">
@@ -20,19 +21,20 @@
 </div>
 <div class="contents-item">
 {% for album in favs['albums'] %}
-    <a href="{{ album['link'] }}"><img class="fav-music" src="../images/music-{{ album['key'] }}.png"></a>
+    <a href="{{ album['link'] }}"><img class="fav-music" src="/static/images/music-{{ album['key'] }}.png"></a>
 {% endfor %}
 </div>
 <div class="contents-item">
     {% for movie in favs['movies'] %}
-    <a href="{{ movie['link'] }}"><img class="fav-media" src="../images/movie-{{ movie['key'] }}.png"></a>
+    <a href="{{ movie['link'] }}"><img class="fav-media" src="/static/images/movie-{{ movie['key'] }}.png"></a>
     {% endfor %}
     {% for show in favs['television'] %}
-    <a href="{{ show['link'] }}"><img class="fav-media" src="../images/tv-{{ show['link'] }}.png"></a>
+    <a href="{{ show['link'] }}"><img class="fav-media" src="/static/images/tv-{{ show['link'] }}.png"></a>
     {% endfor %}
 </div>
 <div class="contents-item">
     {% for book in favs['books'] %}
-    <a href="{{ book['link'] }}"><img class="fav-book" src="../images/book-{{ book['key'] }}.png"></a>
+    <a href="{{ book['link'] }}"><img class="fav-book" src="/static/images/book-{{ book['key'] }}.png"></a>
     {% endfor %}
 </div>
+{% include './footer.html' %}

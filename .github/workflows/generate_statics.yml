@@ -20,7 +20,7 @@ jobs:
 
       - name: generate_statics
         run: |
-          ./generators/generate
+          make generate-pages
 
       - name: check_for_changes
         id: check_for_changes

@@ -1,9 +1,8 @@
 {
   "title": "purajit malalur",
-  "id": "index",
-  "template": "template_index.html",
   "tab_title": "home",
-  "route": ".",
+  "template": "template_index.html",
+  "route": "",
   "children": [
     {
       "title": "writing",

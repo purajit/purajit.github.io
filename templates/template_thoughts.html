@@ -1,3 +1,4 @@
+{% include './header.html' %}
 {% for thought_group in thought_groups %}
 <div class="contents-item">
     {{ loop.length - loop.index + 1 }}
@@ -8,3 +9,4 @@
     {% endfor %}
 </div>
 {% endfor %}
+{% include './footer.html' %}
