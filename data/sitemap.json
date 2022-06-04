@@ -1,19 +1,33 @@
 {
   "title": "purajit malalur",
+  "id": "index",
+  "template": "template_index.html",
   "tab_title": "home",
+  "route": ".",
   "children": [
     {
       "title": "writing",
+      "template": "template_contents.html",
       "children": "writing.json"
     },
     {
       "title": "thoughts",
+      "template": "template_thoughts.html",
+      "data": {
+        "thought_groups": "thoughts.json"
+      }
     },
     {
       "title": "lorem",
+      "template": "template_lorem.html"
     },
     {
       "title": "about",
-    },
+      "template": "template_about.html",
+      "data": {
+        "favs": "favorites.json",
+        "jobs": "work.json"
+      }
+    }
   ]
 }

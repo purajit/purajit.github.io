@@ -32,14 +32,14 @@ def main():
     with open(f"{DATA_DIR}/writing.json") as f:
         writings = json.loads(f.read())
     os.makedirs(f"{SITE_DIR}/writing", exist_ok=True)
-    for writing in writings:
+    for writing in writings["contents"]:
         with open(f"{DATA_DIR}/writing/{writing['id']}.html") as f:
             text = f.read()
         render_and_write("template_writing.html", {
             "title": writing["title"],
             "previous_page": "../writing.html",
-            "writing": text,
-        }, f"writing/{ writing['id'] }.html")
+            "data": text,
+        }, f"writing/{ writing['id'] }")
 
     # THOUGHTS
     with open(f"{DATA_DIR}/thoughts.json") as f:
