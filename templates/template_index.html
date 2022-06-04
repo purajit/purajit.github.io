@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% include 'head.html' %}
+<body>
+    <div id="main">
+        <div id="name">
+            {{ title }}
+            <a id="forward" href="javascript:;">→</a>
+        </div>
+        <div id="contents">
+            {% include 'template_contents.html' %}
+        </div>
+    </div>
+</body>
+<script>
+ let cur = 0;
+ document.getElementById("forward").addEventListener("click", function() {
+     cur += 90;
+     cur %= 360;
+     document.getElementById("main").style.transform = `rotate(${cur}deg)`;
+ });
+</script>

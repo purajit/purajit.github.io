@@ -1,0 +1,19 @@
+{
+  "title": "purajit malalur",
+  "tab_title": "home",
+  "children": [
+    {
+      "title": "writing",
+      "children": "writing.json"
+    },
+    {
+      "title": "thoughts",
+    },
+    {
+      "title": "lorem",
+    },
+    {
+      "title": "about",
+    },
+  ]
+}
