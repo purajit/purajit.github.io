@@ -1,0 +1,10 @@
+{% for thought_group in thought_groups %}
+<div class="contents-item">
+    {{ loop.length - loop.index + 1 }}
+    {% for thought in thought_group %}
+    <div class="contents-subitem">
+        {{ thought }}
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}

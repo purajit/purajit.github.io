@@ -1,0 +1,5 @@
+#!/bin/sh
+cp docs/index.css docs/favicon.ico docs/new/
+for generator in generators/generate_*.py; do
+    python3 $generator
+done
