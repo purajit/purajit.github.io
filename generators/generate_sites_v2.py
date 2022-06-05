@@ -31,7 +31,7 @@ def generate_level(level_map, level_path):
 
     params = {
         "title": level_map["title"],
-        "tab_title": level_map.get("title"),
+        "tab_title": level_map.get("tab_title"),
         "previous_page": os.path.join('/', *level_path) if len(level_path) > 0 else None,
     }
 
