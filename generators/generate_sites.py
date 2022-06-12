@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+import shutil
 import sys
 
 from jinja2 import FileSystemLoader, Environment
@@ -11,6 +12,7 @@ LOG = logging.getLogger()
 SITE_DIR = "./docs"
 DATA_DIR = "./data"
 TEMPLATES_DIR = "./templates"
+PERMANENT_PATHS = ['CNAME', 'static']
 TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 
 
@@ -102,8 +104,20 @@ def generate_level(level_map, previous_level_path):
     }
 
 
+def clear_directory():
+    paths = os.listdir(SITE_DIR)
+    for path in paths:
+        if path in PERMANENT_PATHS:
+            continue
+        path = os.path.join(SITE_DIR, path)
+        if os.path.isdir(path):
+            shutil.rmtree(path)
+        else:
+            os.remove(path)
+
 def main():
     sitemap = read_json_file("sitemap.json")
+    clear_directory()
     generate_level(sitemap, previous_level_path="")
 
 
