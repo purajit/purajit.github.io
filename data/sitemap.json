@@ -6,11 +6,13 @@
   "children": [
     {
       "title": "writing",
+      "route": "writing",
       "template": "template_contents.html",
       "children": "writing.json"
     },
     {
       "title": "thoughts",
+      "route": "thoughts",
       "template": "template_thoughts.html",
       "data": {
         "thought_groups": "thoughts.json"
@@ -18,10 +20,12 @@
     },
     {
       "title": "lorem",
+      "route": "lorem",
       "template": "template_lorem.html"
     },
     {
       "title": "about",
+      "route": "about",
       "template": "template_about.html",
       "data": {
         "favs": "favorites.json",

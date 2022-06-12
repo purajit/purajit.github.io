@@ -3,11 +3,11 @@ import os
 
 from jinja2 import FileSystemLoader, Environment
 
+SITE_DIR = "./docs"
+DATA_DIR = "./data"
 TEMPLATES_DIR = "./templates"
 TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 
-SITE_DIR = "./docs"
-DATA_DIR = "./data"
 
 def read_json_file(filename):
     with open(os.path.join(DATA_DIR, filename)) as f:
@@ -17,12 +17,27 @@ def read_json_file(filename):
 def render_and_write(template_file, params, output_file):
     output = TEMPLATE_ENV.get_template(template_file).render(**params)
 
-    with open(output_file, "w") as f:
+    with open(os.path.join(output_file), "w") as f:
         f.write(output)
 
 
+def generate_children(children_data, level_name, next_level_path):
+    contents = []
+    for child_data in children_data["contents"]:
+        with open(os.path.join(DATA_DIR, level_name, child_data["route"])) as f:
+            data = f.read()
+        next_level = {
+            "template": children_data["template"],
+            "title": child_data["title"],
+            "route": child_data["route"],
+            "data": data,
+        }
+        contents.append(generate_level(next_level, next_level_path))
+    return contents
+
+
 def generate_level(level_map, level_path):
-    level_name = level_map.get("route", level_map.get('id', level_map["title"]))
+    level_name = level_map["route"]
     next_level_path = level_path + (level_name, )
     output_path = os.path.join(SITE_DIR, *level_path)
     next_level_output_path = os.path.join(SITE_DIR, *next_level_path)
@@ -37,26 +52,20 @@ def generate_level(level_map, level_path):
 
     if "children" in level_map:
         os.makedirs(os.path.join(SITE_DIR, level_name), exist_ok=True)
-        if isinstance(level_map["children"], list):
+        children_data = level_map["children"]
+        if isinstance(children_data, list):
+            # children explicitly defined
             params["contents"] = [generate_level(child, next_level_path)
                                   for child in level_map["children"]]
         elif isinstance(level_map["children"], str):
-            params["contents"] = []
-            children_data = read_json_file(level_map["children"])
-            for child_data in children_data["contents"]:
-                with open(os.path.join(DATA_DIR, level_name, child_data["id"])) as f:
-                    data = f.read()
-                next_level = {
-                    "template": children_data["template"],
-                    "title": child_data["title"],
-                    "id": child_data["id"],
-                    "data": data,
-                }
-                params["contents"].append(generate_level(next_level, next_level_path))
+            # children to be generated from json definition
+            params["contents"] = generate_children(
+                read_json_file(children_data), level_name, next_level_path)
         else:
             raise Exception("invalid children type")
     else:
-        output_filename = f"{ level_map.get('id', level_map['title']) }.html"
+        # single page
+        output_filename = f"{ level_map['route'] }.html"
         output_file = os.path.join(output_path, output_filename)
         link += '.html'
         level_data = level_map.get("data", {})

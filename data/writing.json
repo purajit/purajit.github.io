@@ -1,12 +1,12 @@
 {
   "template": "template_writing.html",
   "contents": [
-    {"id": "stagnation", "title": "[upcoming] stagnation | 2022"},
-    {"id": "youareafish", "title": "[upcoming] you are a fish. | 2022"},
-    {"id": "voidliving", "title": "[upcoming] a guide to living in the void | 2022"},
-    {"id": "ungrounding", "title": "ungrounding | 2022"},
-    {"id": "protector", "title": "protector | 2020"},
-    {"id": "pyre", "title": "at the pyre | 2015"},
-    {"id": "dark-visions", "title": "dark visions | 2015"}
+    {"route": "stagnation", "title": "[upcoming] stagnation | 2022"},
+    {"route": "youareafish", "title": "[upcoming] you are a fish. | 2022"},
+    {"route": "voidliving", "title": "[upcoming] a guide to living in the void | 2022"},
+    {"route": "ungrounding", "title": "ungrounding | 2022"},
+    {"route": "protector", "title": "protector | 2020"},
+    {"route": "pyre", "title": "at the pyre | 2015"},
+    {"route": "dark-visions", "title": "dark visions | 2015"}
   ]
 }
