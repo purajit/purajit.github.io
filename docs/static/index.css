@@ -25,7 +25,7 @@ a {
 }
 
 .bgimg {
-  background-image: url('https://img.freepik.com/premium-photo/geometric-repeating-background-green-squares-black-background_491279-131.jpg');
+  background-image: url('/static/images/bg.jpg');
   background-size: 50%;
   background-position: center center;
   position: absolute;
@@ -62,7 +62,7 @@ a {
 #contents {
   padding: 10px 10px 10px 10px;
   font-size: 25px;
-  background: rgba(0, 0, 0, 0.5);;
+  background: black;
 }
 
 .main-index #contents {
