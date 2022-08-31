@@ -1,3 +1,9 @@
 {% include './header.html' %}
-<div class="contents-subitem writing">{{ data }}</div>
+{% set lines = data.split('\n') %}
+<div class="writing">
+    {{ lines[0] }}
+    {% for line in lines[1:] %}
+    <br/>{{ line }}
+    {% endfor %}
+</div>
 {% include './footer.html' %}
