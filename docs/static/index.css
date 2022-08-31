@@ -9,19 +9,34 @@
 }
 
 body {
+  font-family: "Libre Caslon Text";
   color: var(--text);
   background-color: var(--bg);
-  font-family: "Libre Caslon Text";
-  padding-left: 8%;
-  padding-right: 8%;
-  padding-top: 8%;
-  width: fit-content;
+  margin-left: 8%;
+  margin-right: 8%;
+  margin-top: 8%;
+  padding: 0;
+  width: 84%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.bgimg {
+  background-image: url('https://img.freepik.com/premium-photo/geometric-repeating-background-green-squares-black-background_491279-131.jpg');
+  background-size: 50%;
+  background-position: center center;
+  position: absolute;
+  background-attachment: fixed;
 }
 
 #main {
   display: flex;
   flex-direction: column;
   font-weight: 500;
+  width: 100%;
 }
 
 #name {
@@ -32,10 +47,43 @@ body {
   width: fit-content;
   padding: 10px 10px 10px 10px;
   margin-bottom: 30px;
+  border-radius: 60px 0px 0px 0px;
+}
+
+.mainindex #name {
+  border-radius: 0px 60px 0px 0px;
 }
 
 #contents {
   margin-bottom: 200px;
+  width: 100%;
+}
+
+#contents {
+  padding: 10px 10px 10px 10px;
+  font-size: 25px;
+  background: rgba(0, 0, 0, 0.5);;
+}
+
+.main-index #contents {
+  background: transparent;
+}
+
+.contents-page #contents {
+  background: transparent;
+}
+
+#contents h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.contents-item {
+  font-size: 45px;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 10px 10px 10px 10px;
+  background-color: black;
 }
 
 #footer {
@@ -43,35 +91,14 @@ body {
   font-weight: bold;
 }
 
-.contents-item {
-  font-size: 45px;
-  margin-top: 10px;
+/* Page-specific */
+.thoughts br {
+  margin-top: 5px;
+  display: block;
 }
 
-.contents-subitem {
-  font-size: 25px;
-  margin-top: 10px;
-}
-
-.contents-subitem.writing {
-  white-space: pre-wrap;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.fav-music {
-  width: 15%;
-}
-
-.fav-media {
-  width: 15%;
-}
-
-.fav-book {
-  width: 15%;
+.fav-music, .fav-media, .fav-book {
+  width: 16%;
 }
 
 .work-logo {

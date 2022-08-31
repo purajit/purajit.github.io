@@ -85,6 +85,7 @@ def generate_level(level_map, previous_level_path):
         # generate children and get table of contents
         additional_params = generate_children(
             level_map["children"], level_path, level_name)
+        additional_params["content_type"] = "contents-page"
     else:
         # single page
         additional_params = generate_page_params(level_map.get("data", {}))

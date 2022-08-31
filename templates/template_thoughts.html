@@ -1,12 +1,11 @@
 {% include './header.html' %}
-{% for thought_group in thought_groups %}
-<div class="contents-item">
-    {{ loop.length - loop.index + 1 }}
+<div class="thoughts">
+    {% for thought_group in thought_groups %}
+    <h1>{{ loop.length - loop.index + 1 }}</h1>
     {% for thought in thought_group %}
-    <div class="contents-subitem">
-        {{ thought }}
-    </div>
+    {{ thought }}<br/><br/>
+    {% endfor %}
+    <br/>
     {% endfor %}
 </div>
-{% endfor %}
 {% include './footer.html' %}
