@@ -4,11 +4,13 @@ Personal website! It's simple, it's static, it's served out of GitHub Pages. Peo
 I don't believe you need anything more than some simple HTML + CSS + JS. Especially for a personal website! Keep the web simple, folks.
 There's really nothing impressive about complexity.
 
+The site's served at [https://purajit.com](https://purajit.com).
+
 # Development
 
 I use a custom site generator whose logic is pretty simple - each page is either a table of contents of its children, or an end page. 
 The structure is defined in `data/sitemap.json`. All templates are in `templates/`. Statics are in `docs/static`, and the website is
-served out of `docs/`.
+served out of `docs/`. This exact same model also serves [https://mythmancer.com](https://mythmancer.com).
 
 Locally, run
 ```sh
