@@ -53,6 +53,102 @@
       ]
     },
     {
+      "title": "recipes",
+      "route": "recipes",
+      "children": [
+        {
+          "route": "ratios",
+          "title": "ratios",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "instant-pot-rice-and-dal",
+          "title": "instant pot rice and dal",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "akki-roti",
+          "title": "akki roti",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "avalakki-vaggarne",
+          "title": "avalakki vaggarne",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "bisi-bele-bhath",
+          "title": "bisi bele bhath",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "chocolate-mug-cake",
+          "title": "chocolate mug cake",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "chutney",
+          "title": "chutney",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "chutneypudi",
+          "title": "chutneypudi",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "date-milkshake",
+          "title": "date milkshake",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "dosa",
+          "title": "dosa",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "garlic-pickle",
+          "title": "garlic pickle",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "idli",
+          "title": "idli",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "to-test",
+          "title": "to test",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "uppitu",
+          "title": "uppitu",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "route": "usli",
+          "title": "usli",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        }
+      ]
+    },
+    {
       "title": "thoughts",
       "route": "thoughts",
       "template": "template_thoughts.html",

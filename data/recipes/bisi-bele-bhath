@@ -1,0 +1,27 @@
+{
+  "servings": 4,
+  "ingredients": {
+    "rice": {"amount": "1", "unit": "cup"},
+    "toor dal": {"amount": "3/4", "unit": "cup"},
+    "onion": {"amount": "1", "unit": "medium", "amorphous": true},
+    "vegetables (carrot, beans, peas, potato, bell pepper)": {"amount": "2.5", "unit": "cup"},
+    "tamarind": {"amount": "1", "unit": "lemon-sized", "amorphous": true},
+    "water": {"amount": "6", "unit": "cup"},
+    "bisi bele bhath powder": {"amount": "3", "unit": "tbsp"},
+    "salt": {"amount": "to taste", "amorphous": true},
+    "vaggarne (saswe, jeerge, hing, turmeric, karabevu, green chilies)": {"unit": "usual", "amorphous": true},
+    "jaggery (optional)": {"amount": "1/2", "unit": "tsp"},
+    "coriander leaves": {"amount": "2", "unit": "tbsp"}
+  },
+  "steps": [
+    "Follow <a class=hyperlink href=/recipes/iprnd/>instructions</a> for making rice and dal",
+    "Soak tamarind in warm water to extract pulp",
+    "Saute onions until they turn soft and light brown",
+    "Add mix vegetables and cook for another 1-2 minutes",
+    "Add bisibele",
+    "Make vaggarne"
+  ],
+  "sources": [
+    "https://www.pressurecookrecipes.com/instant-pot-sticky-rice/"
+  ]
+}

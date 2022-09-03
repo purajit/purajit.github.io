@@ -1,0 +1,17 @@
+{
+  "servings": 1,
+  "ingredients": {
+    "rice flour": {"amount": "2.5", "unit": "cup"},
+    "grated coconut": {"amount": "0.5", "unit": "cup"},
+    "onion": {"amount": "1", "unit": "cup"},
+    "grated carrot": {"amount": "1", "unit": "cup"},
+    "green chili": {"amount": "1", "unit": "", "amorphous": true},
+    "ginger": {"unit": "some", "amorphous": true},
+    "curry leaves": {"amount": "10", "amorphous": true},
+    "coriander": {"amount": "1", "unit": "cup"},
+    "cumin seeds/jeerige": {"unit": "some", "amorphous": true},
+    "salt": {"unit": "to taste", "amorphous": true}
+  },
+  "steps": {},
+  "sources": {}
+}
