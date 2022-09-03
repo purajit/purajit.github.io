@@ -3,7 +3,7 @@
   "ingredients": {
     "thick avalakki (dry)": {"amount": "1", "unit": "cup"},
     "onion": {"amount": "0.5", "unit": "big", "amorphous": true},
-    "vegetables (peas/green bell peppers/carrots/beans": {"amount": "1", "unit": "cup"},
+    "vegetables (peas, green bell peppers, carrots, beans)": {"amount": "1", "unit": "cup"},
     "peanuts": {"unit": "some", "amorphous": true},
     "lemon": {"unit": "some", "amorphous": true}
   },
