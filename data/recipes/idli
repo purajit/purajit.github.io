@@ -1,6 +1,19 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": [],
-  "sources": []
+  "ingredients": {
+    "uddina bele": {"amount": 300, "unit": "ml"},
+    "coarse idli rava": {"amount": 400, "unit": "ml"},
+    "soda (optional)": {"amount": 1, "unit": "pinch"}
+  },
+  "steps": [
+    "Rinse and decant rava; soak for 5 hours; soak bele separately",
+    "Grind the bele. Squeeze water from rava and grind rava, mix the two",
+    "Final consistency should be like ketchup",
+    "Ferment for 8 hours (4 in warm oven)",
+    "Add a pinch of soda and mix well before preparing",
+    "Lightly grease the trays, add 1/2 cup water in steamer, do not seal, cook 10-12 minutes with natural release"
+  ],
+  "sources": [
+    "https://simmertoslimmer.com/how-to-make-soft-idlis/"
+  ]
 }
