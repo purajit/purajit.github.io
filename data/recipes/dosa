@@ -1,6 +1,15 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": [],
+  "ingredients": {
+    "uddina bele": {"amount": 200, "unit": "ml"},
+    "regular rice": {"amount": 600, "unit": "ml"},
+    "kadale bele (optional)": {"amount": 1, "unit": "tbsp"},
+    "menthia (optional)": {"amount": 1, "unit": "tsp"},
+    "avalakki (optional)": {"amount": 1, "unit": "tbsp"},
+    "soda (optional)": {"amount": 1, "unit": "pinch"}
+  },
+  "steps": [
+    "Soak bele and rice in water separately for 8 hrs before grinding (separately)"
+  ],
   "sources": []
 }
