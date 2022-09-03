@@ -1,0 +1,16 @@
+{
+  "servings": 1,
+  "ingredients": {
+    "toor dal": {"amount": 1, "unit": "cup"}
+  },
+  "steps": [
+    "All given as item:water",
+    "Sona Masoori 1:1 for 5 minutes",
+    "Ponni Raw 1:2 for 5 minutes",
+    "Sticky 3:2 for 12 minutes + 5min release",
+    "Toor Dal 1:2.5"
+  ],
+  "sources": [
+    "https://www.pressurecookrecipes.com/instant-pot-sticky-rice/"
+  ]
+}

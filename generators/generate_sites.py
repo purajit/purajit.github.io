@@ -31,13 +31,10 @@ def render_and_write(template_file, params, output_file):
 def generate_page_params(level_path, level_data):
     params = {}
     if level_data.get("data_type"):
-        print("a1")
         with open(os.path.join(DATA_DIR, level_path)) as f:
             params["data"] = f.read()
             if level_data.get("data_type") == "json":
-                print("a2")
                 params["data"] = json.loads(params["data"])
-                print(params["data"])
 
     return params
 
