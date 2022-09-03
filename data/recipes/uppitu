@@ -1,6 +1,11 @@
 {
-  "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "servings": 2,
+  "ingredients": {
+    "roasted sooji": {"amount": "1", "unit": "cup"},
+    "water": {"amount": "2.5", "unit": "cup"},
+    "vegetables": {"amount": "0.5", "unit": "cup"},
+    "onions": {"amount": "0.5", "unit": "cup"}
+  },
+  "steps": [],
+  "sources": []
 }

@@ -1,6 +1,30 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "ingredients": {
+    "garlic": {"amount": 20, "unit": "clove"},
+    "green chilies": {"amount": 6, "amorphous": true},
+    "finely-sliced ginger": {"amount": 3, "unit": "tbsp"},
+    "sesame oil": {"amount": 5, "unit": "tsp"},
+    "turmeric": {"amount": 1, "unit": "tsp"},
+    "curry leaves": {"amount": 3, "unit": "sprig"},
+    "salt": {"amount": 3, "unit": "tsp"},
+    "kashmiri red chilly powder": {"amount": 3, "unit": "tbsp"},
+    "hing": {"amount": 1, "unit": "tsp"},
+    "fenugreek (?)": {"amount": 0.5, "unit": "tsp"},
+    "sasve": {"amount": 2, "unit": "tsp"},
+    "jaggery": {"amount": 1, "unit": "tbsp"},
+    "white vinegar": {"amount": 3, "unit": "tbsp"},
+    "ginger julienned": {"amount": 3, "unit": "inch"},
+    "fennel seeds": {"amount": 0.5, "unit": "tsp"},
+    "coriander seeds": {"amount": 0.67, "unit": "tbsp"}
+  },
+  "steps": [
+    "TODO: read recipes and finalize",
+    "Clean and peel garlic cloves, slit green chilies"
+  ],
+  "sources": [
+    "https://food52.com/recipes/76582-south-indian-hot-and-sweet-garlic-pickle",
+    "https://hebbarskitchen.com/garlic-pickle-recipe-ahsun-ka-achar/",
+    "https://recipes.timesofindia.com/us/recipes/garlic-pickle/rs58413147.cms"
+  ]
 }
