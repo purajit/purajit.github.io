@@ -44,13 +44,13 @@ def generate_level(level_map, previous_level_path):
     level_path = os.path.join(previous_level_path, level_name)
     output_file = os.path.join(level_path, 'index.html')
     link = os.path.join("/", level_path)
-    LOG.info(f"{previous_level_path} | {level_path} | {output_file} | {link}")
+    template = level_map.get("template", "template_contents.html")
+    LOG.info(f"{previous_level_path} | {level_path} | {output_file} | {link} | {template}")
 
     os.makedirs(os.path.join(SITE_DIR, level_path), exist_ok=True)
 
     if "children" in level_map:
         # generate children and get table of contents
-        level_map["template"] = "template_contents.html"
         additional_params = {
             "contents": [
                 generate_level(child, level_path) for child in level_map["children"]
@@ -68,7 +68,7 @@ def generate_level(level_map, previous_level_path):
         **additional_params
     }
 
-    render_and_write(level_map["template"], params, output_file)
+    render_and_write(template, params, output_file)
 
     return {
         "title": level_map["title"],
