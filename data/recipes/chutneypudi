@@ -1,6 +1,16 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "ingredients": {
+    "red chilies": {"amount": 20, "amorphous": true},
+    "roasted chana dal": {"amount": 0.75, "unit": "cup"},
+    "roasted urad dal": {"amount": 0.33, "unit": "cup"},
+    "curry leaves": {"amount": 4, "unit": "stem"},
+    "hing": {"amount": 0.5, "unit": "tsp"},
+    "tamarind": {"unit": "some", "amorphous": true},
+    "roasted coconut": {"amount": 0.5, "unit": "cup"},
+    "jaggery": {"amount": 0.5, "unit": "tsp"},
+    "salt": {"amount": 1, "unit": "tsp"}
+  },
+  "steps": [],
+  "sources": []
 }

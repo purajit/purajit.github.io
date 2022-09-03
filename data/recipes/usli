@@ -1,6 +1,13 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "ingredients": {
+    "kala channa": {"amount": 1, "unit": "cup"},
+    "water": {"amount": 4, "unit": "cup"},
+    "bay leaves": {"amount": 2, "amorphous": true},
+    "grated coconut": {"amount": 0.5, "unit": "cup"}
+  },
+  "steps": [
+    "Cook in instant pot, add vaggarne and grated coconut"
+  ],
+  "sources": []
 }

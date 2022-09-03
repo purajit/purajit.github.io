@@ -1,6 +1,13 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "ingredients": {
+    "dates": {"amount": 0.5, "unit": "cup"},
+    "milk": {"amount": 0.5, "unit": "cup"},
+    "really good vanilla ice cream": {"amount": 1, "unit": "cup"},
+    "walnuts": {"unit": "some", "amorphous": true}
+  },
+  "steps": [
+    "Soak dates in hot milk, let it cool. Roast walnuts"
+  ],
+  "sources": []
 }

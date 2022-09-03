@@ -57,14 +57,13 @@
       "route": "recipes",
       "children": [
         {
-          "route": "ratios",
-          "title": "ratios",
-          "template": "template_recipe.html",
-          "data_type": "json"
+          "route": "basics",
+          "title": "basics: ratios, cook times, other tables",
+          "template": "template_basics_table.html"
         },
         {
-          "route": "instant-pot-rice-and-dal",
-          "title": "instant pot rice and dal",
+          "route": "vaggarne",
+          "title": "basics: vaggarne",
           "template": "template_recipe.html",
           "data_type": "json"
         },

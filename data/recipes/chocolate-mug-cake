@@ -1,6 +1,22 @@
 {
   "servings": 1,
-  "ingredients": {},
-  "steps": {},
-  "sources": {}
+  "ingredients": {
+    "all-purpose flour": {"amount": 2.5, "unit": "tbsp"},
+    "sugar": {"amount": 2.5, "unit": "tbsp"},
+    "unsweetened cocoa powder": {"amount": 1, "unit": "tbsp"},
+    "baking powder": {"amount": 0.25, "unit": "tsp"},
+    "salt": {"unit": "pinch", "amorphous": true},
+    "milk": {"amount": 2, "unit": "tbsp"},
+    "cooking oil": {"amount": 1, "unit": "tsp"},
+    "egg": {"amount": 1, "unit": "small", "amorphous": true},
+    "chocolate chips": {"amount": 2, "unit": "tbsp"}
+  },
+  "steps": [
+    "Mix flour, sugar, cocoa powder, baking powder, and salt in a microwaveable mug",
+    "Add in the milk, oil, egg & chocolate chips and whisk until you have a smooth cake batter",
+    "Microwave for ~45-60 seconds until the cake has risen and is firm to the touch. Overcooking will touchen the cake. Timing based on 1200W device"
+  ],
+  "sources": [
+    "https://www.biggerbolderbaking.com/best-ever-chocolate-mug-cake/"
+  ]
 }

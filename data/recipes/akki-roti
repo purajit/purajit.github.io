@@ -12,6 +12,6 @@
     "cumin seeds/jeerige": {"unit": "some", "amorphous": true},
     "salt": {"unit": "to taste", "amorphous": true}
   },
-  "steps": {},
-  "sources": {}
+  "steps": [],
+  "sources": []
 }
