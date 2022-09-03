@@ -58,7 +58,7 @@
       "children": [
         {
           "route": "basics",
-          "title": "basics: ratios, cook times, other tables",
+          "title": "basics: grain ratios, cook times, names, other tables",
           "template": "template_basics_table.html"
         },
         {
