@@ -16,13 +16,9 @@
                 <div class="table-row">
                     <div class="table-column">{{ ingredient_name }}</div>
                     <div class="table-column recipe-ingredient">
-                        {% if "amount" in ingredient %}
-                        <span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">{{ ingredient["amount"] }}</span>&nbsp;
-                        {% endif %}
-                        {{ ingredient["unit"] }}
-                        {% if ingredient["amorphous"] != true %}
-                        <span class="plural">s</span>
-                        {% endif %}
+                        {%- if "amount" in ingredient %}<span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">{{ ingredient["amount"] }}</span>&nbsp;{% endif %}
+                        {{- ingredient["unit"] }}
+                        {%- if ingredient["amorphous"] != true %}<span class="plural">s</span>{% endif %}
                     </div>
                 </div>
                 {% endfor %}
@@ -31,7 +27,7 @@
 
         <div class="recipe-sources">
             {% for source in data["sources"] %}
-            <a class="hyperlink" href="{{ source }}">{{ source }}</a>
+            <a class="hyperlink" href="{{ source }}">{{ source }}</a><br/>
             {% endfor %}
         </div>
     </div>
