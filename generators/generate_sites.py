@@ -28,47 +28,17 @@ def render_and_write(template_file, params, output_file):
         f.write(output)
 
 
-def generate_page_params(level_data):
+def generate_page_params(level_path, level_data):
     params = {}
-    if isinstance(level_data, dict):
-        for data_var, data_file in level_data.items():
-            params[data_var] = read_json_file(data_file)
-    elif isinstance(level_data, str):
-        params["data"] = level_data
-    else:
-        LOG.error("Level data must be dict or str")
-        raise Exception("invalid data type")
-    return params
+    if level_data.get("data_type"):
+        print("a1")
+        with open(os.path.join(DATA_DIR, level_path)) as f:
+            params["data"] = f.read()
+            if level_data.get("data_type") == "json":
+                print("a2")
+                params["data"] = json.loads(params["data"])
+                print(params["data"])
 
-
-def generate_children_from_definition(children_data, level_name, next_level_path):
-    contents = []
-    for child_data in children_data["contents"]:
-        with open(os.path.join(DATA_DIR, level_name, child_data["route"])) as f:
-            data = f.read()
-        next_level = {
-            "template": children_data["template"],
-            "title": child_data["title"],
-            "route": child_data["route"],
-            "data": data,
-        }
-        contents.append(generate_level(next_level, next_level_path))
-    return contents
-
-
-def generate_children(children_data, level_path, level_name):
-    params = {}
-    if isinstance(children_data, list):
-        # children explicitly defined
-        params["contents"] = [
-            generate_level(child, level_path) for child in children_data]
-    elif isinstance(children_data, str):
-        # children to be generated from json definition
-        params["contents"] = generate_children_from_definition(
-            read_json_file(children_data), level_name, level_path)
-    else:
-        LOG.error("Children data must be list or str")
-        raise Exception("invalid children type")
     return params
 
 
@@ -83,12 +53,16 @@ def generate_level(level_map, previous_level_path):
 
     if "children" in level_map:
         # generate children and get table of contents
-        additional_params = generate_children(
-            level_map["children"], level_path, level_name)
-        additional_params["content_type"] = "contents-page"
+        level_map["template"] = "template_contents.html"
+        additional_params = {
+            "contents": [
+                generate_level(child, level_path) for child in level_map["children"]
+            ],
+            "content_type": "contents-page"
+        }
     else:
         # single page
-        additional_params = generate_page_params(level_map.get("data", {}))
+        additional_params = generate_page_params(level_path, level_map)
 
     params = {
         "title": level_map["title"],

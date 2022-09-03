@@ -7,16 +7,56 @@
     {
       "title": "writing",
       "route": "writing",
-      "template": "template_contents.html",
-      "children": "writing.json"
+      "children": [
+        {
+          "route": "stagnation",
+          "title": "[upcoming] stagnation | 2022",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "youareafish",
+          "title": "[upcoming] you are a fish. | 2022",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "voidliving",
+          "title": "[upcoming] a guide to living in the void | 2022",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "ungrounding",
+          "title": "ungrounding | 2022",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "protector",
+          "title": "protector | 2020",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "pyre",
+          "title": "at the pyre | 2015",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "route": "dark-visions",
+          "title": "dark visions | 2015",
+          "template": "template_writing.html",
+          "data_type": "text"
+        }
+      ]
     },
     {
       "title": "thoughts",
       "route": "thoughts",
       "template": "template_thoughts.html",
-      "data": {
-        "thought_groups": "thoughts.json"
-      }
+      "data_type": "json"
     },
     {
       "title": "lorem",
@@ -27,10 +67,7 @@
       "title": "about",
       "route": "about",
       "template": "template_about.html",
-      "data": {
-        "favs": "favorites.json",
-        "jobs": "work.json"
-      }
+      "data_type": "json"
     }
   ]
 }

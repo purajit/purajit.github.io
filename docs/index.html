@@ -5,14 +5,13 @@
     <meta charset="utf-8"/>
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
 </head>
-<body class="bgimg main-index">
+<body class="bgimg contents-page">
     <div id="main">
         <div id="name">
-            purajit malalur
-            <a id="forward" href="javascript:;">→</a>
-        </div>
+            <a href="/">←</a>
+            purajit malalur</div>
         <div id="contents">
-            
+
 <div class="contents-item">
     <a href="/writing">writing</a>
 </div>
@@ -32,11 +31,3 @@
         </div>
     </div>
 </body>
-<script>
- let cur = 0;
- document.getElementById("forward").addEventListener("click", function() {
-     cur += 90;
-     cur %= 360;
-     document.getElementById("main").style.transform = `rotate(${cur}deg)`;
- });
-</script>
