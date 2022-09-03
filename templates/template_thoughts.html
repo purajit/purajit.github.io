@@ -1,6 +1,6 @@
 {% include './header.html' %}
 <div class="thoughts">
-    {% for thought_group in thought_groups %}
+    {% for thought_group in data["thought_groups"] %}
     <h1>{{ loop.length - loop.index + 1 }}</h1>
     {% for thought in thought_group %}
     {{ thought }}<br/><br/>
