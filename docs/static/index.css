@@ -119,6 +119,7 @@ input {
 .table-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .table-column {
@@ -196,6 +197,10 @@ input {
 /* zeitgeist page */
 .zeitgeist-albums .table img {
   width: 100%;
+}
+
+.zeitgeist-albums .bottom-row .table-column {
+  max-width: 20%;
 }
 
 .zeitgeist-albums .table-column {
