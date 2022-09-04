@@ -1,6 +1,6 @@
 {% include './header.html' %}
 <div class="zeitgeist-albums">
-    <h1>albums of the year</h1>
+    <h1>albums of the year {{ data.get("notes", "") }}</h1>
     {% set halfway = 10 + ([(data["albums"] | length - 10) // 2, 5] | max) %}
     <div class="table">
         <div class="table-row">
@@ -17,14 +17,14 @@
             </div>
             {% endfor  %}
         </div>
-        <div class="table-row">
+        <div class="table-row bottom-row">
             {% for album in data["albums"][10:halfway] %}
             <div class="table-column">
                 <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
             </div>
             {% endfor  %}
         </div>
-        <div class="table-row">
+        <div class="table-row bottom-row">
             {% for album in data["albums"][halfway:] %}
             <div class="table-column">
                 <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">

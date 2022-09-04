@@ -170,6 +170,12 @@
           "data_type": "json"
         },
         {
+          "title": "2022",
+          "route": "2022",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
           "title": "2021",
           "route": "2021",
           "template": "template_zeitgeist.html",
