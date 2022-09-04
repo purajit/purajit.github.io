@@ -182,22 +182,6 @@ input {
 }
 
 /* about page */
-.favrow {
-  display: flex;
-  flex-direction: row;
-}
-
-.favrow a {
-  flex: 1;
-  width: 100%;
-  margin: auto 3px 3px 3px;
-}
-
-.fav-music, .fav-media, .fav-book {
-  display: block;
-  width: 100%;
-}
-
 .work-logo {
   height: 100px;
   width: auto;
@@ -207,4 +191,40 @@ input {
 .thoughts br {
   margin-top: 5px;
   display: block;
+}
+
+/* zeitgeist page */
+.zeitgeist-albums .table img {
+  width: 100%;
+}
+
+.zeitgeist-albums .table-column {
+  padding: 5px;
+  border: 0;
+  border-right: 0;
+}
+
+.zeitgeist-albums .table-column:not(:nth-last-of-type(1)) {
+  border: 0;
+}
+
+.zeitgeist-albums .table .table-row:nth-child(even) {
+  background-color: transparent;
+}
+
+/* favs page */
+.favrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.favrow a {
+  flex: 1;
+  width: 100%;
+  margin: auto 0px 0px 0px;
+}
+
+.fav-music, .fav-media, .fav-book {
+  display: block;
+  width: 100%;
 }

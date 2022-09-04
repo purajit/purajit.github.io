@@ -1,52 +1,52 @@
 {
   "title": "purajit malalur",
+  "route": "",
   "tab_title": "home",
   "template": "template_index.html",
-  "route": "",
   "children": [
     {
       "title": "writing",
       "route": "writing",
       "children": [
         {
-          "route": "stagnation",
           "title": "[upcoming] stagnation | 2022",
+          "route": "stagnation",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "youareafish",
           "title": "[upcoming] you are a fish. | 2022",
+          "route": "youareafish",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "voidliving",
           "title": "[upcoming] a guide to living in the void | 2022",
+          "route": "voidliving",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "ungrounding",
           "title": "ungrounding | 2022",
+          "route": "ungrounding",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "protector",
           "title": "protector | 2020",
+          "route": "protector",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "pyre",
           "title": "at the pyre | 2015",
+          "route": "pyre",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "route": "dark-visions",
           "title": "dark visions | 2015",
+          "route": "dark-visions",
           "template": "template_writing.html",
           "data_type": "text"
         }
@@ -57,92 +57,158 @@
       "route": "recipes",
       "children": [
         {
-          "route": "basics",
           "title": "basics: grain ratios, cook times, names, other tables",
+          "route": "basics",
           "template": "template_basics_table.html"
         },
         {
-          "route": "vaggarne",
           "title": "basics: vaggarne",
+          "route": "vaggarne",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "akki-roti",
           "title": "akki roti",
+          "route": "akki-roti",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "avalakki-vaggarne",
           "title": "avalakki vaggarne",
+          "route": "avalakki-vaggarne",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "bisi-bele-bhath",
           "title": "bisi bele bhath",
+          "route": "bisi-bele-bhath",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "chocolate-mug-cake",
           "title": "chocolate mug cake",
+          "route": "chocolate-mug-cake",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "chutney",
           "title": "chutney",
+          "route": "chutney",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "chutneypudi",
           "title": "chutneypudi",
+          "route": "chutneypudi",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "date-milkshake",
           "title": "date milkshake",
+          "route": "date-milkshake",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "dosa",
           "title": "dosa",
+          "route": "dosa",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "garlic-pickle",
           "title": "garlic pickle",
+          "route": "garlic-pickle",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "idli",
           "title": "idli",
+          "route": "idli",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "to-test",
-          "title": "to test",
+          "title": "rava idli",
+          "route": "rava-idli",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "uppitu",
           "title": "uppitu",
+          "route": "uppitu",
           "template": "template_recipe.html",
           "data_type": "json"
         },
         {
-          "route": "usli",
           "title": "usli",
+          "route": "usli",
           "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "title": "to test",
+          "route": "to-test",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "title": "to write",
+          "route": "to-write",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        }
+      ]
+    },
+    {
+      "title": "zeitgeist",
+      "route": "zeitgeist",
+      "children": [
+        {
+          "title": "best of all time",
+          "route": "favs",
+          "template": "template_favs.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2021",
+          "route": "2021",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2020",
+          "route": "2020",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2019",
+          "route": "2019",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2018",
+          "route": "2018",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2017",
+          "route": "2017",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2016",
+          "route": "2016",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
+          "title": "2015",
+          "route": "2015",
+          "template": "template_zeitgeist.html",
           "data_type": "json"
         }
       ]

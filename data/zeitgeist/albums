@@ -1,0 +1,796 @@
+{
+  "2015": [
+    {
+      "artist": "Wilderun",
+      "album": "Sleep at the Edge of the Earth",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/201190487158296a836725e6b1565b73.png"
+    },
+    {
+      "artist": "Godspeed You! Black Emperor",
+      "album": "Asunder, Sweet And Other Distress",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ed18f386922031c72e5fbe6354a56ec4.png"
+    },
+    {
+      "artist": "Caspian",
+      "album": "Dust and Disquiet",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8d1ca89a4f3c0c1ecba56a361778c340.png"
+    },
+    {
+      "artist": "John Williams",
+      "album": "Star Wars: The Force Awakens (Original Motion Picture Soundtrack)",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ddf9879fbba5c96017bfc3430a3fda41.png"
+    },
+    {
+      "artist": "Florence + the Machine",
+      "album": "How Big, How Blue, How Beautiful (Limited Deluxe Edition)",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b873cb9f80a0d0ec837ddb4928b3a9b0.png"
+    },
+    {
+      "artist": "Adele",
+      "album": "25",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d7122689fe7250d072f7b10d824f6ca9.png"
+    },
+    {
+      "artist": "Tame Impala",
+      "album": "Currents",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/dd45b0438a315aed98b5830aa2fc43c5.png"
+    },
+    {
+      "artist": "Nightwish",
+      "album": "Endless Forms Most Beautiful",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/5c4f5647d50667e6d893f2ad96c4b988.png"
+    },
+    {
+      "artist": "Hatis Noit",
+      "album": "Illogical Dance",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/40ac6678d2bbdb23ce090e33ba64d145.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Quarters!",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d15d11edec00419bef57b4113044a98f.png"
+    },
+    {
+      "artist": "Obsequiae",
+      "album": "Aria Of Vernal Tombs",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/731c9ef9c79cf7a8232dc0751e34f99e.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Paper Mâché Dream Balloon",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/01f1473699731aa381aad240d6446b96.png"
+    },
+    {
+      "artist": "Liturgy",
+      "album": "The Ark Work",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/2213cce820714080c000c7b74d258199.png"
+    },
+    {
+      "artist": "Native Construct",
+      "album": "Quiet World",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/4789a9906b5c6317025fdfca8d6a6033.png"
+    }
+  ],
+  "2016": [
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Nonagon Infinity",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/45d2570199853ec87e5da6dd8c1ea1a3.png"
+    },
+    {
+      "artist": "Insomnium",
+      "album": "Winter's Gate",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b1b97ac257c4c4a80ed687dc4599054b.png"
+    },
+    {
+      "artist": "Morrow",
+      "album": "Covenant Of Teeth",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d3206d3d8b253660c44cea7a49c21a80.png"
+    },
+    {
+      "artist": "The Colorist Orchestra",
+      "album": "The Colorist & Emiliana Torrini",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fa11fca42f05f2a6c3918f5e12a13a32.png"
+    },
+    {
+      "artist": "Flume",
+      "album": "Skin",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/814124126add3fc7a702ce55f616d5fe.png"
+    },
+    {
+      "artist": "Ariana Grande",
+      "album": "Dangerous Woman",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c01e49f1304ed48f058e28387f85749a.png"
+    },
+    {
+      "artist": "Kanye West",
+      "album": "The Life Of Pablo",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8c6af1315c66631bad022085c7992b34.png"
+    },
+    {
+      "artist": "Childish Gambino",
+      "album": "\"Awaken, My Love!\"",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d4f6f6f537a28b6b15f793515b95452b.png"
+    },
+    {
+      "artist": "Darkher",
+      "album": "Realms",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/6e1e982350406d43857de95d8cfc19a1.png"
+    },
+    {
+      "artist": "Beyoncé",
+      "album": "Lemonade",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1b8a01872a46cf711ba94204728a5d69.png"
+    },
+    {
+      "artist": "Jacob Collier",
+      "album": "In My Room",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fadfb69d67a7cb1fffba490de57823da.png"
+    },
+    {
+      "artist": "DIIV",
+      "album": "Is the Is Are",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0bfb7edae7408cc3649bedd22ea2dbb6.png"
+    },
+    {
+      "artist": "Dark Tranquillity",
+      "album": "Atoma",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9f9c36b44f1452bc2043caf39117760d.png"
+    },
+    {
+      "artist": "Metallica",
+      "album": "Hardwired... To Self-Destruct",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/6aa2d17ccb6f108ccfe13241d9cb9758.png"
+    },
+    {
+      "artist": "Myrath",
+      "album": "Legacy",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/38be562ad19633d4b4f9c32de4fb86cb.png"
+    },
+    {
+      "artist": "Boss Keloid",
+      "album": "Herb Your Enthusiasm",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ff02b8fd5e1ccecd8fe13682c373fe90.png"
+    },
+    {
+      "artist": "Todtgelichter",
+      "album": "Rooms",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f89125ac5564f9506c5592c8b693b93a.png"
+    },
+    {
+      "artist": "Comet Control",
+      "album": "Center Of The Maze",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/4890d50de9ece20936bd5f38f800c4e4.png"
+    },
+    {
+      "artist": "Polyphia",
+      "album": "Renaissance",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/4ed6ab27c40a3ecdcfa58980a41c0785.png"
+    },
+    {
+      "artist": "Oranssi Pazuzu",
+      "album": "Värähtelijä",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c6f01f2efd222ee0ed3f6f529b119a56.png"
+    },
+    {
+      "artist": "Spectral Lore",
+      "album": "Gnosis",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/6d9e592e3d344fe5f32383dd0ee50d17.png"
+    },
+    {
+      "artist": "pg.lost",
+      "album": "Versus",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/324f2c7801076c6ac207282fb7f1ee79.png"
+    }
+  ],
+  "2017": [
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Polygondwanaland",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/63287ae3739a01fe90e2809f8270c64a.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Flying Microtonal Banana",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/205d1d3eb0eb5e4d08ceb3d9721ab2bc.png"
+    },
+    {
+      "artist": "Iglooghost",
+      "album": "Neō Wax Bloom",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/50a7053812c29767cf530d1af935d22a.png"
+    },
+    {
+      "artist": "Morrow",
+      "album": "Fallow",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fc9d92b9e95d8d8c335055c3545f35f2.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Murder of The Universe",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8eea823b2c29e9445a12add27b4b7cd2.png"
+    },
+    {
+      "artist": "Dvne",
+      "album": "Asheran",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/adc509f2a42e5958fe6822f3535f05bb.png"
+    },
+    {
+      "artist": "John Williams",
+      "album": "Star Wars: The Last Jedi (Original Motion Picture Soundtrack)",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/bd0cfbae16bc951457828a020d972829.png"
+    },
+    {
+      "artist": "Rezz",
+      "album": "Mass Manipulation",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e160accc3926df276e6a00dcbeada92f.png"
+    },
+    {
+      "artist": "Lorde",
+      "album": "Melodrama",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fdef4c7536c03d0a5a6689e4b1fa9b42.png"
+    },
+    {
+      "artist": "Grails",
+      "album": "Chalice Hymnal",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3d99815f3ccdc29a41889f66d0d20fc2.png"
+    },
+    {
+      "artist": "The Comet Is Coming",
+      "album": "Channel The Spirits",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8db6fe6ad70c3e3533919c2cee8d91bc.png"
+    },
+    {
+      "artist": "Zeal & Ardor",
+      "album": "Devil Is Fine",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fbc3913f5e086bd2e46678ffa446c7a9.png"
+    },
+    {
+      "artist": "Gorillaz",
+      "album": "Humanz",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c6be60edd13ecd2226b9ca7508484f99.png"
+    },
+    {
+      "artist": "Kendrick Lamar",
+      "album": "DAMN.",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/243a7444e2d59ff9b38e123f7267e3be.png"
+    },
+    {
+      "artist": "Aephanemer",
+      "album": "Prokopton",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1decb319350d1858fc7e0b2303e7fad3.png"
+    },
+    {
+      "artist": "Björk",
+      "album": "Utopia",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8ca740fb5f83ed4878db1fac38f58db9.png"
+    },
+    {
+      "artist": "Bell Witch",
+      "album": "Mirror Reaper",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fc49a112f07e4423d567255000f78401.png"
+    },
+    {
+      "artist": "Major Parkinson",
+      "album": "Blackbox",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8283a933d905427adc9402232f62da19.png"
+    },
+    {
+      "artist": "Thee Oh Sees",
+      "album": "Orc",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/961a83b92f23a689b143bd538bdac9cf.png"
+    },
+    {
+      "artist": "Godspeed You! Black Emperor",
+      "album": "Luciferian Towers",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/99a076681567cd209ef0bbb5c7fbc9e0.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Gumboot Soup",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/dfc9bc613d46b0a6c55a2043f30ea8e2.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Sketches of Brunswick East",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/4603e77e3a3f860fd6d67ecb1cce6e39.png"
+    }
+  ],
+  "2018": [
+    {
+      "artist": "Boss Keloid",
+      "album": "Melted on the Inch",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0b119fcb51cffb9d39bb1da460ff5037.png"
+    },
+    {
+      "artist": "MaYaN",
+      "album": "Dhyana",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/468a5a14a73074d89f91d10d99a11fba.png"
+    },
+    {
+      "artist": "Agrypnie",
+      "album": "Pavor Nocturnus",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/731e85e40ef9db606f6829ac867d8a9f.png"
+    },
+    {
+      "artist": "Sons of Kemet",
+      "album": "Your Queen Is a Reptile",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/895125e2983764960c90030d236c353f.png"
+    },
+    {
+      "artist": "Janelle Monáe",
+      "album": "Dirty Computer",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/dfd047b47d9d585b33422ce62b0a50bc.png"
+    },
+    {
+      "artist": "Slugdge",
+      "album": "Esoteric Malacology",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9c910f5e67161c0e003580f3e7ec7a6d.png"
+    },
+    {
+      "artist": "MGMT",
+      "album": "Little Dark Age",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/28700d076e5afb3bc0fba47ab8e71975.png"
+    },
+    {
+      "artist": "Kids See Ghosts",
+      "album": "Kids See Ghosts",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e9dd5c8d3294ca0a0f58cbf7ad5fd6a6.png"
+    },
+    {
+      "artist": "Black Thought",
+      "album": "Streams of Thought Vol. 1",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b0820a3dddedb13270df8d35d4d6d2ce.png"
+    },
+    {
+      "artist": "Polyphia",
+      "album": "New Levels New Devils",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/bcb603b1da102c24aec3ec1874bbb3f8.png"
+    },
+    {
+      "artist": "Wolvennest",
+      "album": "VOID",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b4c278fbca75f30f9e20b86ae1cbae96.png"
+    },
+    {
+      "artist": "My Indigo",
+      "album": "My Indigo",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d76f3f8744c8cf02220f6eba74b570e0.png"
+    },
+    {
+      "artist": "Judas Priest",
+      "album": "Firepower",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/26f77b4347ddb3036e16333399860259.png"
+    },
+    {
+      "artist": "Kali Uchis",
+      "album": "Isolation",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/87a64151ecf88024a5463e812f59d2ec.png"
+    },
+    {
+      "artist": "LLNN",
+      "album": "Deads",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/530b5cadc8062da5a4ab867a8e9b0a33.png"
+    },
+    {
+      "artist": "Malady",
+      "album": "Toinen toista",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/72084a9fcf537c773238feae9f4840bf.png"
+    },
+    {
+      "artist": "Parcels",
+      "album": "Parcels",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/48ad06120e8dfd0736336fad5af74b88.png"
+    },
+    {
+      "artist": "Rosalía",
+      "album": "El Mal Querer",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/30cf2d09be4f1fb66eafd03dcc7343d2.png"
+    },
+    {
+      "artist": "Agrypnie",
+      "album": "Grenzgaenger",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/bd75efad67bb656f51dcd6e49212eb67.png"
+    },
+    {
+      "artist": "Unreqvited",
+      "album": "Stars Wept to the Sea",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9cfc671e716c247062507c3463e9b28b.png"
+    },
+    {
+      "artist": "Spirit of the Beehive",
+      "album": "hypnic jerks",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/67c1f5cc832d6d94125fba025038528f.png"
+    },
+    {
+      "artist": "Infected Mushroom",
+      "album": "Head of Nasa and the 2 Amish Boys",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/248ba2288df7ce07d856d4e2fb3a68df.png"
+    }
+  ],
+  "2019": [
+    {
+      "artist": "Wilderun",
+      "album": "Veil of Imagination",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/29ae910b5c254e9016e520b911187a71.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Infest the Rat's Nest",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/68cabd9e360ecdf030da21ac4e29015f.png"
+    },
+    {
+      "artist": "LINGUA IGNOTA",
+      "album": "Caligula",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/963269723079464606685c3093a06c68.png"
+    },
+    {
+      "artist": "Opeth",
+      "album": "In Cauda Venenum",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ae3029a85faf582eefbb12fba49dba17.png"
+    },
+    {
+      "artist": "Flume",
+      "album": "Hi This Is Flume (Mixtape)",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9961f537b54645da30efd8f3d7346ec5.png"
+    },
+    {
+      "artist": "Within Temptation",
+      "album": "Resist",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3b21495764846227e3e05cf09deffbb0.png"
+    },
+    {
+      "artist": "Rammstein",
+      "album": "Rammstein",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3d21dc3a8547607eede163cb4e827a6b.png"
+    },
+    {
+      "artist": "Wandar",
+      "album": "ZYKLUS",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/2147ae5244a78a44962de478f0ac0179.png"
+    },
+    {
+      "artist": "The Comet Is Coming",
+      "album": "Trust In The Lifeforce Of The Deep Mystery",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/fa611731e1cbc8cc6e57ffbe30853d4d.png"
+    },
+    {
+      "artist": "Aephanemer",
+      "album": "Prokopton",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1decb319350d1858fc7e0b2303e7fad3.png"
+    },
+    {
+      "artist": "Blut aus Nord",
+      "album": "Hallucinogen",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d6d65dbfd99c613b07a3474e766eb58e.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Fishing for Fishies",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e570264f67551cdd6dc8714460a98e6f.png"
+    },
+    {
+      "artist": "The Hu",
+      "album": "The Gereg",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/735b12d63e9b4487a56586e96480068b.png"
+    },
+    {
+      "artist": "Obsequiae",
+      "album": "The Palms Of Sorrowed Kings",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f09d726a44667d3cddfb782ee813d77a.png"
+    },
+    {
+      "artist": "Tarja",
+      "album": "In The Raw",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/22135e5afe570093161b8b23ba7a03dc.png"
+    },
+    {
+      "artist": "Brymir",
+      "album": "Wings of Fire",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/47ad50484a578e6fd129cf518abbed5f.png"
+    },
+    {
+      "artist": "Fedrespor",
+      "album": "Fra en vugge i fjellet",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ca92479f7e779fb553950bc5b4ee316b.png"
+    },
+    {
+      "artist": "Our Native Daughters",
+      "album": "Songs of Our Native Daughters",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/6b0972ab524e249ceacfb1546a56ce9d.png"
+    },
+    {
+      "artist": "Marko Hietala",
+      "album": "Mustan sydämen rovio",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7131f65a7b29239d4ef68fd3630d1128.png"
+    },
+    {
+      "artist": "Sunn O)))",
+      "album": "Life Metal",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0db11bce037048cdd4173bffa6f3424f.png"
+    },
+    {
+      "artist": "Xiu Xiu",
+      "album": "Girl with Basket of Fruit",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a465856d6cd41e4745023b55ead5e312.png"
+    },
+    {
+      "artist": "Russian Circles",
+      "album": "Blood Year",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/64df2e133fafb3f8701d857308157541.png"
+    }
+  ],
+  "2020": [
+    {
+      "artist": "Balkan Bump",
+      "album": "Osmanity",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/dfa3a8c4396b161c92620bf90440a92a.png"
+    },
+    {
+      "artist": "Gorillaz",
+      "album": "Song Machine, Season One: Strange Timez",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1f12f94d8d2a55433220e15227d7a97c.png"
+    },
+    {
+      "artist": "Nicolas Jaar",
+      "album": "Cenizas",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f1de0b8ba2eca656e6d4006e1093c097.png"
+    },
+    {
+      "artist": "Bright Eyes",
+      "album": "Down In The Weeds, Where The World Once Was",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/77bd066f3944636fb1df3c36efbeab46.png"
+    },
+    {
+      "artist": "Caspian",
+      "album": "On Circles",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/20eb50f65a90b2530ebc8c2e39aca413.png"
+    },
+    {
+      "artist": "Leprous",
+      "album": "Aphelion",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/481b32d39f675139f9b45a13593f7567.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "KG: Volume 2",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c937de959bbab9b3c60a3087d3c18ef4.png"
+    },
+    {
+      "artist": "Fiona Apple",
+      "album": "Fetch the Bolt Cutters",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/76ce066e3dd48b6aae77e27227088aa9.png"
+    },
+    {
+      "artist": "Paradise Lost",
+      "album": "Obsidian",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/06ce36733e5345e26b8a5f4e7501ef7e.png"
+    },
+    {
+      "artist": "NEPTUNIAN MAXIMALISM",
+      "album": "Éons",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/61d86625f25eaac9837ee2cb33c9e528.png"
+    },
+    {
+      "artist": "Poppy",
+      "album": "I Disagree",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a74796650781034d862975df0282b64a.png"
+    },
+    {
+      "artist": "Sufjan Stevens",
+      "album": "The Ascension",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/2a42758b45e4be17b6ae09f8a2aeb2bc.png"
+    },
+    {
+      "artist": "Esoctrilihum",
+      "album": "Eternity Of Shaog",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/260f320cf47478d70179a168553728b1.png"
+    },
+    {
+      "artist": "Liturgy",
+      "album": "Origin of the Alimonies",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/825aeba5d2d9d75591ee9b24574fd6d1.png"
+    },
+    {
+      "artist": "JPEGMAFIA",
+      "album": "LP!",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/824d6fe0b424b132b67dd6ab6ec0720a.png"
+    },
+    {
+      "artist": "Nightwish",
+      "album": "HUMAN. :II: NATURE.",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7fedc20a510600b119874c79449f4b7e.png"
+    },
+    {
+      "artist": "Mare Cognitum & Spectral Lore",
+      "album": "Wanderers: Astrology of the Nine",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1baeec6a722f40bce29ebce30eb565a1.png"
+    },
+    {
+      "artist": "Sevdaliza",
+      "album": "Shabrang",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/35109fd04ddf0391f6c01df18da279f0.png"
+    },
+    {
+      "artist": "Someone",
+      "album": "Orbit II",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9b4463f17f724b64fb0a3df0dbff35d1.png"
+    },
+    {
+      "artist": "clipping.",
+      "album": "Visions of Bodies Being Burned",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/018cfaf835606f97de6dc3144a2bb38b.png"
+    },
+    {
+      "artist": "slowthai",
+      "album": "TYRON",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7690aad2072f8a11b5ab9607e894a7e0.png"
+    },
+    {
+      "artist": "pg.lost",
+      "album": "Oscillate",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b48723a73a85f5f56eb9cae018964735.png"
+    },
+    {
+      "artist": "Sojourner",
+      "album": "Premonitions",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7fe417202396aaf9900dedce3d7eebc6.png"
+    },
+    {
+      "artist": "Suffering Hour",
+      "album": "The Cyclic Reckoning",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f7507c36d9a3fa9314968284df64b9bd.png"
+    },
+    {
+      "artist": "Fluisteraars",
+      "album": "Bloem",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7fd66fae793f4f38be68f41985cc0ee2.png"
+    },
+    {
+      "artist": "Epica",
+      "album": "Omega",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0531175ec2ba01f844f71a529a58bdce.png"
+    }
+  ],
+  "2021": [
+    {
+      "artist": "Boss Keloid",
+      "album": "Family The Smiling Thrush",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7229d0eaa0e6780ac331f216b605945c.png"
+    },
+    {
+      "artist": "LINGUA IGNOTA",
+      "album": "SINNER GET READY",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/83e4d8c35176175004503e4132b23033.png"
+    },
+    {
+      "artist": "Dvne",
+      "album": "Etemen Ænka",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/16f3adfd0167a91d94cc88eabca6a8ea.png"
+    },
+    {
+      "artist": "Iglooghost",
+      "album": "Lei Line Eon",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7f86849747dbb19523e0a42592c066ff.png"
+    },
+    {
+      "artist": "Swallow the Sun",
+      "album": "Moonflowers",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/12706c628b2ae3a02c68cc104c71a977.png"
+    },
+    {
+      "artist": "Musk Ox",
+      "album": "Inheritance",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/bf2b899ecf8f4e665b89e2f803aa6085.png"
+    },
+    {
+      "artist": "Wolvennest",
+      "album": "Temple",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/65ed4b6eb9177c02b0c3adbec2f71555.png"
+    },
+    {
+      "artist": "Vildhjarta",
+      "album": "Måsstaden under vatten",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d9a0ac5fa18b2121d1da495ec33c0d17.png"
+    },
+    {
+      "artist": "Alkuharmonian Kantaja",
+      "album": "Shadowy Peripherals",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e5872afdab015dbc153ddbf031c026fe.png"
+    },
+    {
+      "artist": "Sons of Kemet",
+      "album": "Black To The Future",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/61f0b3af0ca5078eb07015035ddab228.png"
+    },
+    {
+      "artist": "Godspeed You! Black Emperor",
+      "album": "G_d's Pee AT STATE'S END!",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/900d0dfc943a406fa4f5eb0d5fcbd2d8.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Butterfly 3000",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0d0355c5b67c42a7be557485eaceae07.png"
+    },
+    {
+      "artist": "Howie Lee",
+      "album": "Birdy Island",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/01bd0c4fed793f9170bc2a05a99e7cb2.png"
+    },
+    {
+      "artist": "Obscura",
+      "album": "A Valediction",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ec3aa0aaeb203d513733726e3af48b32.png"
+    },
+    {
+      "artist": "Lorem Ipsum",
+      "album": "Vivre encore",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9b42e941dabc5e3dc28a1d2a3bb1cdb1.png"
+    },
+    {
+      "artist": "Yoth Iria",
+      "album": "As The Flame Withers",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9d74f45f09ffd20cb867fa3532348f7e.png"
+    },
+    {
+      "artist": "Green Lung",
+      "album": "Black Harvest",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a829696c39bbe5704d01811e44b2199d.png"
+    },
+    {
+      "artist": "BLACK MIDI",
+      "album": "Cavalcade",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/67a4d6e9f3425753c90e0eb0e2d19c7c.png"
+    },
+    {
+      "artist": "Little Simz",
+      "album": "Sometimes I Might Be Introvert",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/592ce13b8d7cfee26e13692b3c6985e8.png"
+    },
+    {
+      "artist": "Voronoi",
+      "album": "The Last Three Seconds",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/68143ac84c249a63e4e4602bfb558a45.png"
+    },
+    {
+      "artist": "BACKxWASH",
+      "album": "I LIE HERE BURIED WITH MY RINGS AND MY DRESSES",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/bae227857bfc377493be34bfcec01ff1.png"
+    },
+    {
+      "artist": "Japanese Breakfast",
+      "album": "Jubilee",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/5d93403fbc951b7d31fa80ff826b5180.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "LW: Volume 3",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/16d30338663c8278fbda51e8eead5bd6.png"
+    },
+    {
+      "artist": "Cult of Luna",
+      "album": "The Raging River",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/2a5b33b3e11f01843898f50430f9917e.png"
+    },
+    {
+      "artist": "Zornheym",
+      "album": "The Zornheim Sleep Experiment",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/449f80f77fbf3a1513c296baf1db61c9.png"
+    },
+    {
+      "artist": "Blood Youth",
+      "album": "Visions Of Another Hell",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/16497804de7f126922c8aa0d3ffca346.png"
+    },
+    {
+      "artist": "The Silver",
+      "album": "Ward of Roses",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/66839c1143f0f0864db506d58ef205b6.png"
+    },
+    {
+      "artist": "Mach-Hommy",
+      "album": "Pray For Haiti",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c837fcd275074bb66210f45e8e8e6bc6.png"
+    }
+  ]
+}
