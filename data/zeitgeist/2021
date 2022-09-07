@@ -140,5 +140,24 @@
       "album": "Pray For Haiti",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c837fcd275074bb66210f45e8e8e6bc6.png"
     }
+  ],
+
+  "movies": [
+    {
+      "movie": "The Mitchells vs. The Machines",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/3/1/8/8/8/431888-the-mitchells-vs-the-machines-0-460-0-690-crop.jpg?v=d3be38052a"
+    },
+    {
+      "movie": "Don't Look Up",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/7/2/2/5/5/572255-don-t-look-up-0-460-0-690-crop.jpg?v=a58cc4aba2"
+    },
+    {
+      "movie": "Lamb",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/0/7/1/1/4/707114-lamb-0-460-0-690-crop.jpg?v=06329d82b2"
+    },
+    {
+      "movie": "Dune",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/nx/8b/vs/gc/cDbNAY0KM84cxXhmj8f0dLWza3t-0-460-0-690-crop.jpg?v=49eed12751"
+    }
   ]
 }

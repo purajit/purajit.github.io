@@ -1,5 +1,6 @@
 {
   "notes": "(as of June 2022)",
+
   "albums": [
     {
       "artist": "Wilderu",
@@ -110,6 +111,41 @@
       "artist": "King Gizzard & The Lizard Wizar",
       "album": "Made in Timeland",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/41cfcbc40c3fa7fba3a535bf076d8fb6.png"
+    }
+  ],
+
+  "movies": [
+    {
+      "movie": "Everything Everywhere All at Once",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/7/4/4/7/4/474474-everything-everywhere-all-at-once-0-460-0-690-crop.jpg?v=281f1a041e"
+    },
+    {
+      "movie": "The Northman",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/6/5/8/5/2/565852-the-northman-0-460-0-690-crop.jpg?v=8e3d277969"
+    },
+    {
+      "movie": "Mad God",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/6/1/0/4/6/761046-mad-god-0-460-0-690-crop.jpg?v=ccd8e25d6d"
+    },
+    {
+      "movie": "Line Goes Up: The Problem With NFTs",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/8/8/9/2/3/888923-line-goes-up-the-problem-with-nfts-0-460-0-690-crop.jpg?v=1497679d54"
+    },
+    {
+      "movie": "The Bob's Burgers Movie",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/3/4/8/0/3/434803-the-bob-s-burgers-movie-0-460-0-690-crop.jpg?v=57d25a8231"
+    },
+    {
+      "movie": "The Unbearable Weight of Massive Talent",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/7/4/3/8/5/574385-the-unbearable-weight-of-massive-talent-0-460-0-690-crop.jpg?v=2c49da09f3"
+    },
+    {
+      "movie": "The Batman",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/4/8/9/1/4/348914-the-batman-0-460-0-690-crop.jpg?v=ec12a8b7ce"
+    },
+    {
+      "movie": "The Tinder Swindler",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/2/9/0/6/1/829061-the-tinder-swindler-0-460-0-690-crop.jpg?v=571be90dfd"
     }
   ]
 }
