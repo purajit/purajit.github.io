@@ -110,5 +110,68 @@
       "album": "Versus",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/324f2c7801076c6ac207282fb7f1ee79.png"
     }
+  ],
+
+  "movies": [
+    {
+      "movie": "Swiss Army Man",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/pp/ya/j6/9k/kH7Jwo3Pv0pbosU4rzDafTigIZx-0-460-0-690-crop.jpg?v=5acfbde8a0"
+    },
+    {
+      "movie": "Arrival",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/3u/dy/qd/qd/4Iu5f2nv7huqvuYkmZvSPOtbFjs-0-460-0-690-crop.jpg?v=0fc28fdf2c"
+    },
+    {
+      "movie": "The Handmaiden",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/pc/n6/pz/mi/wvzfK5QR6dGLwND8MCzWjsQWG4Q-0-460-0-690-crop.jpg?v=bcfcc8f8f6"
+    },
+    {
+      "movie": "Moonlight",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/90/gn/c7/9k/qAwFbszz0kRyTuXmMeKQZCX3Q2O-0-460-0-690-crop.jpg?v=192bde15c6"
+    },
+    {
+      "movie": "Hunt for the Wilderpeople",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/z3/0g/ol/7s/gALeMjf3NlSXy1gbz3eKct1aRhd-0-460-0-690-crop.jpg?v=d2b19175d7"
+    },
+    {
+      "movie": "My Life as a Zucchini",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/2/7/9/0/9/327909-my-life-as-a-zucchini-0-460-0-690-crop.jpg?v=bd9c2b849c"
+    },
+    {
+      "movie": "The Girl with All the Gifts",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/xx/la/mi/sx/eE9nsXVqBxnbbiouCTaAvoEnwts-0-460-0-690-crop.jpg?v=bfe774990c"
+    },
+    {
+      "movie": "Train to Busan",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/3/0/9/1/2/330912-train-to-busan-0-460-0-690-crop.jpg?v=5b11212e8e"
+    },
+    {
+      "movie": "Deadpool",
+      "link": "https://a.ltrbxd.com/resized/film-poster/2/2/0/5/7/5/220575-deadpool-0-460-0-690-crop.jpg?v=2f726ea9b3"
+    },
+    {
+      "movie": "Zootopia",
+      "link": "https://a.ltrbxd.com/resized/film-poster/1/9/2/4/1/0/192410-zootopia-0-460-0-690-crop.jpg?v=e22eae9a2a"
+    },
+    {
+      "movie": "Rogue One: A Star Wars Story",
+      "link": "https://a.ltrbxd.com/resized/film-poster/2/5/8/1/2/8/258128-rogue-one-a-star-wars-story-0-460-0-690-crop.jpg?v=eff30d0282"
+    },
+    {
+      "movie": "Sausage Party",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/h4/fy/g1/ks/jDeDRLEa8JqB3xmKVy6q3bkmDt6-0-460-0-690-crop.jpg?v=0c90eb6397"
+    },
+    {
+      "movie": "Don't Breathe",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/fq/1t/ps/wi/lw0IqOSMsQcy1QnVIEIDppLmNwk-0-460-0-690-crop.jpg?v=206fde5888"
+    },
+    {
+      "movie": "Kung Fu Panda 3",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/l0/ym/x8/kn/zb0wDV7TZesz0Crq1e8j0unbzQ1-0-460-0-690-crop.jpg?v=4cd90121c1"
+    },
+    {
+      "movie": "Moana",
+      "link": "https://a.ltrbxd.com/resized/film-poster/2/0/1/9/0/9/201909-moana-0-460-0-690-crop.jpg?v=cfeffc2eaa"
+    }
   ]
 }

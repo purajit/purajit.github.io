@@ -195,25 +195,22 @@ input {
 }
 
 /* zeitgeist page */
-.zeitgeist-albums .table img {
+.zeitgeist-section .table img {
   width: 100%;
 }
 
-.zeitgeist-albums .bottom-row .table-column {
-  max-width: 20%;
-}
-
-.zeitgeist-albums .table-column {
+.zeitgeist-section .table-column {
   padding: 5px;
   border: 0;
   border-right: 0;
+  max-width: 20%;
 }
 
-.zeitgeist-albums .table-column:not(:nth-last-of-type(1)) {
+.zeitgeist-section .table-column:not(:nth-last-of-type(1)) {
   border: 0;
 }
 
-.zeitgeist-albums .table .table-row:nth-child(even) {
+.zeitgeist-section .table .table-row:nth-child(even) {
   background-color: transparent;
 }
 

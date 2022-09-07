@@ -110,5 +110,68 @@
       "album": "Blood Year",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/64df2e133fafb3f8701d857308157541.png"
     }
+  ],
+
+  "movies": [
+    {
+      "movie": "The Lighthouse",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/3/3/8/6/3/433863-the-lighthouse-0-460-0-690-crop.jpg?v=ee97005537"
+    },
+    {
+      "movie": "Parasite",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/2/6/4/0/6/426406-parasite-0-460-0-690-crop.jpg?v=91dc9daf4a"
+    },
+    {
+      "movie": "Knives Out",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/7/5/3/7/0/475370-knives-out-0-460-0-690-crop.jpg?v=7da76d742c"
+    },
+    {
+      "movie": "Uncut Gems",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/0/4/2/6/6/404266-uncut-gems-0-460-0-690-crop.jpg?v=670cb7034d"
+    },
+    {
+      "movie": "John Wick: Chapter 3 - Parabellum",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/9/0/0/3/9/390039-john-wick-chapter-3-parabellum-0-460-0-690-crop.jpg?v=589aeaad00"
+    },
+    {
+      "movie": "Jojo Rabbit",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/4/4/6/0/0/444600-jojo-rabbit-0-460-0-690-crop.jpg?v=a5ad083635"
+    },
+    {
+      "movie": "Pok\u00e9mon Detective Pikachu",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/7/9/6/2/6/379626-pokemon-detective-pikachu-0-460-0-690-crop.jpg?v=5ab0bc33bf"
+    },
+    {
+      "movie": "Us",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/9/0/5/2/0/390520-us-0-460-0-690-crop.jpg?v=968884c876"
+    },
+    {
+      "movie": "The Art of Self-Defense",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/1/0/9/5/8/410958-the-art-of-self-defense-0-460-0-690-crop.jpg?v=069b9a9f7a"
+    },
+    {
+      "movie": "Long Shot",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/9/1/9/6/4/391964-long-shot-0-460-0-690-crop.jpg?v=02b970ed67"
+    },
+    {
+      "movie": "Gully Boy",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/2/2/0/5/5/422055-gully-boy-0-460-0-690-crop.jpg?v=6079e737b0"
+    },
+    {
+      "movie": "Monos",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/5/1/2/1/9/351219-monos-0-460-0-690-crop.jpg?v=e922b9962e"
+    },
+    {
+      "movie": "The Death of Dick Long",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/fn/2x/u0/q5/dicklong-0-460-0-690-crop.jpg?v=7c22680e06"
+    },
+    {
+      "movie": "The Last Black Man in San Francisco",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/5/1/5/1/2/451512-the-last-black-man-in-san-francisco-0-460-0-690-crop.jpg?v=7ed1dacd29"
+    },
+    {
+      "movie": "Brightburn",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/6/0/5/4/3/460543-brightburn-0-460-0-690-crop.jpg?v=91bbaeaf0d"
+    }
   ]
 }

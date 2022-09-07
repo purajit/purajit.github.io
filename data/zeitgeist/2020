@@ -130,5 +130,36 @@
       "album": "Omega",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0531175ec2ba01f844f71a529a58bdce.png"
     }
+  ],
+
+  "movies": [
+    {
+      "movie": "Birds of Prey (and the Fantabulous Emancipation of One Harley Quinn)",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/2/6/1/3/1/426131-birds-of-prey-and-the-fantabulous-emancipation-of-one-har-0-460-0-690-crop.jpg?v=e326912be2"
+    },
+    {
+      "movie": "Palm Springs",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/1/5/4/6/7/515467-palm-springs-0-460-0-690-crop.jpg?v=d3df94888b"
+    },
+    {
+      "movie": "Feels Good Man",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/7/9/0/1/1/579011-feels-good-man-0-460-0-690-crop.jpg?v=6871d6ff14"
+    },
+    {
+      "movie": "Possessor",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/6/8/5/4/0/368540-possessor-0-460-0-690-crop.jpg?v=c949ea1fc0"
+    },
+    {
+      "movie": "Shirley",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/7/5/9/0/2/475902-shirley-0-460-0-690-crop.jpg?v=124ad7309c"
+    },
+    {
+      "movie": "Borat Subsequent Moviefilm",
+      "link": "https://a.ltrbxd.com/resized/sm/upload/vm/qf/ng/lp/2FE2A140-82B9-48C7-ABD8-6632D4385666-0-460-0-690-crop.jpg?v=e2d1dfedaa"
+    },
+    {
+      "movie": "To All the Boys: P.S. I Still Love You",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/9/4/1/0/0/494100-to-all-the-boys-p-s-i-still-love-you-0-460-0-690-crop.jpg?v=82226fa8db"
+    }
   ]
 }

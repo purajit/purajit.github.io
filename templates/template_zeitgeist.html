@@ -1,5 +1,5 @@
 {% include './header.html' %}
-<div class="zeitgeist-albums">
+<div class="zeitgeist-section">
     <h1>albums of the year {{ data.get("notes", "") }}</h1>
     {% set halfway = 10 + ([(data["albums"] | length - 10) // 2, 5] | max) %}
     <div class="table">
@@ -33,4 +33,40 @@
         </div>
     </div>
 </div>
+
+<div class="zeitgeist-section">
+    <h1>movies of the year {{ data.get("notes", "") }}</h1>
+    {% set halfway = 10 + ([(data["movies"] | length - 10) // 2, 5] | max) %}
+    <div class="table">
+        <div class="table-row">
+            {% for movie in data["movies"][:5] %}
+            <div class="table-column">
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+            </div>
+            {% endfor  %}
+        </div>
+        <div class="table-row">
+            {% for movie in data["movies"][5:10] %}
+            <div class="table-column">
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+            </div>
+            {% endfor  %}
+        </div>
+        <div class="table-row bottom-row">
+            {% for movie in data["movies"][10:halfway] %}
+            <div class="table-column">
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+            </div>
+            {% endfor  %}
+        </div>
+        <div class="table-row bottom-row">
+            {% for movie in data["movies"][halfway:] %}
+            <div class="table-column">
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+            </div>
+            {% endfor  %}
+        </div>
+    </div>
+</div>
+
 {% include './footer.html' %}
