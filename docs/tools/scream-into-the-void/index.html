@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>purajit | scream into the void</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+</head>
+<body class="bgimg ">
+    <div id="main">
+        <div id="name">
+            <a href="/tools">←</a>
+            scream into the void</div>
+        <div id="contents">
+<script>
+ function checkSend() {
+     if (window.event.keyCode != 13) {
+         return true;
+     }
+     window.event.stopPropagation();
+     window.event.preventDefault();
+     document.getElementById("screamintovoid").value = "";
+     return false;
+ }
+</script>
+Say what you have to say and hit enter to send your message into the void
+<textarea autofocus id="screamintovoid" onkeydown="checkSend();"></textarea>
+        </div>
+    </div>
+</body>

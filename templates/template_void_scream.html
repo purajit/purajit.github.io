@@ -1,0 +1,15 @@
+{% include './header.html' %}
+<script>
+ function checkSend() {
+     if (window.event.keyCode != 13) {
+         return true;
+     }
+     window.event.stopPropagation();
+     window.event.preventDefault();
+     document.getElementById("screamintovoid").value = "";
+     return false;
+ }
+</script>
+Say what you have to say and hit enter to send your message into the void
+<textarea autofocus id="screamintovoid" onkeydown="checkSend();"></textarea>
+{% include './footer.html' %}

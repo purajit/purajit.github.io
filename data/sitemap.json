@@ -220,6 +220,22 @@
       ]
     },
     {
+      "title": "tools",
+      "route": "tools",
+      "children": [
+        {
+          "title": "scream into the void",
+          "route": "scream-into-the-void",
+          "template": "template_void_scream.html"
+        },
+        {
+          "title": "qr",
+          "route": "qr",
+          "template": "template_qr.html"
+        }
+      ]
+    },
+    {
       "title": "thoughts",
       "route": "thoughts",
       "template": "template_thoughts.html",
