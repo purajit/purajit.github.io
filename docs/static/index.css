@@ -64,6 +64,8 @@ a {
   font-size: 25px;
   background: black;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-index #contents {
@@ -229,4 +231,26 @@ input {
 .fav-music, .fav-media, .fav-book {
   display: block;
   width: 100%;
+}
+
+/* qr page */
+#qr {
+    width: 300px;
+    align-self: center;
+}
+
+/* scream into the void page */
+#screamintovoid {
+    min-width: 40%;
+    max-width: 300px;
+    height: 300px;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid rgba(172, 225, 110, 0.5);
+    background: transparent;
+    outline: none;
+    color: var(--text);
+    font-family: "Libre Caslon Text";
+    font-size: 30px;
+    margin-top: 30px;
 }
