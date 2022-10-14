@@ -25,9 +25,8 @@ a {
 }
 
 .bgimg {
-  background-image: url('/static/images/bg2.png');
-  background-size: 50%;
-  background-position: center center;
+  background-image: url('/static/images/bg3.jpg');
+  background-size: auto 100vh;
   position: absolute;
   background-attachment: fixed;
 }
