@@ -1,0 +1,23 @@
+{
+  "servings": 4,
+  "ingredients": {
+    "pear": {"amount": "4", "amorphous": true},
+    "shallot": {"amount": "1", "amorphous": true},
+    "pecan": {"amount": "1", "unit": "cup"},
+    "greens": {"amount": "1", "amorphous": true},
+    "pomegranate seeds": {"amount": "1", "unit": "cup"},
+    "feta cheese crumble": {"amount": "1", "unit": "cup"},
+
+    "sugar": {"amount": "0.25", "unit": "cup"},
+    "vinegar": {"amount": "0.25", "unit": "cup"},
+    "mustard": {"amount": "1", "unit": "tbsp"},
+    "grapeseed oil": {"amount": "0.5", "unit": "cup"},
+    "poppy seeds": {"amount": "1", "unit": "tbsp"}
+  },
+  "steps": [
+    "Whisk last 5 ingredients together to make dressing. Keep in bottle to easily shake to re-emulsify"
+  ],
+  "sources": [
+    "https://www.acouplecooks.com/pear-salad/"
+  ]
+}
