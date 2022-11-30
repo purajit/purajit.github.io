@@ -80,6 +80,12 @@
           "data_type": "json"
         },
         {
+          "title": "bhel puri",
+          "route": "bhel-puri",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
           "title": "bisi bele bhath",
           "route": "bisi-bele-bhath",
           "template": "template_recipe.html",
@@ -124,6 +130,12 @@
         {
           "title": "idli",
           "route": "idli",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
+          "title": "pear salad",
+          "route": "pear-salad",
           "template": "template_recipe.html",
           "data_type": "json"
         },
