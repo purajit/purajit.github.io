@@ -1,0 +1,17 @@
+{
+  "servings": 1,
+  "ingredients": {
+    "milk": {"amount": "1", "unit": "cup"},
+    "cocoa powder": {"amount": "1", "unit": "tbsp"},
+    "sugar": {"amount": "1", "unit": "tbsp"},
+  },
+  "steps": [
+    "Boil milk",
+    "Use a little milk to make a sugar+cocoa paste in the mug, then add the rest",
+    "Optional: vanilla (1 pod = 8 servings), rum, cream"
+  ],
+  "sources": [
+    "https://hebbarskitchen.com/green-chutney-recipe-hari-chutney/",
+    "https://hebbarskitchen.com/imli-chutney-tamarind-chutney-recipe/"
+  ]
+}
