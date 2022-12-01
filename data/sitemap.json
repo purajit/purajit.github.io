@@ -128,6 +128,12 @@
           "data_type": "json"
         },
         {
+          "title": "hot chocolate",
+          "route": "hot-chocolate",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
           "title": "idli",
           "route": "idli",
           "template": "template_recipe.html",
