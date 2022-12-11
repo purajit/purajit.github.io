@@ -1,116 +1,189 @@
 {
-  "notes": "(as of June 2022)",
-
   "albums": [
     {
-      "artist": "Wilderu",
-      "album": "Epigone (Bonus Tracks Edition)",
+      "artist": "Wilderun",
+      "album": "Epigone",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/0eba3e8ceac13f47dbaff4b5b49ba43b.png"
     },
     {
-      "artist": "T\u00f3mar\u00fa",
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Ice, Death, Planets, Lungs, Mushrooms And Lava",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f159d401b7691c67aca0e56b54f11b1c.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Changes",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/39b69b478727d14143bec2207f0b9ac5.png"
+    },
+    {
+      "artist": "T\u00f3mar\u00fam",
       "album": "Ash In Realms Of Stone Icons",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3ae08fe1c1c650d1716551cc04dfcfe5.png"
     },
     {
-      "artist": "Soul Gl",
+      "artist": "Zeal & Ardor",
+      "album": "Zeal & Ardor",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/811bb109876a51a9afb66c0ab4c22c90.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Laminated Denim",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c0ac24f59bb04080a6224897b2bb0aa9.png"
+    },
+    {
+      "artist": "Soul Glo",
       "album": "Diaspora Problems",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/01548741b9fa0cf0c0f338ff8b8ce9f0.png"
     },
     {
-      "artist": "Rolo Tomass",
+      "artist": "Rolo Tomassi",
       "album": "Where Myth Becomes Memory",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/6edb1ba068bc8f58d2c6505197dc89c3.png"
     },
     {
-      "artist": "Kendrick Lama",
-      "album": "Mr. Morale & the Big Steppers",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/98050f67524ffee7af6edd314b767ac4.png"
+      "artist": "Spiritualized",
+      "album": "Everything Was Beautiful",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/cc3ccf264b76f7a645aa22e22682f8e9.png"
     },
     {
-      "artist": "Black Country, New Roa",
-      "album": "Ants From Up There",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3332b3cee5de8598dbd080f8e2783f93.png"
-    },
-    {
-      "artist": "Regina Spekto",
-      "album": "Home, Before and After",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/af820c8a0dd9368c0d44810f7365aea8.png"
-    },
-    {
-      "artist": "Cult of Lun",
-      "album": "The Long Road North",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ddeb18a5a499c639bfd56a129edf01af.png"
-    },
-    {
-      "artist": "Tropical Fuck Stor",
+      "artist": "Tropical Fuck Storm",
       "album": "Satanic Slumber Party",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/cb3c25bd2b05da614e4cd3b927131157.png"
     },
     {
-      "artist": "Rammstei",
-      "album": "Zeit",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8940190193debafcd59c1fccc506595a.png"
+      "artist": "Black Country, New Road",
+      "album": "Ants From Up There",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3332b3cee5de8598dbd080f8e2783f93.png"
     },
     {
-      "artist": "Florence + the Machin",
-      "album": "Dance Fever",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/153cb088d5989154e6f90d78903f7450.png"
+      "artist": "Kendrick Lamar",
+      "album": "Mr. Morale & the Big Steppers",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/98050f67524ffee7af6edd314b767ac4.png"
     },
     {
-      "artist": "Darkhe",
-      "album": "The Buried Storm",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7e700c19d26d5715068f780978a6921f.png"
-    },
-    {
-      "artist": "Sidus Atru",
+      "artist": "Sidus Atrum",
       "album": "Spiral of Life",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8af73733d742f279d1cd6dd4cf642c79.png"
     },
     {
-      "artist": "End Bos",
-      "album": "They Seek My Head",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b64558fd720d8687155e1d408db561d2.png"
+      "artist": "Cult of Luna",
+      "album": "The Long Road North",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ddeb18a5a499c639bfd56a129edf01af.png"
     },
     {
-      "artist": "G Jone",
-      "album": "Acid Disk 2",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/462340f9f8e7bf3c1ffa244a052484a1.png"
+      "artist": "Fit for An Autopsy",
+      "album": "Oh What the Future Holds",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d0c442a055df227e7080bd50de40bda0.png"
     },
     {
-      "artist": "King Gizzard & The Lizard Wizar",
-      "album": "Omnium Gatherum",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8f12c24164a8bcb942bac7bb1281424b.png"
+      "artist": "Sudan Archives",
+      "album": "Natural Brown Prom Queen",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/617adca361fc1e60f4150601a421fd31.png"
     },
     {
-      "artist": "Ufomammu",
-      "album": "Fenice",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/749ed6241dd513814a6af1bc13d12fe9.png"
-    },
-    {
-      "artist": "Sp",
+      "artist": "Spy",
       "album": "Split",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/eb54798aa419afddc09f441c66987948.png"
     },
     {
-      "artist": "Hatis Noi",
+      "artist": "Danger Mouse & Black Thought",
+      "album": "Cheat Codes",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/eaf97740666856d7c071e2b311255a9a.png"
+    },
+    {
+      "artist": "JID",
+      "album": "The Forever Story",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f5ebc39b1f907ab9e0df8ea47841f0c5.png"
+    },
+    {
+      "artist": "G Jones",
+      "album": "Acid Disk 2",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/462340f9f8e7bf3c1ffa244a052484a1.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Omnium Gatherum",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8f12c24164a8bcb942bac7bb1281424b.png"
+    },
+    {
+      "artist": "End Boss",
+      "album": "They Seek My Head",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b64558fd720d8687155e1d408db561d2.png"
+    },
+    {
+      "artist": "death's dynamic shroud",
+      "album": "Darklife",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/42080c2f251c98ed9360acaa41766a0e.png"
+    },
+    {
+      "artist": "Rammstein",
+      "album": "Zeit",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8940190193debafcd59c1fccc506595a.png"
+    },
+    {
+      "artist": "Zola Jesus",
+      "album": "Arkhon",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a1fd6cc601bf8bcb194bdf492191799e.png"
+    },
+    {
+      "artist": "Russian Circles",
+      "album": "Gnosis",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/63eb775c45d001155091a4147df24506.png"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Made in Timeland",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/41cfcbc40c3fa7fba3a535bf076d8fb6.png"
+    },
+    {
+      "artist": "Regina Spektor",
+      "album": "Home, Before and After",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/af820c8a0dd9368c0d44810f7365aea8.png"
+    },
+    {
+      "artist": "Florence + the Machine",
+      "album": "Dance Fever",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/153cb088d5989154e6f90d78903f7450.png"
+    },
+    {
+      "artist": "Darkher",
+      "album": "The Buried Storm",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7e700c19d26d5715068f780978a6921f.png"
+    },
+    {
+      "artist": "Hatis Noit",
       "album": "Aura",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/384b7b9a7cc362a3ae1ccf80198ade95.png"
     },
     {
-      "artist": "Foxtail",
-      "album": "fawn",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/4a3e3cd1ee1fdbbfa088907bb791f1b9.png"
+      "artist": "OU",
+      "album": "one",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/18c2df9377f53604592f166cadfc32ec.png"
     },
     {
-      "artist": "The Weekn",
-      "album": "dawn FM",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/160e9b698403aec766da4e15059e0276.png"
+      "artist": "Lamentations",
+      "album": "Passion Of Depression",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d0bd0758a2ccd1fca569eaa961ddc336.png"
     },
     {
-      "artist": "King Gizzard & The Lizard Wizar",
-      "album": "Made in Timeland",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/41cfcbc40c3fa7fba3a535bf076d8fb6.png"
+      "artist": "In Aphelion",
+      "album": "Moribund",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/83adbada067831df34fe8fe51e3185c5.png"
+    },
+    {
+      "artist": "Urferd",
+      "album": "Resan",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c6d31411c22cbb2f07468b2c167fd3e6.png"
+    },
+    {
+      "artist": "The Weeknd",
+      "album": "Dawn FM",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7da8e979d89d285b5ddf44e64b92f16c.png"
+    },
+    {
+      "artist": "Westside Gunn",
+      "album": "10",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/cbbb1273f650e24af94480593ca57c77.png"
     }
   ],
 
@@ -118,6 +191,14 @@
     {
       "movie": "Everything Everywhere All at Once",
       "link": "https://a.ltrbxd.com/resized/film-poster/4/7/4/4/7/4/474474-everything-everywhere-all-at-once-0-460-0-690-crop.jpg?v=281f1a041e"
+    },
+    {
+      "movie": "The Banshees of Inishirin",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/9/8/8/8/2/598882-the-banshees-of-inisherin-0-500-0-750-crop.jpg?v=933f9af6e7"
+    },
+    {
+      "movie": "Barbarian",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/1/9/6/4/8/819648-barbarian-0-500-0-750-crop.jpg?v=75b067327a"
     },
     {
       "movie": "The Northman",
@@ -130,6 +211,18 @@
     {
       "movie": "Line Goes Up: The Problem With NFTs",
       "link": "https://a.ltrbxd.com/resized/film-poster/8/8/8/9/2/3/888923-line-goes-up-the-problem-with-nfts-0-460-0-690-crop.jpg?v=1497679d54"
+    },
+    {
+      "movie": "Weird: The Al Yankovic Story",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/3/3/7/6/1/833761-weird-the-al-yankovic-story-0-500-0-750-crop.jpg?v=e29de7706f"
+    },
+    {
+      "movie": "Confess, Fletch",
+      "link": "https://a.ltrbxd.com/resized/film-poster/6/4/7/3/9/0/647390-confess-fletch-0-500-0-750-crop.jpg?v=e519ab762e"
+    },
+    {
+      "movie": "Glass Onion",
+      "link": "https://a.ltrbxd.com/resized/film-poster/5/8/6/7/2/3/586723-glass-onion-a-knives-out-mystery-0-500-0-750-crop.jpg?v=ce7ed2a83f"
     },
     {
       "movie": "The Bob's Burgers Movie",

@@ -3,7 +3,7 @@
   "ingredients": {
     "milk": {"amount": "1", "unit": "cup"},
     "cocoa powder": {"amount": "1", "unit": "tbsp"},
-    "sugar": {"amount": "1", "unit": "tbsp"},
+    "sugar": {"amount": "1", "unit": "tbsp"}
   },
   "steps": [
     "Boil milk",
