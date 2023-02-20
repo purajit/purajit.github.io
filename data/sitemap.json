@@ -9,20 +9,26 @@
       "route": "writing",
       "children": [
         {
-          "title": "[upcoming] stagnation | 2022",
+          "title": "[upcoming] stagnation | 2023",
           "route": "stagnation",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "title": "[upcoming] you are a fish. | 2022",
+          "title": "[upcoming] you are a fish. | 2023",
           "route": "youareafish",
           "template": "template_writing.html",
           "data_type": "text"
         },
         {
-          "title": "[upcoming] a guide to living in the void | 2022",
+          "title": "[upcoming] a guide to living in the void | 2023",
           "route": "voidliving",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "title": "the union | 2023",
+          "route": "theunion",
           "template": "template_writing.html",
           "data_type": "text"
         },
