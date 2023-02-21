@@ -207,6 +207,10 @@ input {
   max-width: 20%;
 }
 
+.bottom-row .table-column {
+  max-width: 10%;
+}
+
 .zeitgeist-section .table-column:not(:nth-last-of-type(1)) {
   border: 0;
 }
