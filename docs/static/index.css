@@ -25,8 +25,8 @@ a {
 }
 
 .bgimg {
-  background-image: url('/static/images/bg3.jpg');
-  background-size: auto 100vh;
+  background-image: url('/static/images/bg1.jpg');
+  background-size: 100% 100%;
   position: absolute;
   background-attachment: fixed;
 }
@@ -198,7 +198,7 @@ input {
 /* zeitgeist page */
 .zeitgeist-section .table img {
   width: 100%;
-}
+p}
 
 .zeitgeist-section .table-column {
   padding: 5px;
