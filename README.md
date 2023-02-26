@@ -16,7 +16,7 @@ Locally, run
 ```sh
 make run-server
 ```
-to run the website on `localhost:80`. You will need Docker. Alternatively, you can just `file://`, but the linking and static sourcing
+to run the website on `localhost:80`. You will need colima. Alternatively, you can just `file://`, but the linking and static sourcing
 will not work.
 
 When you make statics changes (including css/js), just refreshing the page will show you the updates. If you made changes to the 
