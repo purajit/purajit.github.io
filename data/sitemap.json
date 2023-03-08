@@ -260,6 +260,18 @@
       ]
     },
     {
+      "title": "blog",
+      "route": "blog",
+      "children": [
+        {
+          "title": "[eng blog] reducing my site size by ~75%",
+          "route": "reduce-site-size",
+          "template": "template_writing.html",
+          "data_type": "text"
+        }
+      ]
+    },
+    {
       "title": "thoughts",
       "route": "thoughts",
       "template": "template_thoughts.html",

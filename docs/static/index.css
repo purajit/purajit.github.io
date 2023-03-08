@@ -24,6 +24,16 @@ a {
   text-decoration: none;
 }
 
+a.colored {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+a.monospace {
+    font-family: monospace;
+    font-size: 21px;
+}
+
 .bgimg {
   background-image: url('/static/images/bg1.jpg');
   background-size: 100% 100%;
@@ -256,4 +266,21 @@ p}
     font-family: "Libre Caslon Text";
     font-size: 30px;
     margin-top: 30px;
+}
+
+code {
+    background: #3A3B3C;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: white;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
 }
