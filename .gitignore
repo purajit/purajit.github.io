@@ -1,0 +1,6 @@
+# since most of docs/ is generated on-the-fly, ignore everything,
+docs/*
+
+# except:
+docs/CNAME
+docs/static
