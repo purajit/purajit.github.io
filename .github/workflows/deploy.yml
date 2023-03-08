@@ -24,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Generate statics
+        run: |
+          make generate-pages
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
