@@ -2,22 +2,22 @@
 <h1>albums</h1>
 <div class="favrow">
     {% for album in data['favs']['albums'] %}
-    <a href="{{ album['link'] }}"><img class="fav-music" src="/static/images/music-{{ album['key'] }}.png"></a>
+    <a href="{{ album['link'] }}"><img class="fav-music" src="{{ static_url }}/images/music-{{ album['key'] }}.png"></a>
     {% endfor %}
 </div>
 <h1>tv & movies</h1>
 <div class="favrow">
     {% for movie in data['favs']['movies'] %}
-    <a href="{{ movie['link'] }}"><img class="fav-media" src="/static/images/movie-{{ movie['key'] }}.png"></a>
+    <a href="{{ movie['link'] }}"><img class="fav-media" src="{{ static_url }}/images/movie-{{ movie['key'] }}.png"></a>
     {% endfor %}
     {% for show in data['favs']['television'] %}
-    <a href="{{ show['link'] }}"><img class="fav-media" src="/static/images/tv-{{ show['key'] }}.png"></a>
+    <a href="{{ show['link'] }}"><img class="fav-media" src="{{ static_url }}/images/tv-{{ show['key'] }}.png"></a>
     {% endfor %}
 </div>
 <h1>books</h1>
 <div class="favrow">
     {% for book in data['favs']['books'] %}
-    <a href="{{ book['link'] }}"><img class="fav-book" src="/static/images/book-{{ book['key'] }}.png"></a>
+    <a href="{{ book['link'] }}"><img class="fav-book" src="{{ static_url }}/images/book-{{ book['key'] }}.png"></a>
     {% endfor %}
 </div>
 {% include './footer.html' %}
