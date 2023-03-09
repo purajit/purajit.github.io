@@ -3,6 +3,23 @@
     src: local('Libre Caslon Text Regular'), url(/static/LibreCaslonText-Regular.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Lekton';
+    src: local('Lekton-Regular'), url(/static/Lekton-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lekton';
+    src: local('Lekton-Bold'), url(/static/Lekton-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Lekton';
+    src: local('Lekton-Italic'), url(/static/Lekton-Italic.ttf) format('truetype');
+    font-style: italic;
+}
+
 :root {
     --bg: #181a1b;
     --text: #e8e6e3;
@@ -29,7 +46,7 @@ a.colored {
 }
 
 a.monospace {
-    font-family: monospace;
+    font-family: "Lekton";
     font-size: 21px;
 }
 
@@ -56,7 +73,7 @@ code {
     border-left: 3px solid #f36d33;
     color: white;
     page-break-inside: avoid;
-    font-family: monospace;
+    font-family: "Lekton";
     font-size: 15px;
     line-height: 1.6;
     max-width: 100%;
