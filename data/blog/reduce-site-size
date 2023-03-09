@@ -47,9 +47,11 @@ Let's first see where all that space is going. Not many people know this, but it
 # a ha! so it's all from iosevka-comfy-regular.ttf
 </code>
 Now we've identified the source of all that space - a single file, a font asset, is taking up 5.1MB out of the 6.9MB total, which is crazy. How do we reduce the size of the font? Let's run through a few facts that may not be apparent to your typical street-side dimwit:
+
 <ol><li>This font was added when I experimenting with what to use</li><li>Nothing in the site is using this font, as I had decided not to use it</li><li>I had forgotten to delete this file after making that decision</li></ol>
 Now we're armed with all the information we need to optimize this font file. Here, I'm going to do it with a one-liner, but it's a one-liner that takes a while to figure out:
 
-<code>git rm docs/static/iosevka-comfy-regular.ttf</code>And now the size of the site is a measly 1.86MB, a 73% reduction.
+<code>git rm docs/static/iosevka-comfy-regular.ttf</code>
+And now the size of the site is a measly 1.86MB, a 73% reduction.
 
 If you'd like to hire me for my freelancing service, hit me up at <a class="colored monospace" href="mailto:nincompoop.service.line@purajit.com">nincompoop dot service dot line at purajit dot com</a>.

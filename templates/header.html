@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {% include 'head.html' %}
-<body class="bgimg {{ content_type }}" style="background-image: url({{ static_url }}/images/bg1.jpg);">
-    <div id="main">
+<body class="bgimg" style="background-image: url({{ static_url }}/images/bg1.jpg);">
+    <div id="main" class="{{ content_type }}">
         <div id="name">
             <a href="{{ previous_page }}">←</a>
             {{ title }}</div>
