@@ -1,5 +1,5 @@
 {% include './header.html' %}
-<div class="thoughts">
+<div class="thoughts page-content">
     {% for thought_group in data["thought_groups"] %}
     <div class="thought-group">
     <h1>{{ romanize(loop.length - loop.index + 1) }}</h1>
