@@ -2,7 +2,11 @@
 
 ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-run-server:
+symlink-assets:
+	rm -f $(ROOT_DIR)/docs/static/assets
+	ln -s ../../assets $(ROOT_DIR)/docs/static/assets
+
+run-server: symlink-assets
 	colima status > /dev/null 2>&1 || DYLD_LIBRARY_PATH=/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/ colima start
 	@echo $(ROOT_DIR)
 	docker stop purajit.com || true
