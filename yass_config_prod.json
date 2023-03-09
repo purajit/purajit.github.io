@@ -1,4 +1,4 @@
 {
   "static_url": "https://assets.purajit.com",
-  "template_functions_module": "yass_template_functions"
+  "template_functions_file": "yass_template_functions.py"
 }
