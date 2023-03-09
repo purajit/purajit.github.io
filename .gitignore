@@ -2,5 +2,8 @@
 docs/*
 
 # except:
-docs/CNAME
-docs/static
+!docs/CNAME
+!docs/static
+
+# but do ignore this one symlink lol
+docs/static/assets
