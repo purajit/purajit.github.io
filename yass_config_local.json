@@ -1,0 +1,4 @@
+{
+  "static_url": "/static/assets",
+  "template_functions_module": "yass_template_functions"
+}

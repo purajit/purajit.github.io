@@ -2,6 +2,9 @@
 
 ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
+get-yass:
+	curl https://raw.githubusercontent.com/purajit/YASS/main/generate_site.py > generate_site.py
+
 symlink-assets:
 	rm -f $(ROOT_DIR)/docs/static/assets
 	ln -s ../../assets $(ROOT_DIR)/docs/static/assets
@@ -15,11 +18,8 @@ run-server: symlink-assets
 enter-server:
 	docker exec -w /usr/share/nginx/html -it purajit.com sh
 
-generate-pages-local:
-	./generators/generate "/static/assets"
-
-generate-pages-prod:
-	./generators/generate "https://assets.purajit.com"
+generate-pages-local: get-yass
+	./generate_site.py yass_config_local.json
 
 clean:
 	git clean -fd

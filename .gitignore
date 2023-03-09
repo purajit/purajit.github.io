@@ -1,3 +1,6 @@
+# YASS generator for local runs
+generate_site.py
+
 # since most of docs/ is generated on-the-fly, ignore everything,
 docs/*
 
