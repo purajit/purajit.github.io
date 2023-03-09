@@ -5,7 +5,7 @@
     don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services<br/><br/>
     <h1>worked at:</h1>
     {% for job in data['work'] %}
-    <a href="{{ job['link'] }}"><img class="work-logo" src="/static/images/work-{{ job['key'] }}.png"></a>
+    <a href="{{ job['link'] }}"><img class="work-logo" src="{{ static_url }}/images/work-{{ job['key'] }}.png"></a>
     {% endfor %}
 </div>
 {% include './footer.html' %}

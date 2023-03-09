@@ -39,7 +39,7 @@ def generate_page_params(level_path, level_data):
     return params
 
 
-def generate_level(level_map, previous_level_path):
+def generate_level(level_map, static_url, previous_level_path):
     level_name = level_map["route"]
     level_path = os.path.join(previous_level_path, level_name)
     output_file = os.path.join(level_path, 'index.html')
@@ -53,7 +53,7 @@ def generate_level(level_map, previous_level_path):
         # generate children and get table of contents
         additional_params = {
             "contents": [
-                generate_level(child, level_path) for child in level_map["children"]
+                generate_level(child, static_url, level_path) for child in level_map["children"]
             ],
             "content_type": "contents-page"
         }
@@ -65,6 +65,7 @@ def generate_level(level_map, previous_level_path):
         "title": level_map["title"],
         "tab_title": level_map.get("tab_title"),
         "previous_page": os.path.join('/', previous_level_path),
+        "static_url": static_url,
         **additional_params
     }
 
@@ -90,7 +91,7 @@ def clear_directory():
 def main():
     sitemap = read_json_file("sitemap.json")
     clear_directory()
-    generate_level(sitemap, previous_level_path="")
+    generate_level(sitemap, static_url=sys.argv[1], previous_level_path="")
 
 
 if __name__ == "__main__":
