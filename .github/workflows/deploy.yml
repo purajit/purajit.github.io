@@ -24,15 +24,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Generate statics
-        run: |
-          make generate-pages-prod
+        uses: purajit/YASS@v1
+        with:
+          yass-config-path: yass_config_prod.json
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: 'docs/'
-      - name: Deploy to GitHub Pages
+
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
