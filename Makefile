@@ -4,6 +4,7 @@ ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 get-yass:
 	curl https://raw.githubusercontent.com/purajit/YASS/main/generate_site.py > generate_site.py
+	chmod +x generate_site.py
 
 symlink-assets:
 	rm -f $(ROOT_DIR)/docs/static/assets
@@ -20,6 +21,10 @@ enter-server:
 
 generate-pages-local: get-yass
 	./generate_site.py yass_config_local.json
+
+# only used in local testing, but with "CDN" paths instead of local ones
+generate-pages-cdn: get-yass
+	./generate_site.py yass_config_prod.json
 
 clean:
 	git clean -fd
