@@ -1,11 +1,12 @@
 {% include './header.html' %}
 <div class="thoughts">
     {% for thought_group in data["thought_groups"] %}
-    <h1>{{ loop.length - loop.index + 1 }}</h1>
+    <div class="thought-group">
+    <h1>{{ romanize(loop.length - loop.index + 1) }}</h1>
     {% for thought in thought_group %}
     {{ thought }}<br/><br/>
     {% endfor %}
-    <br/>
+    </div>
     {% endfor %}
 </div>
 {% include './footer.html' %}

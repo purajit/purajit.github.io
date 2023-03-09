@@ -4,7 +4,7 @@ import os
 import shutil
 import sys
 
-from jinja2 import FileSystemLoader, Environment
+from jinja2 import Environment, FileSystemLoader
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -16,6 +16,21 @@ PERMANENT_PATHS = ['CNAME', 'static']
 TEMPLATE_ENV = Environment(loader=FileSystemLoader(searchpath=TEMPLATES_DIR))
 
 
+# custom Jinja functions
+def romanize(arabic):
+    conversions = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'],
+                   [ 100, 'C'], [ 90, 'XC'], [ 50, 'L'], [ 40, 'XL'],
+                   [  10, 'X'], [  9, 'IX'], [  5, 'V'], [  4, 'IV'],
+                   [   1, 'I']]
+    result = ''
+    for denomination, roman_numeral in conversions:
+        result += roman_numeral * (arabic // denomination)
+        arabic %= denomination
+    return result
+
+TEMPLATE_ENV.globals['romanize'] = romanize
+
+# rest of generator
 def read_json_file(filename):
     with open(os.path.join(DATA_DIR, filename)) as f:
         return json.loads(f.read())

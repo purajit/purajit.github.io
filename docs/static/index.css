@@ -65,10 +65,7 @@ a.monospace {
 #contents {
   margin-bottom: 200px;
   width: 100%;
-}
-
-#contents {
-  padding: 10px 10px 10px 10px;
+  padding: 50px;
   font-size: 25px;
   background: black;
   border-radius: 20px;
@@ -90,7 +87,7 @@ a.monospace {
 
 #contents h1 {
   padding: 0;
-  margin: 0;
+  margin: 0px 0px 0px 0px;
 }
 
 .contents-item {
@@ -199,15 +196,23 @@ input {
 }
 
 /* thoughts page */
+.thought-group {
+    margin-bottom: 40px;
+}
+
 .thoughts br {
   margin-top: 5px;
   display: block;
 }
 
 /* zeitgeist page */
+.zeitgeist-section {
+  margin-bottom: 40px;
+}
+
 .zeitgeist-section .table img {
   width: 100%;
-p}
+}
 
 .zeitgeist-section .table-column {
   padding: 5px;
@@ -269,7 +274,6 @@ p}
 
 code {
     background: #3A3B3C;
-    border: 1px solid #ddd;
     border-left: 3px solid #f36d33;
     color: white;
     page-break-inside: avoid;
