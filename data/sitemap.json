@@ -146,6 +146,12 @@
           "data_type": "json"
         },
         {
+          "title": "instant pot rice and dal",
+          "route": "instant-pot-rice-and-dal",
+          "template": "template_recipe.html",
+          "data_type": "json"
+        },
+        {
           "title": "pear salad",
           "route": "pear-salad",
           "template": "template_recipe.html",
@@ -187,12 +193,6 @@
       "title": "zeitgeist",
       "route": "zeitgeist",
       "children": [
-        {
-          "title": "best of all time",
-          "route": "favs",
-          "template": "template_favs.html",
-          "data_type": "json"
-        },
         {
           "title": "2022",
           "route": "2022",
