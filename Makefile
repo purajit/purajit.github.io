@@ -19,7 +19,7 @@ generate-pages-local:
 	./generators/generate "/static/assets"
 
 generate-pages-prod:
-	./generators/generate "https://assets.purajit.com"
+	./generators/generate "http://assets.purajit.com"
 
 clean:
 	git clean -fd
