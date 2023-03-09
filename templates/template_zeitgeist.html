@@ -1,67 +1,68 @@
 {% include './header.html' %}
-<div class="zeitgeist-section">
-    <h1>albums of the year {{ data.get("notes", "") }}</h1>
-    {% set num_albums = data["albums"]|length %}
-    <div class="table">
-        <div class="table-row">
-            {% for album in data["albums"][:5] %}
-            <div class="table-column">
-                <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+<div class="writing page-content">
+    <div class="zeitgeist-section">
+        <h1>albums of the year {{ data.get("notes", "") }}</h1>
+        {% set num_albums = data["albums"]|length %}
+        <div class="table">
+            <div class="table-row">
+                {% for album in data["albums"][:5] %}
+                <div class="table-column">
+                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                </div>
+                {% endfor %}
+            </div>
+            <div class="table-row">
+                {% for album in data["albums"][5:10] %}
+                <div class="table-column">
+                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                </div>
+                {% endfor %}
+            </div>
+            {% for i in range(10, num_albums, 10) %}
+            <div class="table-row zeitgeist-lower-row">
+                {% for album in data["albums"][i:i+10] %}
+                <div class="table-column">
+                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                </div>
+                {% endfor %}
             </div>
             {% endfor %}
-        </div>
-        <div class="table-row">
-            {% for album in data["albums"][5:10] %}
-            <div class="table-column">
-                <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
-            </div>
-            {% endfor %}
-        </div>
-        {% for i in range(10, num_albums, 10) %}
-        <div class="table-row zeitgeist-lower-row">
-            {% for album in data["albums"][i:i+10] %}
-            <div class="table-column">
-                <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
-            </div>
-            {% endfor %}
-        </div>
-        {% endfor %}
-    </div>
-</div>
-
-<div class="zeitgeist-section">
-    <h1>movies of the year {{ data.get("notes", "") }}</h1>
-    {% set halfway = 10 + ([(data["movies"] | length - 10) // 2, 5] | max) %}
-    <div class="table">
-        <div class="table-row">
-            {% for movie in data["movies"][:5] %}
-            <div class="table-column">
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-            </div>
-            {% endfor  %}
-        </div>
-        <div class="table-row">
-            {% for movie in data["movies"][5:10] %}
-            <div class="table-column">
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-            </div>
-            {% endfor  %}
-        </div>
-        <div class="table-row zeitgeist-lower-row">
-            {% for movie in data["movies"][10:halfway] %}
-            <div class="table-column">
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-            </div>
-            {% endfor  %}
-        </div>
-        <div class="table-row zeitgeist-lower-row">
-            {% for movie in data["movies"][halfway:] %}
-            <div class="table-column">
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-            </div>
-            {% endfor  %}
         </div>
     </div>
-</div>
 
+    <div class="zeitgeist-section">
+        <h1>movies of the year {{ data.get("notes", "") }}</h1>
+        {% set halfway = 10 + ([(data["movies"] | length - 10) // 2, 5] | max) %}
+        <div class="table">
+            <div class="table-row">
+                {% for movie in data["movies"][:5] %}
+                <div class="table-column">
+                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                </div>
+                {% endfor  %}
+            </div>
+            <div class="table-row">
+                {% for movie in data["movies"][5:10] %}
+                <div class="table-column">
+                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                </div>
+                {% endfor  %}
+            </div>
+            <div class="table-row zeitgeist-lower-row">
+                {% for movie in data["movies"][10:halfway] %}
+                <div class="table-column">
+                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                </div>
+                {% endfor  %}
+            </div>
+            <div class="table-row zeitgeist-lower-row">
+                {% for movie in data["movies"][halfway:] %}
+                <div class="table-column">
+                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                </div>
+                {% endfor  %}
+            </div>
+        </div>
+    </div>
+</dib>
 {% include './footer.html' %}

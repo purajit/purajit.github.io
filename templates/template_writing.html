@@ -1,6 +1,6 @@
 {% include './header.html' %}
 {% set lines = data.split('\n') %}
-<div class="writing">
+<div class="writing page-content">
     {{ lines[0] }}
     {% for line in lines[1:] %}
     <br/>{{ line }}
