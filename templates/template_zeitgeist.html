@@ -6,6 +6,8 @@
         <h1 class="writing-title">
             {% if not data["first_zeitgeist"] %}
             <a class="nostyle" href="/zeitgeist/{{ data['year'] - 1 }}">←</a>
+            {% else %}
+            <span style="color: darkgrey;">←</span>
             {% endif %}
             {{ data["year"] }}
             {% if not data["latest_zeitgeist"] %}
