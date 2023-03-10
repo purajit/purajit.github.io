@@ -1,9 +1,7 @@
+{% with title="purajit | writing" %}
 {% include './header.html' %}
-{% set lines = data.split('\n') %}
+{% endwith %}
 <div class="writing page-content">
-    {{ lines[0] }}
-    {% for line in lines[1:] %}
-    <br/>{{ line }}
-    {% endfor %}
+{{ data }}
 </div>
 {% include './footer.html' %}

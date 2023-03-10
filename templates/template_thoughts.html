@@ -1,8 +1,10 @@
+{% with title="purajit | thoughts" %}
 {% include './header.html' %}
+{% endwith %}
 <div class="thoughts page-content">
     {% for thought_group in data["thought_groups"] %}
     <div class="thought-group">
-    <h1>{{ romanize(loop.length - loop.index + 1) }}</h1>
+    <h1 class="writing-title">{{ romanize(loop.length - loop.index + 1) }}</h1>
     {% for thought in thought_group %}
     {{ thought }}<br/><br/>
     {% endfor %}

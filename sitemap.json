@@ -12,49 +12,49 @@
           "title": "[upcoming] stagnation | 2023",
           "route": "stagnation",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "[upcoming] you are a fish. | 2023",
           "route": "youareafish",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "[upcoming] a guide to living in the void | 2023",
           "route": "voidliving",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "the union | 2023",
           "route": "theunion",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "ungrounding | 2022",
           "route": "ungrounding",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "protector | 2020",
           "route": "protector",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "at the pyre | 2015",
           "route": "pyre",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         },
         {
           "title": "dark visions | 2015",
           "route": "dark-visions",
           "template": "template_writing.html",
-          "data_type": "text"
+          "data_type": "markdown"
         }
       ]
     },
@@ -264,10 +264,10 @@
       "route": "blog",
       "children": [
         {
-          "title": "[eng blog] reducing my site size by ~75%",
+          "title": "[eng] reducing my site size by ~75%",
           "route": "reduce-site-size",
-          "template": "template_writing.html",
-          "data_type": "text"
+          "template": "template_blog.html",
+          "data_type": "markdown"
         }
       ]
     },
@@ -280,7 +280,8 @@
     {
       "title": "lorem",
       "route": "lorem",
-      "template": "template_lorem.html"
+      "template": "template_lorem.html",
+      "data_type": "markdown"
     },
     {
       "title": "about",

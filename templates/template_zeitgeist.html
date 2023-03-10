@@ -1,5 +1,18 @@
+{% with title="purajit | zeitgeist" %}
 {% include './header.html' %}
+{% endwith %}
 <div class="writing page-content">
+    <div class="zeitgeist-heading">
+        <h1 class="writing-title">
+            {% if not data["first_zeitgeist"] %}
+            <a class="nostyle" href="/zeitgeist/{{ data['year'] - 1 }}">←</a>
+            {% endif %}
+            {{ data["year"] }}
+            {% if not data["latest_zeitgeist"] %}
+            <a class="nostyle" href="/zeitgeist/{{ data['year'] + 1 }}">→</a>
+            {% endif %}
+        </h1>
+    </div>
     <div class="zeitgeist-section">
         <h1>albums of the year {{ data.get("notes", "") }}</h1>
         {% set num_albums = data["albums"]|length %}
@@ -64,5 +77,5 @@
             </div>
         </div>
     </div>
-</dib>
+</div>
 {% include './footer.html' %}

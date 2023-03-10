@@ -36,12 +36,11 @@ body {
 
 /* overriding defaults */
 a {
-    color: inherit;
-    text-decoration: none;
+    color: cornflowerblue;
 }
 
-a.colored {
-    color: cornflowerblue;
+a.nostyle {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -118,12 +117,20 @@ code {
     margin-bottom: 200px;
 }
 
+#name > a, .contents-item > a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .contents-item {
     font-size: 45px;
-    margin-top: 10px;
     width: fit-content;
     padding: 10px 10px 10px 10px;
     background-color: black;
+}
+
+.contents-item:not(:first-of-type) {
+    margin-top: 10px;
 }
 
 /* TODO: just remove h1s and define classes with larger fonts */
@@ -140,6 +147,10 @@ code {
     background: black;
     border-radius: 20px;
     box-sizing: border-box;
+}
+
+.writing-title {
+    color: darksalmon;
 }
 
 /* tables
@@ -230,6 +241,11 @@ code {
 }
 
 /* zeitgeist page */
+.zeitgeist-heading {
+    display: flex;
+    flex-direction: row;
+}
+
 .zeitgeist-section .table img {
     width: 100%;
 }

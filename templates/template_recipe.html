@@ -1,44 +1,48 @@
+{% with title="purajit | recipe" %}
 {% include './header.html' %}
+{% endwith %}
+<div class="page-content">
+    <h1 class="writing-title">{{ title }}</h1><br>
+    <div class="recipe-card">
+        <div class="recipe-sidebar">
+            <div id="recipe-servings">
+                <input type="text" basevalue="{{ data['servings'] }}" value="{{ data['servings'] }}"> serving<span class="plural">s</span>
+            </div>
 
-<div class="recipe-card page-content">
-    <div class="recipe-sidebar">
-        <div id="recipe-servings">
-            <input type="text" basevalue="{{ data['servings'] }}" value="{{ data['servings'] }}"> serving<span class="plural">s</span>
-        </div>
-
-        <div class="recipe-ingredients">
-            <div class="table">
-                <div class="table-row table-header">
-                    <div class="table-column">Ingredient</div>
-                    <div class="table-column">Amount</div>
-                </div>
-                {% for ingredient_name, ingredient in data["ingredients"].items() %}
-                <div class="table-row">
-                    <div class="table-column">{{ ingredient_name }}</div>
-                    <div class="table-column recipe-ingredient">
-                        {%- if "amount" in ingredient %}<span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">{{ ingredient["amount"] }}</span>&nbsp;{% endif %}
-                        {{- ingredient["unit"] }}
-                        {%- if ingredient["amorphous"] != true %}<span class="plural">s</span>{% endif %}
+            <div class="recipe-ingredients">
+                <div class="table">
+                    <div class="table-row table-header">
+                        <div class="table-column">Ingredient</div>
+                        <div class="table-column">Amount</div>
                     </div>
+                    {% for ingredient_name, ingredient in data["ingredients"].items() %}
+                    <div class="table-row">
+                        <div class="table-column">{{ ingredient_name }}</div>
+                        <div class="table-column recipe-ingredient">
+                            {%- if "amount" in ingredient %}<span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">{{ ingredient["amount"] }}</span>&nbsp;{% endif %}
+                            {{- ingredient["unit"] }}
+                            {%- if ingredient["amorphous"] != true %}<span class="plural">s</span>{% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
+            </div>
+
+            <div class="recipe-sources">
+                {% for source in data["sources"] %}
+                <a href="{{ source }}">{{ source }}</a><br/>
                 {% endfor %}
             </div>
         </div>
-
-        <div class="recipe-sources">
-            {% for source in data["sources"] %}
-            <a class="colored" href="{{ source }}">{{ source }}</a><br/>
+        <div class="recipe-steps">
+            {% for step in data["steps"] %}
+            <div class="recipe-step">
+                {{ step }}
+            </div>
             {% endfor %}
         </div>
     </div>
-    <div class="recipe-steps">
-        {% for step in data["steps"] %}
-        <div class="recipe-step">
-            {{ step }}
-        </div>
-        {% endfor %}
-    </div>
-</div>
+</div>.
 <script>
  let SERVINGS_DIV;
  let INGREDIENT_DIVS;
