@@ -337,7 +337,8 @@ code {
     justify-content: center;
     margin-left: 10px;
     margin-right: 10px;
-    height: var(--cs-height-min);
+    height:
+ var(--cs-height-min);
     cursor: pointer;
     user-select: none;
     transition: brightness 0.1s ease, filter 0.1s ease;

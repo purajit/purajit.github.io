@@ -194,6 +194,12 @@
       "route": "zeitgeist",
       "children": [
         {
+          "title": "2023",
+          "route": "2023",
+          "template": "template_zeitgeist.html",
+          "data_type": "json"
+        },
+        {
           "title": "2022",
           "route": "2022",
           "template": "template_zeitgeist.html",
