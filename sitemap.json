@@ -248,6 +248,11 @@
       "route": "tools",
       "children": [
         {
+          "title": "hourglass",
+          "route": "hourglass",
+          "template": "template_hourglass.html"
+        },
+        {
           "title": "scream into the void",
           "route": "scream-into-the-void",
           "template": "template_void_scream.html"

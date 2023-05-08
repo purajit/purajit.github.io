@@ -1,0 +1,49 @@
+{% with title="purajit | tools" %}
+{% include './header.html' %}
+{% endwith %}
+<div class="writing page-content">
+    Type number of seconds needed, hit enter to start. Hit space to flip the hourglass.
+    <form id="hourglass-form">
+        <input inputmode="numeric" id="hourglass-timerequested">seconds
+    </form>
+    <div id="hourglass-timeleft"></div>
+</div>
+{% include './footer.html' %}
+
+<script>
+ let totalTime;
+ let timeLeft;
+ let currentTimer;
+
+ function flip(e) {
+     timeLeft = totalTime - timeLeft;
+ }
+
+ window.onload = function() {
+     document.body.onkeyup = function(e) {
+         if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+             flip();
+         }
+     }
+     document.getElementById("hourglass-timerequested").value = 180;
+     document.getElementById("hourglass-timeleft").value = 180;
+
+     document.getElementById("hourglass-form").onsubmit = function(e) {
+         e.preventDefault();
+         document.getElementById("hourglass-timerequested").blur();
+
+         clearInterval(currentTimer);
+
+         totalTime = document.getElementById("hourglass-timerequested").value;
+         timeLeft = totalTime;
+
+         currentTimer = setInterval(function() {
+             timeLeft--;
+             document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? 'Done' : `${timeLeft} seconds`;
+             if (timeLeft <= 0) {
+                 clearInterval(currentTimer);
+             }
+         }, 1000);
+     };
+ };
+</script>
