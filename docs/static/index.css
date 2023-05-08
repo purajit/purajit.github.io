@@ -318,3 +318,14 @@ code {
     min-width: fit-content;
     justify-content: center;
 }
+
+.v-spacer {
+    height: 100%;
+}
+
+.force-dyad {
+    font-size: 10px;
+    justify-content: right;
+    align-content: flex-end;
+    display: flex;
+}

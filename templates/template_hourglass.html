@@ -15,7 +15,9 @@
             <div class="table-column timedisplay" id="hourglass-timeelapsed"></div>
             <div class="table-column">time elapsed</div>
         </div>
-        </div>
+    </div>
+    <div class="v-spacer"></div>
+    <div class="force-dyad">ah, a force dyad</div>
 </div>
 {% include './footer.html' %}
 
@@ -24,16 +26,41 @@
  let timeLeft;
  let currentTimer;
 
- function flip(e) {
+ function flip() {
      timeLeft = totalTime - timeLeft;
+ }
+
+ function initiateTimer() {
+     document.getElementById("hourglass-timerequested").blur();
+
+     clearInterval(currentTimer);
+
+     totalTime = document.getElementById("hourglass-timerequested").value;
+     timeLeft = totalTime;
+     document.getElementById("hourglass-timeleft").textContent = totalTime;
+     document.getElementById("hourglass-timeelapsed").textContent = 0;
+
+     currentTimer = setInterval(function() {
+         timeLeft--;
+         document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
+         document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
+         if (timeLeft <= 0) {
+             clearInterval(currentTimer);
+         }
+     }, 1000);
  }
 
  window.onload = function() {
      document.body.onkeyup = function(e) {
          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
              e.preventDefault();
-             flip();
+             if (timeLeft <= 0) {
+                 initiateTimer();
+             } else {
+                 flip();
+             }
          }
+
      }
      document.getElementById("hourglass-timerequested").value = 180;
      document.getElementById("hourglass-timeleft").textContent = 180;
@@ -41,21 +68,7 @@
 
      document.getElementById("hourglass-form").onsubmit = function(e) {
          e.preventDefault();
-         document.getElementById("hourglass-timerequested").blur();
-
-         clearInterval(currentTimer);
-
-         totalTime = document.getElementById("hourglass-timerequested").value;
-         timeLeft = totalTime;
-
-         currentTimer = setInterval(function() {
-             timeLeft--;
-             document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
-             document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
-             if (timeLeft <= 0) {
-                 clearInterval(currentTimer);
-             }
-         }, 1000);
+         initiateTimer();
      };
  };
 </script>
