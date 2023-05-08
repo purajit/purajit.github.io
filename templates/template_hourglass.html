@@ -1,6 +1,8 @@
 {% with title="purajit | tools" %}
 {% include './header.html' %}
 {% endwith %}
+<audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
+<audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
 <div class="writing page-content">
     Type number of seconds needed, hit enter to start. Hit space to flip the hourglass.
     <form id="hourglass-form">
@@ -26,6 +28,8 @@
 
  function flip() {
      timeLeft = totalTime - timeLeft;
+     document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
+     document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
  }
 
  function initiateTimer() {
@@ -35,6 +39,7 @@
 
      totalTime = document.getElementById("hourglass-timerequested").value;
      timeLeft = totalTime;
+
      document.getElementById("hourglass-timeleft").textContent = totalTime;
      document.getElementById("hourglass-timeelapsed").textContent = 0;
 
@@ -42,7 +47,12 @@
          timeLeft--;
          document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
          document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
+         if (timeLeft > 0 && timeLeft <= 5) {
+             document.getElementById('hourglass-beep').play();
+         }
+
          if (timeLeft <= 0) {
+             document.getElementById('hourglass-end').play();
              clearInterval(currentTimer);
          }
      }, 1000);
@@ -52,7 +62,7 @@
      document.body.onkeyup = function(e) {
          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
              e.preventDefault();
-             if (timeLeft <= 0) {
+             if (timeLeft <= 0 || !currentTimer) {
                  initiateTimer();
              } else {
                  flip();
