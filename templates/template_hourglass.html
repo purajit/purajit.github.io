@@ -6,7 +6,16 @@
     <form id="hourglass-form">
         <input inputmode="numeric" id="hourglass-timerequested">seconds
     </form>
-    <div id="hourglass-timeleft"></div>
+    <div class="table no-borders hourglass-display">
+        <div class="table-row non-alternating">
+            <div class="table-column timedisplay" id="hourglass-timeleft"></div>
+            <div class="table-column">time left</div>
+        </div>
+        <div class="table-row non-alternating">
+            <div class="table-column timedisplay" id="hourglass-timeelapsed"></div>
+            <div class="table-column">time elapsed</div>
+        </div>
+        </div>
 </div>
 {% include './footer.html' %}
 
@@ -22,11 +31,13 @@
  window.onload = function() {
      document.body.onkeyup = function(e) {
          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
+             e.preventDefault();
              flip();
          }
      }
      document.getElementById("hourglass-timerequested").value = 180;
-     document.getElementById("hourglass-timeleft").value = 180;
+     document.getElementById("hourglass-timeleft").textContent = 180;
+     document.getElementById("hourglass-timeelapsed").textContent = 0;
 
      document.getElementById("hourglass-form").onsubmit = function(e) {
          e.preventDefault();
@@ -39,7 +50,8 @@
 
          currentTimer = setInterval(function() {
              timeLeft--;
-             document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? 'Done' : `${timeLeft} seconds`;
+             document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
+             document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
              if (timeLeft <= 0) {
                  clearInterval(currentTimer);
              }

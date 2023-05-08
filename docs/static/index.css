@@ -178,6 +178,10 @@ code {
     overflow: hidden;
 }
 
+.table.no-borders .table-column {
+    border: none;
+}
+
 .table-column:not(:nth-last-of-type(1)) {
     border-right: 1px solid white;
 }
@@ -298,5 +302,19 @@ code {
 }
 
 #hourglass-timeleft {
-    font-size: 100px;
+    font-size: 50px;
+}
+
+#hourglass-timeelapsed {
+    font-size: 50px;
+}
+
+.hourglass-display {
+    width: 300px;
+}
+
+.timedisplay {
+    max-width: 100px;
+    min-width: fit-content;
+    justify-content: center;
 }
