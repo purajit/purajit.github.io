@@ -291,3 +291,12 @@ code {
     font-size: 30px;
     margin-top: 30px;
 }
+
+#hourglass-form {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#hourglass-timeleft {
+    font-size: 100px;
+}
