@@ -36,7 +36,7 @@
      document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
  }
 
- function initiateTimer() {
+ function reset() {
      document.getElementById("hourglass-timerequested").blur();
 
      clearInterval(currentTimer);
@@ -47,6 +47,10 @@
      document.getElementById("hourglass-timeleft").textContent = totalTime;
      document.getElementById("hourglass-timeelapsed").textContent = 0;
 
+ }
+
+ function initiateTimer() {
+     reset();
      currentTimer = setInterval(function() {
          timeLeft--;
          document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
@@ -97,7 +101,11 @@
      };
 
      document.getElementById("hg-control").onclick = function(e) {
-         initiateTimer();
+         if (e.target.textContent === "Start") {
+             initiateTimer();
+         } else {
+             reset();
+         }
      };
 
      document.getElementById("hg-flip").onclick = function(e) {
