@@ -4,7 +4,7 @@
 <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
 <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
 <div class="writing page-content">
-    Type number of seconds needed, hit enter to start. Hit space to flip the hourglass.
+    Type number of seconds needed, hit enter to start. Hit space to flip the hourglass. <a id="hg-appmode" href="javascript:enterAppMode();">Enter/exit app mode.</a>
     <form id="hourglass-form">
         <input inputmode="numeric" id="hourglass-timerequested">seconds
     </form>
@@ -16,6 +16,10 @@
         <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeelapsed"></div>
             <div class="table-column">time elapsed</div>
+        </div>
+        <div class="table-row non-alternating">
+            <div class="table-column btn" id="hg-control">Start</div>
+            <div class="table-column btn" id="hg-flip">Flip</div>
         </div>
     </div>
 </div>
@@ -52,11 +56,23 @@
          }
 
          if (timeLeft <= 0) {
+             document.getElementById("hg-control").textContent = "Start";
              document.getElementById('hourglass-end').play();
              clearInterval(currentTimer);
          }
      }, 1000);
+
+     document.getElementById("hg-control").textContent = "Reset";
  }
+
+ function enterAppMode() {
+     if (document.fullscreenElement) {
+         document.exitFullscreen();
+     } else {
+         const div = document.getElementsByClassName("page-content")[0];
+         div.requestFullscreen();
+     }
+ };
 
  window.onload = function() {
      document.body.onkeyup = function(e) {
@@ -70,6 +86,7 @@
          }
 
      }
+     document.getElementById("hg-control").textContent = "Start";
      document.getElementById("hourglass-timerequested").value = 180;
      document.getElementById("hourglass-timeleft").textContent = 180;
      document.getElementById("hourglass-timeelapsed").textContent = 0;
@@ -77,6 +94,14 @@
      document.getElementById("hourglass-form").onsubmit = function(e) {
          e.preventDefault();
          initiateTimer();
+     };
+
+     document.getElementById("hg-control").onclick = function(e) {
+         initiateTimer();
+     };
+
+     document.getElementById("hg-flip").onclick = function(e) {
+         flip();
      };
  };
 </script>
