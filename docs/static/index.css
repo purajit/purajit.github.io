@@ -329,3 +329,19 @@ code {
     align-content: flex-end;
     display: flex;
 }
+
+.btn {
+    /* Button, should be paired with a color */
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: var(--cs-height-min);
+    cursor: pointer;
+    user-select: none;
+    transition: brightness 0.1s ease, filter 0.1s ease;
+    border-radius: 5px;
+    filter: brightness(150%);
+    background: grey;
+    color: black;
+}
