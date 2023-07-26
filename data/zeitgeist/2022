@@ -23,9 +23,9 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f159d401b7691c67aca0e56b54f11b1c.png"
     },
     {
-      "artist": "The Otolith",
-      "album": "Folium Limina",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/27e2b587b27832d6b830432e23350e00.png"
+      "artist": "Zeal & Ardor",
+      "album": "Zeal & Ardor",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/811bb109876a51a9afb66c0ab4c22c90.png"
     },
     {
       "artist": "Morrow",
@@ -48,14 +48,19 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/42080c2f251c98ed9360acaa41766a0e.png"
     },
     {
+      "artist": "Viagra Boys",
+      "album": "Cave World",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/731a597e5f7b623e59ea8cb673dca4f7.png"
+    },
+    {
       "artist": "Goat",
       "album": "Oh Death",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a5cc2e68242891863c89188bea0b49ea.png"
     },
     {
-      "artist": "Viagra Boys",
-      "album": "Cave World",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/731a597e5f7b623e59ea8cb673dca4f7.png"
+      "artist": "The Otolith",
+      "album": "Folium Limina",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/27e2b587b27832d6b830432e23350e00.png"
     },
     {
       "artist": "Persefone",
@@ -66,11 +71,6 @@
       "artist": "T\u00f3mar\u00fam",
       "album": "Ash In Realms Of Stone Icons",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/3ae08fe1c1c650d1716551cc04dfcfe5.png"
-    },
-    {
-      "artist": "Zeal & Ardor",
-      "album": "Zeal & Ardor",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/811bb109876a51a9afb66c0ab4c22c90.png"
     },
     {
       "artist": "King Gizzard & The Lizard Wizard",
@@ -103,6 +103,11 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/98050f67524ffee7af6edd314b767ac4.png"
     },
     {
+      "artist": "Kvaen",
+      "album": "The Great Below",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/655ef6945f5cd90b29cafd6bc7e5e993.png"
+    },
+    {
       "artist": "Sidus Atrum",
       "album": "Spiral of Life",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8af73733d742f279d1cd6dd4cf642c79.png"
@@ -128,6 +133,16 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/617adca361fc1e60f4150601a421fd31.png"
     },
     {
+      "artist": "G Jones & EPROM",
+      "album": "Acid Disk 2",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/462340f9f8e7bf3c1ffa244a052484a1.png"
+    },
+    {
+      "artist": "G Jones & EPROM",
+      "album": "Illusory Tracks",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/55c4f34dc88f636bfc100508642aac16.png"
+    },
+    {
       "artist": "Spy",
       "album": "Split",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/eb54798aa419afddc09f441c66987948.png"
@@ -141,16 +156,6 @@
       "artist": "JID",
       "album": "The Forever Story",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/f5ebc39b1f907ab9e0df8ea47841f0c5.png"
-    },
-    {
-      "artist": "G Jones & EPROM",
-      "album": "Acid Disk 2",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/462340f9f8e7bf3c1ffa244a052484a1.png"
-    },
-    {
-      "artist": "G Jones & EPROM",
-      "album": "Illusory Tracks",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/55c4f34dc88f636bfc100508642aac16.png"
     },
     {
       "artist": "End Boss",
