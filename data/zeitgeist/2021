@@ -37,9 +37,29 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/1b6318e1c64d334cc0dd9cc2d271cdc7.png"
     },    
     {
+      "artist": "black midi",
+      "album": "Cavalcade",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/67a4d6e9f3425753c90e0eb0e2d19c7c.png"
+    },
+    {
+      "artist": "Little Simz",
+      "album": "Sometimes I Might Be Introvert",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/592ce13b8d7cfee26e13692b3c6985e8.png"
+    },
+    {
+      "artist": "Black Country, New Road",
+      "album": "For the First Time",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/972219222c95598bb474d3631d289ad3.png"
+    },
+    {
       "artist": "Wolvennest",
       "album": "Temple",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/65ed4b6eb9177c02b0c3adbec2f71555.png"
+    },
+    {
+      "artist": "Twin Shadow",
+      "album": "Twin Shadow",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/24cfc8e80848e4451a810eb07735fa90.png"
     },
     {
       "artist": "Dordeduh",
@@ -47,19 +67,9 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/b73fd2b708ce81308a7148b5e064840f.png"
     },
     {
-      "artist": "Alkuharmonian Kantaja",
-      "album": "Shadowy Peripherals",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e5872afdab015dbc153ddbf031c026fe.png"
-    },
-    {
       "artist": "Sons of Kemet",
       "album": "Black To The Future",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/61f0b3af0ca5078eb07015035ddab228.png"
-    },
-    {
-      "artist": "BLACK MIDI",
-      "album": "Cavalcade",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/67a4d6e9f3425753c90e0eb0e2d19c7c.png"
     },
     {
       "artist": "Godspeed You! Black Emperor",
@@ -82,6 +92,11 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d9a0ac5fa18b2121d1da495ec33c0d17.png"
     },
     {
+      "artist": "Alkuharmonian Kantaja",
+      "album": "Shadowy Peripherals",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/e5872afdab015dbc153ddbf031c026fe.png"
+    },
+    {
       "artist": "Howie Lee",
       "album": "Birdy Island",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/01bd0c4fed793f9170bc2a05a99e7cb2.png"
@@ -92,14 +107,24 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/ec3aa0aaeb203d513733726e3af48b32.png"
     },
     {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "LW: Volume 3",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/16d30338663c8278fbda51e8eead5bd6.png"
+    },
+    {
+      "artist": "slowthai",
+      "album": "Tyron",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/7690aad2072f8a11b5ab9607e894a7e0.png"
+    },
+    {
       "artist": "Lorem Ipsum",
       "album": "Vivre encore",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9b42e941dabc5e3dc28a1d2a3bb1cdb1.png"
     },
     {
-      "artist": "King Gizzard & The Lizard Wizard",
-      "album": "LW: Volume 3",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/16d30338663c8278fbda51e8eead5bd6.png"
+      "artist": "Leprous",
+      "album": "Aphelion",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/481b32d39f675139f9b45a13593f7567.png"
     },
     {
       "artist": "Yoth Iria",
@@ -110,11 +135,6 @@
       "artist": "Green Lung",
       "album": "Black Harvest",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a829696c39bbe5704d01811e44b2199d.png"
-    },
-    {
-      "artist": "Little Simz",
-      "album": "Sometimes I Might Be Introvert",
-      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/592ce13b8d7cfee26e13692b3c6985e8.png"
     },
     {
       "artist": "Voronoi",
@@ -132,6 +152,11 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/5d93403fbc951b7d31fa80ff826b5180.png"
     },
     {
+      "artist": "Neptunian Maximalism",
+      "album": "Solar Drone Ceremony",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/a7275dba1b15d98904b5da439023929b.png"
+    },
+    {
       "artist": "Cult of Luna",
       "album": "The Raging River",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/2a5b33b3e11f01843898f50430f9917e.png"
@@ -140,6 +165,11 @@
       "artist": "Zornheym",
       "album": "The Zornheim Sleep Experiment",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/449f80f77fbf3a1513c296baf1db61c9.png"
+    },
+    {
+      "artist": "Trivium",
+      "album": "In The Court Of The Dragon",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/d118186d9e8ceea459b640883eeaabf1.png"
     },
     {
       "artist": "Blood Youth",
@@ -155,6 +185,21 @@
       "artist": "Mach-Hommy",
       "album": "Pray For Haiti",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/c837fcd275074bb66210f45e8e8e6bc6.png"
+    },
+    {
+      "artist": "PASSÉISME",
+      "album": "Eminence",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/31d183ed7914590698ccd2dd7fea94e6.png"
+    },
+    {
+      "artist": "Parcels",
+      "album": "Day/Night",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/9569e0a94314ee209a9a95ce1cc8b89e.png"
+    },
+    {
+      "artist": "Paranorm",
+      "album": "Empyrean",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/868f2d4a1937592ed91e60373109630d.png"
     }
   ],
 

@@ -42,14 +42,24 @@
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/76ce066e3dd48b6aae77e27227088aa9.png"
     },
     {
+      "artist": "Slift",
+      "album": "Ummon",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/75993669b8c9d84f90a7cd95dbe26d05.png"
+    },
+    {
       "artist": "Paradise Lost",
       "album": "Obsidian",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/06ce36733e5345e26b8a5f4e7501ef7e.png"
     },
     {
-      "artist": "NEPTUNIAN MAXIMALISM",
+      "artist": "Neptunian Maximalism",
       "album": "\u00c9ons",
       "link": "https://lastfm.freetls.fastly.net/i/u/300x300/61d86625f25eaac9837ee2cb33c9e528.png"
+    },
+    {
+      "artist": "Einstürzende Neubauten",
+      "album": "Alles in Allem",
+      "link": "https://lastfm.freetls.fastly.net/i/u/300x300/8f243d29d35436fce4c79df256a70cc0.png"
     },
     {
       "artist": "Poppy",
