@@ -263,6 +263,7 @@ code {
 
 .zeitgeist-lower-row .table-column {
     max-width: 10%;
+    box-sizing: border-box;
 }
 
 .zeitgeist-section .table-column:not(:nth-last-of-type(1)) {

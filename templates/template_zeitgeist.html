@@ -22,14 +22,14 @@
             <div class="table-row">
                 {% for album in data["albums"][:5] %}
                 <div class="table-column">
-                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 </div>
                 {% endfor %}
             </div>
             <div class="table-row">
                 {% for album in data["albums"][5:10] %}
                 <div class="table-column">
-                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 </div>
                 {% endfor %}
             </div>
@@ -37,7 +37,7 @@
             <div class="table-row zeitgeist-lower-row">
                 {% for album in data["albums"][i:i+10] %}
                 <div class="table-column">
-                    <img src="{{ album['link'] }}" title="{{ album["album"] }} by {{ album["artist"] }}">
+                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 </div>
                 {% endfor %}
             </div>
@@ -47,7 +47,7 @@
 
     <div class="zeitgeist-section">
         <h1>movies of the year {{ data.get("notes", "") }}</h1>
-        {% set halfway = 10 + ([(data["movies"] | length - 10) // 2, 5] | max) %}
+        {% set num_movies = data["movies"]|length %}
         <div class="table">
             <div class="table-row">
                 {% for movie in data["movies"][:5] %}
@@ -59,24 +59,19 @@
             <div class="table-row">
                 {% for movie in data["movies"][5:10] %}
                 <div class="table-column">
-                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                    <img src="{{ movie['link'] }}" title="{{ movie['movie'] }}">
                 </div>
                 {% endfor  %}
             </div>
+            {% for i in range(10, num_movies, 10) %}
             <div class="table-row zeitgeist-lower-row">
-                {% for movie in data["movies"][10:halfway] %}
+                {% for movie in data["movies"][i:i+10] %}
                 <div class="table-column">
                     <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
                 </div>
-                {% endfor  %}
+                {% endfor %}
             </div>
-            <div class="table-row zeitgeist-lower-row">
-                {% for movie in data["movies"][halfway:] %}
-                <div class="table-column">
-                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-                </div>
-                {% endfor  %}
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
