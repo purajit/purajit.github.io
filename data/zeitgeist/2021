@@ -62,6 +62,11 @@
       "lastfm_id": "24cfc8e80848e4451a810eb07735fa90"
     },
     {
+      "artist": "Grey Aura",
+      "album": "Zwart Vierkant",
+      "lastfm_id": "adbf986ad046d337db105c8d73bffef4"
+    },
+    {
       "artist": "Dordeduh",
       "album": "Har",
       "lastfm_id": "b73fd2b708ce81308a7148b5e064840f"
@@ -122,11 +127,6 @@
       "lastfm_id": "9b42e941dabc5e3dc28a1d2a3bb1cdb1"
     },
     {
-      "artist": "Leprous",
-      "album": "Aphelion",
-      "lastfm_id": "481b32d39f675139f9b45a13593f7567"
-    },
-    {
       "artist": "Yoth Iria",
       "album": "As The Flame Withers",
       "lastfm_id": "9d74f45f09ffd20cb867fa3532348f7e"
@@ -135,6 +135,11 @@
       "artist": "Panopticon",
       "album": ".. and again into the light",
       "lastfm_id": "78d7466f83a9393c7c6cbd1a307867b3"
+    },
+    {
+      "artist": "Papangu",
+      "album": "Holoceno",
+      "lastfm_id": "67227c90bc8e4c288481dd5a5d2953bc"
     },
     {
       "artist": "Green Lung",
@@ -182,6 +187,11 @@
       "lastfm_id": "16497804de7f126922c8aa0d3ffca346"
     },
     {
+      "artist": "Parcels",
+      "album": "Day/Night",
+      "lastfm_id": "9569e0a94314ee209a9a95ce1cc8b89e"
+    },
+    {
       "artist": "The Silver",
       "album": "Ward of Roses",
       "lastfm_id": "66839c1143f0f0864db506d58ef205b6"
@@ -197,9 +207,9 @@
       "lastfm_id": "31d183ed7914590698ccd2dd7fea94e6"
     },
     {
-      "artist": "Parcels",
-      "album": "Day/Night",
-      "lastfm_id": "9569e0a94314ee209a9a95ce1cc8b89e"
+      "artist": "Leprous",
+      "album": "Aphelion",
+      "lastfm_id": "481b32d39f675139f9b45a13593f7567"
     },
     {
       "artist": "Paranorm",
