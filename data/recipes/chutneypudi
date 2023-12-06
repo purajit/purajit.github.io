@@ -6,11 +6,15 @@
     "roasted urad dal": {"amount": 0.33, "unit": "cup"},
     "curry leaves": {"amount": 4, "unit": "stem"},
     "hing": {"amount": 0.5, "unit": "tsp"},
-    "tamarind": {"unit": "some", "amorphous": true},
+    "tamarind": {"amount": "some", "amorphous": true},
     "roasted coconut": {"amount": 0.5, "unit": "cup"},
     "jaggery": {"amount": 0.5, "unit": "tsp"},
     "salt": {"amount": 1, "unit": "tsp"}
   },
-  "steps": [],
+  "steps": [
+    "Roast all spices and mix together",
+    "Preferably, roast red chillies separately",
+    "Even more preferably, roast them all separately, but that's a ton more work"
+  ],
   "sources": []
 }

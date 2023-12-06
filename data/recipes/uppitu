@@ -6,6 +6,12 @@
     "vegetables": {"amount": "0.5", "unit": "cup"},
     "onions": {"amount": "0.5", "unit": "cup"}
   },
-  "steps": [],
+  "steps": [
+    "Roast sooji is using raw",
+    "Saute onion, vegetables, add water once done",
+    "While on simmer, slowly add roasted sooji, fully incporating into the water",
+    "It might seem _too_ watery for a while - don't worry; it wille thicken and try as the sooji absorbs the water",
+    "You can use more water if you prefer it less crumbly and more moist"
+  ],
   "sources": []
 }
