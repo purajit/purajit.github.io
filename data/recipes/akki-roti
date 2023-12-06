@@ -6,12 +6,20 @@
     "onion": {"amount": "1", "unit": "cup"},
     "grated carrot": {"amount": "1", "unit": "cup"},
     "green chili": {"amount": "1", "unit": "", "amorphous": true},
-    "ginger": {"unit": "some", "amorphous": true},
+    "ginger": {"amount": "some", "amorphous": true},
     "curry leaves": {"amount": "10", "amorphous": true},
     "coriander": {"amount": "1", "unit": "cup"},
-    "cumin seeds/jeerige": {"unit": "some", "amorphous": true},
-    "salt": {"unit": "to taste", "amorphous": true}
+    "cumin seeds/jeerige": {"amount": "some", "amorphous": true},
+    "salt": {"amount": "to taste", "amorphous": true}
   },
-  "steps": [],
+  "steps": [
+    "Grate/chop all the vegetables and leaves",
+    "Mix in with akki hittu and water. Dough should be relatively on the dry side, but not crumbly. You should be able to stretch a small ball quite a bit without it tearing",
+    "Grease pan, take a ball of dough and flatten onto pan, pressing with fingers",
+    "Make hole in the middle, pour some oil, cook. You mostly need to cook one side; when the bottom is almost finished, cover to lightly steam the top",
+    "Leave it on longer to make it crispier",
+    "Cool down the pan before the next. Having two pans helps",
+    "Akki dosa is an alternative that can be made easier; it's similar, and uses a watery batter"
+  ],
   "sources": []
 }

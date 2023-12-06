@@ -194,7 +194,7 @@ code {
 }
 
 .table .table-row:nth-child(even) {
-    background-color: #441A0F;
+    background-color: rgb(255, 255, 255, 0.15);
 }
 
 .table .table-row.non-alternating:nth-child(even) {
@@ -210,7 +210,7 @@ code {
 .recipe-sidebar {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    min-width: 350px;
     max-width: 25%;
 }
 

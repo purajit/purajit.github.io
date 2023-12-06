@@ -19,9 +19,18 @@
                     <div class="table-row">
                         <div class="table-column">{{ ingredient_name }}</div>
                         <div class="table-column recipe-ingredient">
-                            {%- if "amount" in ingredient %}<span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">{{ ingredient["amount"] }}</span>&nbsp;{% endif %}
-                            {{- ingredient["unit"] }}
-                            {%- if ingredient["amorphous"] != true %}<span class="plural">s</span>{% endif %}
+                            {%- if "unit" in ingredient %}
+                            <span basevalue="{{ ingredient['amount'] }}" class="ingredient-amount">
+                              {{- ingredient["amount"] -}}
+                            </span>&nbsp;{{- ingredient["unit"] -}}
+                            {%- else %}
+                            <span basevalue="{{ ingredient['amount'] }}">
+                              {{- ingredient["amount"] -}}
+                            </span>
+                            {% endif %}
+                            {%- if ingredient["amorphous"] != true %}
+                            <span class="plural">s</span>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
@@ -51,6 +60,11 @@
      return parseFloat(SERVINGS_DIV.getElementsByTagName("input")[0].value);
  }
 
+ function toFixed(num, fixed) {
+   const re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+   return num.toString().match(re)[0];
+ }
+
  function updateAmounts() {
      for (let i = 0; i < INGREDIENT_DIVS.length; i++) {
          const ingredientDiv = INGREDIENT_DIVS[i];
@@ -61,7 +75,8 @@
 
          const baseValue = parseFloat(amounts[0].getAttribute("basevalue"));
          const servingScale = getServings() / parseFloat(SERVINGS_DIV.getElementsByTagName("input")[0].getAttribute("basevalue"));
-         amounts[0].textContent = baseValue * servingScale;
+
+         amounts[0].textContent = toFixed(baseValue * servingScale, 2);
      }
  }
 

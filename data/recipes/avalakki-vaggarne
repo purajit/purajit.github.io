@@ -1,12 +1,19 @@
 {
   "servings": 1,
   "ingredients": {
-    "thick avalakki (dry)": {"amount": "1", "unit": "cup"},
+    "thick avalakki": {"amount": "1", "unit": "cup"},
     "onion": {"amount": "0.5", "unit": "big", "amorphous": true},
-    "vegetables (peas, green bell peppers, carrots, beans)": {"amount": "1", "unit": "cup"},
-    "peanuts": {"unit": "some", "amorphous": true},
-    "lemon": {"unit": "some", "amorphous": true}
+    "vegetables": {"amount": "1", "unit": "cup"},
+    "peanuts": {"amount": "some", "amorphous": true},
+    "lemon": {"amount": "some", "amorphous": true},
+    "coriander": {"amount": "some", "amorphous": true}
   },
-  "steps": [],
+  "steps": [
+    "Vegetables: peas, green bell peppers, carrots, beans",
+    "Vaggarne: the usual. Heavy on turmeric and hing",
+    "Soak avalakki. In warm water, it takes as little as 15 minutes",
+    "Saute onions, vegetables, roast peanuts on the side",
+    "Mix all together"
+  ],
   "sources": []
 }

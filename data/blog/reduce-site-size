@@ -1,5 +1,7 @@
 <h1 class="writing-title">[eng] Reducing my site size by ~75%</h1>
 
+[In case you're a recruiter: this is satire. The egotistical wording here is very much antithetical to what I value.]
+
 It may surprise no-one, that as a genius 10x programmer, I run more than one site. I have this one, as well as [mythmancer.com](https://mythmancer.com), a site created for a D&D-style universe my friends created for our weekly sessions. The website was created and went live last May (2022). It's deployed through Github Pages and operates entirely within the free tier.
 
 Since then, the site has accumulated more information and features, and the size of the overall site has expanded. This matters because Github Pages are deployed as a single artifact - there's no way to split them up, and we'd like to keep the artifacts small, especially as the site potentially grows further.
