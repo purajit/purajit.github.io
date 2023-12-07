@@ -8,7 +8,7 @@
     <form id="hourglass-form">
         <input inputmode="numeric" id="hourglass-timerequested">seconds
     </form>
-    <div class="table no-borders hourglass-display">
+    <div id="hourglass-display" class="table no-borders">
         <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeleft"></div>
         </div>
@@ -83,23 +83,31 @@
      }
  };
 
+ // primary action taken on click/hitting space
+ function primaryAction() {
+     if (timeLeft <= 0 || !currentTimer) {
+         initiateTimer();
+     } else {
+         flip();
+     }
+ }
+
  window.onload = function() {
      document.body.onkeyup = function(e) {
          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
              e.preventDefault();
-             if (timeLeft <= 0 || !currentTimer) {
-                 initiateTimer();
-             } else {
-                 flip();
-             }
+             primaryAction();
          }
-
      }
      document.getElementById("hg-control").textContent = "Start";
      document.getElementById("hourglass-timerequested").value = 180;
      document.getElementById("hourglass-timeleft").textContent = 180;
      document.getElementById("hourglass-timeelapsed").textContent = 0;
 
+     document.getElementById("hourglass-display").onclick = function(e) {
+         e.preventDefault();
+         primaryAction();
+     }
      document.getElementById("hourglass-form").onsubmit = function(e) {
          e.preventDefault();
          initiateTimer();
