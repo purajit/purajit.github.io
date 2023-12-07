@@ -306,7 +306,7 @@ code {
     margin-bottom: 10px;
 }
 
-.hourglass-display .table-column {
+#hourglass-display .table-column {
     display: flex;
     justify-content: center;
 }
