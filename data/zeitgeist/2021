@@ -2,11 +2,6 @@
   "year": 2021,
   "albums": [
     {
-      "artist": "Boss Keloid",
-      "album": "Family The Smiling Thrush",
-      "lastfm_id": "7229d0eaa0e6780ac331f216b605945c"
-    },
-    {
       "artist": "LINGUA IGNOTA",
       "album": "SINNER GET READY",
       "lastfm_id": "83e4d8c35176175004503e4132b23033"
@@ -22,9 +17,9 @@
       "lastfm_id": "7f86849747dbb19523e0a42592c066ff"
     },
     {
-      "artist": "Swallow the Sun",
-      "album": "Moonflowers",
-      "lastfm_id": "12706c628b2ae3a02c68cc104c71a977"
+      "artist": "Grey Aura",
+      "album": "Zwart Vierkant",
+      "lastfm_id": "adbf986ad046d337db105c8d73bffef4"
     },
     {
       "artist": "death's dynamic shroud.wmv",
@@ -32,14 +27,19 @@
       "lastfm_id": "ad953a6c9374a7970a4613eefd8ebd8a"
     },
     {
-      "artist": "Spellling",
-      "album": "The Turning Wheel",
-      "lastfm_id": "1b6318e1c64d334cc0dd9cc2d271cdc7"
-    },    
+      "artist": "Boss Keloid",
+      "album": "Family The Smiling Thrush",
+      "lastfm_id": "7229d0eaa0e6780ac331f216b605945c"
+    },
     {
       "artist": "black midi",
       "album": "Cavalcade",
       "lastfm_id": "67a4d6e9f3425753c90e0eb0e2d19c7c"
+    },
+    {
+      "artist": "Swallow the Sun",
+      "album": "Moonflowers",
+      "lastfm_id": "12706c628b2ae3a02c68cc104c71a977"
     },
     {
       "artist": "Little Simz",
@@ -52,6 +52,11 @@
       "lastfm_id": "972219222c95598bb474d3631d289ad3"
     },
     {
+      "artist": "Spellling",
+      "album": "The Turning Wheel",
+      "lastfm_id": "1b6318e1c64d334cc0dd9cc2d271cdc7"
+    },
+    {
       "artist": "Wolvennest",
       "album": "Temple",
       "lastfm_id": "65ed4b6eb9177c02b0c3adbec2f71555"
@@ -60,11 +65,6 @@
       "artist": "Twin Shadow",
       "album": "Twin Shadow",
       "lastfm_id": "24cfc8e80848e4451a810eb07735fa90"
-    },
-    {
-      "artist": "Grey Aura",
-      "album": "Zwart Vierkant",
-      "lastfm_id": "adbf986ad046d337db105c8d73bffef4"
     },
     {
       "artist": "Dordeduh",
