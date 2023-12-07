@@ -168,6 +168,10 @@ code {
     justify-content: center;
 }
 
+.table-row.label {
+    font-size: 15px;
+}
+
 .table-column {
     flex: 1;
     border: 1px solid white;
@@ -302,22 +306,19 @@ code {
     margin-bottom: 10px;
 }
 
-#hourglass-timeleft {
-    font-size: 50px;
-}
-
-#hourglass-timeelapsed {
-    font-size: 50px;
-}
-
-.hourglass-display {
-    width: 300px;
+.hourglass-display .table-column {
+    display: flex;
+    justify-content: center;
 }
 
 .timedisplay {
-    max-width: 100px;
-    min-width: fit-content;
-    justify-content: center;
+    min-width: 200px;
+    font-size: 100px;
+}
+
+.hourglass-btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .v-spacer {
