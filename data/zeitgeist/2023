@@ -18,9 +18,24 @@
       "lastfm_id": "cacb005926cc26320a5ff537288cc466"
     },
     {
+        "artist": "Geese",
+        "album": "4D Country",
+        "lastfm_id": "54417335fd3cd0165c51b2916f1bc6fc"
+    },
+    {
+        "artist": "Reverend Kristin Michael Hayter",
+        "album": "SAVED!",
+        "lastfm_id": "80f28be0310c42b0b73b37089b045d05"
+    },
+    {
       "artist": "Alice Longyu Gao",
       "album": "Let's Hope Heteros Fail, Learn and Retire",
       "lastfm_id": "307aa3c27892dd69909f48385e3de2d4"
+    },
+    {
+        "artist": "Anareta",
+        "album": "Fear Not",
+        "lastfm_id": "5a098ffd1e128077408e3133d31e27c6"
     },
     {
       "artist": "Balkan Bump",
@@ -28,14 +43,39 @@
       "lastfm_id": "4783e2360a46881112c988fd1a520896"
     },
     {
-      "artist": "slowthai",
-      "album": "UGLY",
-      "lastfm_id": "dea18db9a61d97affe9c31100a219cfe"
-    },
-    {
       "artist": "McKinley Dixon",
       "album": "Beloved! Paradise! Jazz!?",
       "lastfm_id": "3097b976e2a007b444f1874e9d2d7eb5"
+    },
+    {
+        "artist": "The Lemon Twigs",
+        "album": "Everything Harmony",
+        "lastfm_id": "0d0f9c63d31d831108783ecbd46af76b"
+    },
+    {
+        "artist": "Aara",
+        "album": "Triade III : Nyx",
+        "lastfm_id": "a7fd5b17b52719803d800e8e6d244053"
+    },
+    {
+        "artist": "Milanku",
+        "album": "À l'aube",
+        "lastfm_id": "e39a7b8531e2a855a569ebe3a76742d7"
+    },
+    {
+        "artist": "Wolvennest",
+        "album": "The Dark Path To The Light",
+        "lastfm_id": "14a4ea235987287c781a07d6609e0cd4"
+    },
+    {
+        "artist": "CAM GIRL",
+        "album": "Untucked",
+        "lastfm_id": "810f2c34a868d3f4bddae99663d18806"
+    },
+    {
+      "artist": "slowthai",
+      "album": "UGLY",
+      "lastfm_id": "dea18db9a61d97affe9c31100a219cfe"
     },
     {
       "artist": "Thantifaxath",
@@ -46,6 +86,36 @@
       "artist": "100 gecs",
       "album": "10,000 gecs",
       "lastfm_id": "cb9f1b72089584f998c5f8260517951b"
+    },
+    {
+        "artist": "Lana Del Rey",
+        "album": "Did you know that there's a tunnel under Ocean Blvd",
+        "lastfm_id": "d997c7f2b282ddee62c10623a80b752d"
+    },
+    {
+        "artist": "Caroline Polachek",
+        "album": "Desire, I Want to Turn Into You",
+        "lastfm_id": "8efbfdc3ffd98d732a93e75aa5a53852"
+    },
+    {
+        "artist": "Sufjan Stevens",
+        "album": "Javelin",
+        "lastfm_id": "c04861341a86e2054772ba6783cb4ffc"
+    },
+    {
+      "artist": "Wayfarer",
+      "album": "American Gothic",
+      "lastfm_id": "6ae6a16c817ae86d980d385ef23d05c5"
+    },
+    {
+        "artist": "Hellish Form",
+        "album": "Deathless",
+        "lastfm_id": "d8c9998842c19d675ae19a6b2f011dc9"
+    },
+    {
+        "artist": "Amun",
+        "album": "Spectra and Obsession",
+        "lastfm_id": "f6598a1ce1afb978496590e8f009ffcd"
     },
     {
       "artist": "Queef Jerky",
@@ -63,6 +133,16 @@
       "lastfm_id": "ee1ba0121c82c719b4193622ef4bcd40"
     },
     {
+        "artist": "夢遊病者",
+        "album": "Skopofoboexoskelett - EP",
+        "lastfm_id": "c535f6a1b777d052bf050b3acf7be904"
+    },
+    {
+        "artist": "Altari",
+        "album": "Kröflueldar",
+        "lastfm_id": "7efc44591ef74e54c646588181f561b9"
+    },
+    {
       "artist": "Dev Lemons",
       "album": "Delusional",
       "lastfm_id": "c9352e94b5237e30827ecea0e19cd0e8"
@@ -71,40 +151,72 @@
 
   "movies": [
     {
-      "movie": "The Whale",
-      "link": "https://a.ltrbxd.com/resized/film-poster/7/0/3/4/7/8/703478-the-whale-0-500-0-750-crop.jpg?v=84e98165fb"
+      "movie": "Poor Things",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/1/0/3/5/2/710352-poor-things-0-500-0-750-crop.jpg?v=a0f2ee9a0e"
+    },
+    {
+      "movie": "Anatomy of a Fall",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/2/2/0/9/3/822093-anatomy-of-a-fall-0-500-0-750-crop.jpg?v=4efab8aedc"
+    },
+    {
+      "movie": "Dream Scenario",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/3/9/6/9/1/739691-dream-scenario-0-500-0-750-crop.jpg?v=f265dde2ea"
+    },
+    {
+      "movie": "Killers of the Flower Moon",
+      "link": "https://a.ltrbxd.com/resized/film-poster/3/9/8/0/0/9/398009-killers-of-the-flower-moon-0-500-0-750-crop.jpg?v=49b577149d"
+    },
+    {
+      "movie": "Polite Society",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/7/9/5/6/6/879566-polite-society-0-500-0-750-crop.jpg?v=3d945f44b9"
+    },
+    {
+      "movie": "Theater Camp",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/8/7/6/5/0/887650-theater-camp-0-500-0-750-crop.jpg?v=ba9c77cf10a"
+    },
+    {
+      "movie": "Saltburn",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/3/5/7/7/4/835774-saltburn-0-500-0-750-crop.jpg?v=b58cbd3b08"
     },
     {
       "movie": "Spider-Man: Across the Spider-Verse",
       "link": "https://a.ltrbxd.com/resized/film-poster/4/9/7/6/3/1/497631-spider-man-across-the-spider-verse-0-500-0-750-crop.jpg?v=f2acbf1b8a"
     },
     {
+      "movie": "The Whale",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/0/3/4/7/8/703478-the-whale-0-500-0-750-crop.jpg?v=84e98165fb"
+    },
+    {
       "movie": "John Wick 4",
       "link": "https://a.ltrbxd.com/resized/film-poster/5/3/0/8/8/2/530882-john-wick-chapter-4-0-500-0-750-crop.jpg?v=bc32219057"
+    },
+    {
+      "movie": "The Holdovers",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/5/5/5/6/4/755564-the-holdovers-0-500-0-750-crop.jpg?v=99bbdd8955"
     },
     {
       "movie": "Mission Impossible: Dead Reckoning Part 1",
       "link": "https://a.ltrbxd.com/resized/film-poster/5/0/3/4/0/2/503402-mission-impossible-dead-reckoning-part-one-0-500-0-750-crop.jpg?v=800fc297c1"
     },
     {
-      "movie": "Puss in Boots: The Last Wish",
-      "link": "https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-500-0-750-crop.jpg?v=9e9109c5cd"
+      "movie": "Godzilla Minus One",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/4/5/7/0/6/845706-godzilla-minus-one-0-500-0-750-crop.jpg?v=a98e8c1ed4"
     },
     {
-      "movie": "Oppenheimer",
-      "link": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-500-0-750-crop.jpg?v=e3c6e7a32c"
+      "movie": "Puss in Boots: The Last Wish",
+      "link": "https://a.ltrbxd.com/resized/film-poster/2/4/2/2/8/5/242285-puss-in-boots-the-last-wish-0-500-0-750-crop.jpg?v=9e9109c5cd"
     },
     {
       "movie": "Asteroid City",
       "link": "https://a.ltrbxd.com/resized/film-poster/6/6/8/5/5/5/668555-asteroid-city-0-500-0-750-crop.jpg?v=700bea7fd5"
     },
     {
-      "movie": "M3gan",
-      "link": "https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-500-0-750-crop.jpg?v=e0df89bac5"
+      "movie": "Oppenheimer",
+      "link": "https://a.ltrbxd.com/resized/film-poster/7/8/4/3/2/8/784328-oppenheimer-0-500-0-750-crop.jpg?v=e3c6e7a32c"
     },
     {
-      "movie": "Barbie",
-      "link": "https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-500-0-750-crop.jpg?v=1b83dc7a71"
+      "movie": "M3gan",
+      "link": "https://a.ltrbxd.com/resized/film-poster/4/6/5/6/4/9/465649-m3gan-0-500-0-750-crop.jpg?v=e0df89bac5"
     },
     {
       "movie": "Cocaine Bear",
@@ -113,6 +225,10 @@
     {
       "movie": "Evil Dead Rise",
       "link": "https://a.ltrbxd.com/resized/film-poster/6/3/6/7/6/1/636761-evil-dead-rise-0-500-0-750-crop.jpg?v=51a7fe0b29"
+    },
+    {
+      "movie": "Barbie",
+      "link": "https://a.ltrbxd.com/resized/film-poster/2/7/7/0/6/4/277064-barbie-0-500-0-750-crop.jpg?v=1b83dc7a71"
     }
   ]
 }
