@@ -149,6 +149,11 @@ code {
     box-sizing: border-box;
 }
 
+.writing {
+    background: white;
+    color: black;
+}
+
 .writing-title {
     color: darksalmon;
 }
