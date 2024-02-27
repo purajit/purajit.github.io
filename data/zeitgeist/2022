@@ -107,6 +107,21 @@
       "lastfm_id": "3332b3cee5de8598dbd080f8e2783f93"
     },
     {
+      "artist": "Imperial Triumphant",
+      "album": "Spirit of Ecstasy",
+      "lastfm_id": "20c0adf395f94c0a6948291946c5eabb"
+    },
+    {
+      "artist": "Cult of Luna",
+      "album": "The Long Road North",
+      "lastfm_id": "ddeb18a5a499c639bfd56a129edf01af"
+    },
+    {
+      "artist": "King Gizzard & The Lizard Wizard",
+      "album": "Laminated Denim",
+      "lastfm_id": "c0ac24f59bb04080a6224897b2bb0aa9"
+    },
+    {
       "artist": "Kendrick Lamar",
       "album": "Mr. Morale & the Big Steppers",
       "lastfm_id": "98050f67524ffee7af6edd314b767ac4"
@@ -120,16 +135,6 @@
       "artist": "Sidus Atrum",
       "album": "Spiral of Life",
       "lastfm_id": "8af73733d742f279d1cd6dd4cf642c79"
-    },
-    {
-      "artist": "Cult of Luna",
-      "album": "The Long Road North",
-      "lastfm_id": "ddeb18a5a499c639bfd56a129edf01af"
-    },
-    {
-      "artist": "King Gizzard & The Lizard Wizard",
-      "album": "Laminated Denim",
-      "lastfm_id": "c0ac24f59bb04080a6224897b2bb0aa9"
     },
     {
       "artist": "Fit for An Autopsy",
@@ -185,11 +190,6 @@
       "artist": "Russian Circles",
       "album": "Gnosis",
       "lastfm_id": "63eb775c45d001155091a4147df24506"
-    },
-    {
-      "artist": "Imperial Triumphant",
-      "album": "Spirit of Ecstasy",
-      "lastfm_id": "20c0adf395f94c0a6948291946c5eabb"
     },
     {
       "artist": "Obongjayar",
