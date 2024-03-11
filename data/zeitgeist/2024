@@ -2,6 +2,41 @@
   "year": 2024,
   "latest_zeitgeist": true,
   "albums": [
+    {
+      "artist": "Future Islands",
+      "album": "People Who Aren't There Anymore",
+      "lastfm_id": "5183a656bb60912de89b0681388f4898"
+    },
+    {
+      "artist": "Chelsea Wolfe",
+      "album": "She Reaches Out To She Reaches Out To She",
+      "lastfm_id": "96e8c9b4eb6197b0ffd4067d71910b10"
+    },
+    {
+      "artist": "The Smile",
+      "album": "Wall of Eyes",
+      "lastfm_id": "a43c6cfd9d14f09ae31e7f1b00fae5b8"
+    },
+    {
+      "artist": "MGMT",
+      "album": "Loss of Life",
+      "lastfm_id": "291b9672315eae8a777410f4f80395c4"
+    },
+    {
+      "artist": "Caravan Palace",
+      "album": "gangbusters melody club",
+      "lastfm_id": "90b34c7f7cd5979260f04acf08153d77"
+    },
+    {
+      "artist": "The Last Dinner Party",
+      "album": "Prelude to Ecstasy",
+      "lastfm_id": "48a26e613124f0a242545ebe620b4951"
+    },
+    {
+      "artist": "Persefone",
+      "album": "Lingua Ignota: Part I",
+      "lastfm_id": "bccd3a169bf17528fe954c50c35d8c4c"
+    }
   ],
 
   "movies": [
