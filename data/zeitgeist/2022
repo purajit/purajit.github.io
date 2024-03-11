@@ -127,6 +127,11 @@
       "lastfm_id": "98050f67524ffee7af6edd314b767ac4"
     },
     {
+      "artist": "Bong Ra",
+      "album": "Meditations",
+      "lastfm_id": "7f2f9c028f9e7ea477634e2f35e8bf10"
+    },
+    {
       "artist": "Kvaen",
       "album": "The Great Below",
       "lastfm_id": "655ef6945f5cd90b29cafd6bc7e5e993"
@@ -215,6 +220,11 @@
       "artist": "Darkher",
       "album": "The Buried Storm",
       "lastfm_id": "7e700c19d26d5715068f780978a6921f"
+    },
+    {
+      "artist": "Mirage",
+      "album": "Gaerea",
+      "lastfm_id": "50437136134e25552d118ca57a28fa3e"
     }
   ],
 
@@ -226,6 +236,10 @@
     {
       "movie": "The Banshees of Inishirin",
       "link": "https://a.ltrbxd.com/resized/film-poster/5/9/8/8/8/2/598882-the-banshees-of-inisherin-0-500-0-750-crop.jpg?v=933f9af6e7"
+    },
+    {
+      "movie": "Fire of Love",
+      "link": "https://a.ltrbxd.com/resized/film-poster/8/1/9/8/6/3/819863-fire-of-love-0-500-0-750-crop.jpg?v=d79f69426b"
     },
     {
       "movie": "Barbarian",

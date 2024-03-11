@@ -2,6 +2,11 @@
   "year": 2020,
   "albums": [
     {
+      "artist": "Matmos",
+      "album": "The Consuming Flame: Open Exercises in Group Form",
+      "lastfm_id": "d7fd19682504f8b1cde8edc5042a054d"
+    },
+    {
       "artist": "Balkan Bump",
       "album": "Osmanity",
       "lastfm_id": "dfa3a8c4396b161c92620bf90440a92a"
