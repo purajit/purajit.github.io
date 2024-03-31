@@ -31,11 +31,14 @@ Official bugs/reports:
 * [GitHub issue](https://web.archive.org/web/20240329223553/https://github.com/tukaani-project/xz/issues/92#issuecomment-2027816300) on the official GitHub repo about this situation, before GitHub disabled the repo.
 * [ArchLinux announcement](https://archlinux.org/news/the-xz-package-has-been-backdoored/)
 * [Red Hat announcement](https://www.redhat.com/en/blog/urgent-security-alert-fedora-41-and-rawhide-users)
+* [Gentoo](https://bugs.gentoo.org/928134)
 * [libarchive](https://github.com/libarchive/libarchive/issues/2103) dealing with every commit made by "Jia Tan", one-by-one
 
 Context:
 * [[Link]](https://www.mail-archive.com/xz-devel@tukaani.org/msg00567.html) Original author talking about their burnout, maintainer burden, and their first mention of Jia Tan
 * [[Link]](https://www.mail-archive.com/search?l=debian-bugs-dist@lists.debian.org&q=from:"krygorin4545") Random actor pushing for xz upgrades. Shows up for two messages and disappears.
+* [[Link]](https://www.mail-archive.com/search?l=xz-devel@tukaani.org&q=from:%22Jigar+Kumar%22) Another actor, Jigar Kumar, who also spends some time pressuring for Jia to get commit access, and disappears.
+* [[Link]](https://www.mail-archive.com/search?l=xz-devel@tukaani.org&q=from:%22Dennis+Ens%22) Yet another actor, Dennis Ens, who also pressures Lasse and bunch and disappears
 * [LKML](https://lkml.org/lkml/2024/3/30/188) Lasse responds
 * [Mastodon](https://mastodon.social/@AndresFreundTec/112180406142695845) Andres talking about what it took to happen to discover this issue
 
