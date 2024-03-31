@@ -7,9 +7,9 @@ List of readings to understand the scope of the xz backdoor situation.
 [Tukaani blog](https://tukaani.org/xz-backdoor/) where Lasse, the original maintainer, is sending updates. (Tukaani is the group that created and maintains xz)
 
 GitHub actors involved:
-* Lasse Collin, the original xz maintainer: https://github.com/Larhzu
-* "Jia Tan", the primary bad actor: https://github.com/JiaT75
-* "Hans Jansen": https://github.com/hansjans162
+* [Lasse Collin](https://github.com/Larhzu), the original xz maintainer
+* ["Jia Tan"](https://github.com/JiaT75), the primary bad actor
+* ["Hans Jansen"](https://github.com/hansjans162), who also seems to aid in added sus code, and disappears. There's discussions about whether this is just an alt for "Jia Tan".
 
 This is the current official xz repo, that the original contributor Lasse has already started adding patches to:
 ```
