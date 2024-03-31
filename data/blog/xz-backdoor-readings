@@ -1,0 +1,43 @@
+<h1 class="writing-title">[eng] xz backdoor readings</h1>
+
+List of readings to understand the scope of the xz backdoor situation.
+
+[Original finding](https://www.openwall.com/lists/oss-security/2024/03/29/4) by Andres Freund. This is the primary source.
+
+[Tukaani blog](https://tukaani.org/xz-backdoor/) where Lasse, the original maintainer, is sending updates. (Tukaani is the group that created and maintains xz)
+
+GitHub actors involved:
+* Lasse Collin, the original xz maintainer: https://github.com/Larhzu
+* "Jia Tan", the primary bad actor: https://github.com/JiaT75
+* "Hans Jansen": https://github.com/hansjans162
+
+This is the current official xz repo, that the original contributor Lasse has already started adding patches to:
+```
+git clone https://git.tukaani.org/xz.git xz-tukaani
+```
+
+Good summaries:
+* [Timeline](https://boehs.org/node/everything-i-know-about-the-xz-backdoor) with some useful contexts, mailing list participation by these actors, etc
+* [Simplified write-up](https://gist.github.com/thesamesam/223949d5a074ebc3dce9ee78baad9e27) with tons of discussion
+
+Discussions:
+* [Hacker News thread](https://news.ycombinator.com/item?id=39865810)
+* [Link](https://news.ycombinator.com/item?id=39865810) - one of the more active threads in that thread
+* [r/Linux](https://www.reddit.com/r/linux/comments/1bqt999/backdoor_in_upstream_xzliblzma_leading_to_ssh/)
+* [r/Linux](https://www.reddit.com/r/linux/comments/1brhlur/xz_utils_backdoor/)
+
+Official bugs/reports:
+* [Debian bug](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1068024) to request reverting the xz version
+* [GitHub issue](https://web.archive.org/web/20240329223553/https://github.com/tukaani-project/xz/issues/92#issuecomment-2027816300) on the official GitHub repo about this situation, before GitHub disabled the repo.
+* [ArchLinux](https://archlinux.org/news/the-xz-package-has-been-backdoored/)
+* [libarchive](https://github.com/libarchive/libarchive/issues/2103) dealing with every commit made by "Jia Tan", one-by-one
+
+Context:
+* [[Link]](https://www.mail-archive.com/xz-devel@tukaani.org/msg00567.html) Original author talking about their burnout, maintainer burden, and their first mention of Jia Tan
+* [[Link]](https://www.mail-archive.com/search?l=debian-bugs-dist@lists.debian.org&q=from:"krygorin4545") Random actor pushing for xz upgrades. Shows up for two messages and disappears.
+* [LKML](https://lkml.org/lkml/2024/3/30/188) Lasse responds
+
+The hack:
+* [Initial request from Jia Tan](https://bugs.launchpad.net/ubuntu/+source/xz-utils/+bug/2059417) asking to have xz bumped in Debian
+* [[Link]](https://github.com/google/oss-fuzz/pull/10667) - getting the version of xz built by oss-fuzz to build without ifunc, since that would reveal issues
+* Links to the sus commits are in the original findings, as well as further discussions
