@@ -281,6 +281,12 @@
       "route": "blog",
       "children": [
         {
+          "title": "[eng] readings about xz",
+          "route": "xz-backdoor-readings",
+          "template": "template_blog.html",
+          "data_type": "markdown"
+        },
+        {
           "title": "[eng] reducing my site size by ~75%",
           "route": "reduce-site-size",
           "template": "template_blog.html",
