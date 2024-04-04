@@ -27,6 +27,12 @@
           "data_type": "markdown"
         },
         {
+          "title": "[upcoming] obsolete | 2024",
+          "route": "obsolete",
+          "template": "template_writing.html",
+          "data_type": "markdown"
+        },
+        {
           "title": "the union | 2023",
           "route": "theunion",
           "template": "template_writing.html",
