@@ -198,6 +198,7 @@ code {
 .table-header {
     background-color: white !important;
     color: black;
+    font-weight: bold;
     position: sticky;
     top: 0;
 }
