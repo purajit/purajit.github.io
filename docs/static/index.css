@@ -154,6 +154,10 @@ code {
     color: black;
 }
 
+.preserve-whitespace {
+    white-space: pre-wrap;
+}
+
 .writing-title {
     color: darksalmon;
 }
