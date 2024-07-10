@@ -12,55 +12,61 @@
           "title": "[upcoming] stagnation | 2023",
           "route": "stagnation",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "[upcoming] you are a fish. | 2023",
           "route": "youareafish",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "[upcoming] a guide to living in the void | 2023",
           "route": "voidliving",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
+        },
+        {
+          "title": "misunderstood waters | 2024",
+          "route": "misunderstood-waters",
+          "template": "template_writing.html",
+          "data_type": "text"
         },
         {
           "title": "obsolete | 2024",
           "route": "obsolete",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "the union | 2023",
           "route": "theunion",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "ungrounding | 2022",
           "route": "ungrounding",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "protector | 2020",
           "route": "protector",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "at the pyre | 2015",
           "route": "pyre",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         },
         {
           "title": "dark visions | 2015",
           "route": "dark-visions",
           "template": "template_writing.html",
-          "data_type": "markdown"
+          "data_type": "text"
         }
       ]
     },
