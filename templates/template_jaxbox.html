@@ -1,0 +1,78 @@
+{% with title="purajit | tools" %}
+{% include './header.html' %}
+{% endwith %}
+<style>
+  .jaxbox-tool {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .jaxbox {
+      display: flex;
+  }
+  .letter-jax {
+      font-size: 20px;
+      transition: transform 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  .jax {
+      display: none;
+      font-size: 50px;
+  }
+
+  // on hover
+  .letter-jax:hover {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+  .letter-jax:hover .jax {
+      display: block;
+  }
+  .letter-jax:hover .letter {
+      font-size: 100px;
+  }
+  .letter-jax:has(+ .letter-jax:hover) {
+      font-size: 40px;
+  }
+  .letter-jax:hover + .letter-jax {
+      font-size: 40px;
+  }
+</style>
+<div class="page-content">
+    <h1 class="writing-title">jaxbox</h1><br>
+    <div class="jaxbox-tool">
+      <div class="jaxbox">
+        <div class="letter-jax"><div class="letter">A</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">B</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">C</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">D</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">E</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">F</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">G</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">H</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">I</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">J</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">K</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">L</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">M</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">N</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">O</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">P</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">Q</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">R</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">S</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">T</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">U</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">V</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">W</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">X</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">Y</div><div class="jax">jax</div></div>
+        <div class="letter-jax"><div class="letter">Z</div><div class="jax">jax</div></div>        
+      </div>
+    </div>
+</div>
+{% include './footer.html' %}
