@@ -277,6 +277,11 @@
           "template": "template_hourglass.html"
         },
         {
+          "title": "jaxbox",
+          "route": "jaxbox",
+          "template": "template_jaxbox.html"
+        },
+        {
           "title": "scream into the void",
           "route": "scream-into-the-void",
           "template": "template_void_scream.html"
