@@ -23,15 +23,15 @@
 :root {
     --bg: #181a1b;
     --text: #e8e6e3;
+    --page-margin: 8%;
 }
 
 body {
     font-family: "Libre Caslon Text";
     color: var(--text);
     background-color: var(--bg);
-    margin: 8%;
-    padding: 0;
-    width: 84%;
+    margin: 0;
+    width: 100%;
 }
 
 /* overriding defaults */
@@ -94,7 +94,9 @@ code {
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    width: 100%;
+    margin: var(--page-margin) auto var(--page-margin) auto;
+    min-width: 300px;
+    max-width: 1350px;
 }
 
 #name {
