@@ -23,11 +23,11 @@ enter-server:
 	docker exec -w /usr/share/nginx/html -it purajit.com sh
 
 generate-pages-local: get-yass
-	./generate_site.py yass_config_local.json
+	uv run ./generate_site.py yass_config_local.json
 
 # only used in local testing, but with "CDN" paths instead of local ones
 generate-pages-cdn: get-yass
-	./generate_site.py yass_config_prod.json
+	uv run ./generate_site.py yass_config_prod.json
 
 clean:
 	git clean -fd
