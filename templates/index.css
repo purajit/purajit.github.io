@@ -21,7 +21,8 @@
 }
 
 :root {
-    --bg: #181a1b;
+    --light-bg: #e5dcc3;
+    --bg: #301f15;
     --text: #e8e6e3;
     --page-margin: 8%;
 }
@@ -29,9 +30,13 @@
 body {
     font-family: "Libre Caslon Text";
     color: var(--text);
-    background-color: var(--bg);
-    margin: 0;
+    background-color: var(--light-bg);
     width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    margin: 0;
 }
 
 /* overriding defaults */
@@ -70,7 +75,7 @@ input {
 code {
     background: #3A3B3C;
     border-left: 3px solid #f36d33;
-    color: white;
+    color: var(--light-bg);
     page-break-inside: avoid;
     font-family: "Lekton";
     font-size: 19px;
@@ -83,27 +88,18 @@ code {
 }
 
 /* primary page elements that appear everywhere */
-.bgimg {
-    /* actual image url in code to allow for static url templating */
-    background-size: 100% 100%;
-    position: absolute;
-    background-attachment: fixed;
-}
-
 #main {
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    margin: var(--page-margin) auto var(--page-margin) auto;
-    min-width: 300px;
-    max-width: 1350px;
+    width: min(1000px, 100vw);
 }
 
 #name {
     font-size: 60px;
     font-weight: bold;
-    background-color: var(--text);
-    color: var(--bg);
+    background-color: var(--bg);
+    color: var(--light-bg);
     width: fit-content;
     padding: 10px 10px 10px 10px;
     margin-bottom: 30px;
@@ -119,8 +115,13 @@ code {
     margin-bottom: 200px;
 }
 
-#name > a, .contents-item > a {
-    color: inherit;
+#name > a {
+    color: var(--light-bg);
+    text-decoration: none;
+}
+
+.contents-item > a {
+    color: var(--bg);
     text-decoration: none;
 }
 
@@ -128,7 +129,7 @@ code {
     font-size: 45px;
     width: fit-content;
     padding: 10px 10px 10px 10px;
-    background-color: black;
+    /* background-color: var(--bg); */
 }
 
 .contents-item:not(:first-of-type) {
@@ -146,14 +147,14 @@ code {
     width: 100%;
     padding: 50px;
     font-size: 25px;
-    background: black;
+    background: var(--bg);
     border-radius: 20px;
     box-sizing: border-box;
 }
 
 .writing {
-    background: white;
-    color: black;
+    background: var(--bg);
+    color: D7CDB0;
 }
 
 .preserve-whitespace {
@@ -161,7 +162,7 @@ code {
 }
 
 .writing-title {
-    color: darksalmon;
+    color: var(--light-bg);
 }
 
 /* tables
@@ -185,7 +186,7 @@ code {
 
 .table-column {
     flex: 1;
-    border: 1px solid white;
+    border: 1px solid var(--light-bg);
     min-height: 40px;
     display: flex;
     align-items: center;
@@ -198,12 +199,12 @@ code {
 }
 
 .table-column:not(:nth-last-of-type(1)) {
-    border-right: 1px solid white;
+    border-right: 1px solid var(--light-bg);
 }
 
 .table-header {
-    background-color: white !important;
-    color: black;
+    background-color: var(--light-bg) !important;
+    color: var(--bg);
     font-weight: bold;
     position: sticky;
     top: 0;
@@ -304,7 +305,7 @@ code {
     height: 300px;
     resize: none;
     border: none;
-    border-bottom: 1px solid rgba(172, 225, 110, 0.5);
+    border-bottom: 1px solid var(--light-bg);
     background: transparent;
     outline: none;
     color: var(--text);
@@ -313,7 +314,7 @@ code {
     margin-top: 30px;
 }
 
-#hourglass-form {
+ #hourglass-form {
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -350,13 +351,10 @@ code {
     justify-content: center;
     margin-left: 10px;
     margin-right: 10px;
-    height:
- var(--cs-height-min);
+    height: var(--cs-height-min);
     cursor: pointer;
     user-select: none;
-    transition: brightness 0.1s ease, filter 0.1s ease;
     border-radius: 5px;
-    filter: brightness(150%);
-    background: grey;
-    color: black;
+    background: var(--light-bg);
+    color: var(--bg);
 }
