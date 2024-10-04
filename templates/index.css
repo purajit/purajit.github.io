@@ -314,9 +314,18 @@ code {
     margin-top: 30px;
 }
 
- #hourglass-form {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.page-content.hourglass {
+    align-content: center
+}
+
+#hourglass-form {
+    width: fit-content;
+    margin: 10px auto;
+}
+
+#hourglass-display {
+    width: 500px;
+    margin: 0 auto;
 }
 
 #hourglass-display .table-column {
@@ -327,6 +336,7 @@ code {
 .timedisplay {
     min-width: 200px;
     font-size: 100px;
+    margin-bottom: -20px;
 }
 
 .hourglass-btn {

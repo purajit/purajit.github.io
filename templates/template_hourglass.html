@@ -3,11 +3,7 @@
 {% endwith %}
 <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
 <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
-<div class="page-content">
-    Type number of seconds needed, hit enter to start. Hit space to flip the hourglass. <a id="hg-appmode" href="javascript:enterAppMode();">Enter/exit app mode.</a>
-    <form id="hourglass-form">
-        <input inputmode="numeric" id="hourglass-timerequested">seconds
-    </form>
+<div class="page-content hourglass">
     <div id="hourglass-display" class="table no-borders">
         <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeleft"></div>
@@ -26,6 +22,9 @@
             <div class="table-column btn hourglass-btn" id="hg-flip">Flip</div>
         </div>
     </div>
+    <form id="hourglass-form">
+        <input inputmode="numeric" id="hourglass-timerequested">seconds
+    </form>
 </div>
 {% include './footer.html' %}
 
@@ -107,6 +106,10 @@
      document.getElementById("hourglass-display").onclick = function(e) {
          e.preventDefault();
          primaryAction();
+     }
+     document.getElementsByClassName("page-content")[0].ondblclick = function(e) {
+         e.preventDefault();
+         enterAppMode();
      }
      document.getElementById("hourglass-form").onsubmit = function(e) {
          e.preventDefault();
