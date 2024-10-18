@@ -277,6 +277,11 @@
           "template": "template_hourglass.html"
         },
         {
+          "title": "constant rolls",
+          "route": "constantrolls",
+          "template": "template_constant_rolls.html"
+        },
+        {
           "title": "jaxbox",
           "route": "jaxbox",
           "template": "template_jaxbox.html"

@@ -318,6 +318,16 @@ code {
     align-content: center
 }
 
+#hourglass-header {
+    width: 100%;
+}
+
+#fullscreen-btn {
+    margin-left: auto;
+    width: fit-content;
+    cursor: pointer;
+}
+
 #hourglass-form {
     width: fit-content;
     margin: 10px auto;
@@ -335,7 +345,7 @@ code {
 
 .timedisplay {
     min-width: 200px;
-    font-size: 100px;
+    font-size: 200px;
     margin-bottom: -20px;
 }
 
@@ -344,6 +354,42 @@ code {
     padding-bottom: 10px;
 }
 
+#constantrolls-dice {
+    display: grid;
+}
+
+@media (min-width: 350px) {
+  #constantrolls-dice { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 500px) {
+  #constantrolls-dice { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 650px) {
+  #constantrolls-dice { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 800px) {
+  #constantrolls-dice { grid-template-columns: repeat(5, 1fr); }
+}
+
+.constantrolls-tile {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    flex: 1;
+}
+.constantrolls-result {
+    font-size: 100px;
+    align-self: center;
+}
+.constantrolls-label {
+    font-size: 20px;
+    align-self: center;
+}
+
+/* generics */
 .v-spacer {
     height: 100%;
 }
@@ -367,4 +413,8 @@ code {
     border-radius: 5px;
     background: var(--light-bg);
     color: var(--bg);
+}
+
+.notes {
+    font-size: 15px;
 }
