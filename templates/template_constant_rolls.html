@@ -1,0 +1,107 @@
+{% with title="purajit | tools" %}
+{% include './header.html' %}
+{% endwith %}
+<div class="page-content hourglass">
+  <div id="hourglass-header"><div id="fullscreen-btn" title="fullscreen">⛶</div></div>
+  <h1 class="writing-title">Constant roller</h1>
+  <div id="constantrolls-dice">
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d2" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d2</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d4" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d4</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d6" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d6</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d8" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d8</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d10" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d10</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d12" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d12</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d14" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d14</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d16" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d16</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d20" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d20</div>
+    </div>
+    <div class="constantrolls-tile">
+      <div id="constantrolls-d100" class="constantrolls-result"></div>
+      <div class="constantrolls-label">d100</div>
+    </div>
+  </div>
+  <br/><div class="notes">Hit spacebar to stop rolling</div>
+</div>
+{% include './footer.html' %}
+
+<script>
+function enterAppMode() {
+     if (document.fullscreenElement) {
+         document.exitFullscreen();
+     } else {
+         const div = document.getElementsByClassName("page-content")[0];
+         div.requestFullscreen();
+     }
+ };
+
+
+  function roll(die) {
+    return Math.floor(Math.random() * die) + 1;
+  }
+  function startRolling() {
+    return setInterval(function() {
+      document.getElementById("constantrolls-d2").textContent = roll(2);
+      document.getElementById("constantrolls-d4").textContent = roll(4);
+      document.getElementById("constantrolls-d6").textContent = roll(6);
+      document.getElementById("constantrolls-d8").textContent = roll(8);
+      document.getElementById("constantrolls-d10").textContent = roll(10);
+      document.getElementById("constantrolls-d12").textContent = roll(12);
+      document.getElementById("constantrolls-d14").textContent = roll(14);
+      document.getElementById("constantrolls-d16").textContent = roll(16);
+      document.getElementById("constantrolls-d20").textContent = roll(20);
+      document.getElementById("constantrolls-d100").textContent = roll(100);
+    }, 10);
+  }
+
+  document.getElementById("fullscreen-btn").onclick = function(e) {
+    e.preventDefault();
+    enterAppMode();
+  }
+  let timer = startRolling();
+  document.onkeydown = function(e) {
+    if (e.key == " " ||
+        e.code == "Space" ||
+        e.keyCode == 32
+       ) {
+      e.preventDefault();
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  document.onkeyup = function(e) {
+    if (e.key == " " ||
+        e.code == "Space" ||
+        e.keyCode == 32
+       ) {
+      e.preventDefault();
+      timer = startRolling();
+    }
+  }
+</script>

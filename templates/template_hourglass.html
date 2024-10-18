@@ -4,6 +4,7 @@
 <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
 <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
 <div class="page-content hourglass">
+    <div id="hourglass-header"><div id="fullscreen-btn" title="fullscreen">⛶</div></div>
     <div id="hourglass-display" class="table no-borders">
         <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeleft"></div>
@@ -92,17 +93,22 @@
  }
 
  window.onload = function() {
-     document.body.onkeyup = function(e) {
+     window.onkeydown = function(e) {
          if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
              e.preventDefault();
              primaryAction();
          }
      }
+
      document.getElementById("hg-control").textContent = "Start";
      document.getElementById("hourglass-timerequested").value = 180;
      document.getElementById("hourglass-timeleft").textContent = 180;
      document.getElementById("hourglass-timeelapsed").textContent = 0;
 
+     document.getElementById("fullscreen-btn").onclick = function(e) {
+         e.preventDefault();
+         enterAppMode();
+     }
      document.getElementById("hourglass-display").onclick = function(e) {
          e.preventDefault();
          primaryAction();
