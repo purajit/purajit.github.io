@@ -272,6 +272,11 @@
       "route": "tools",
       "children": [
         {
+          "title": "hex map editor",
+          "route": "hexmaps",
+          "template": "template_hexmaps.html"
+        },
+        {
           "title": "hourglass",
           "route": "hourglass",
           "template": "template_hourglass.html"
