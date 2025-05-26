@@ -2,10 +2,6 @@
 
 ROOT_DIR=$(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-get-yass:
-	curl https://raw.githubusercontent.com/purajit/YASS/main/generate_site.py > generate_site.py
-	chmod +x generate_site.py
-
 symlink-assets:
 	rm -f $(ROOT_DIR)/docs/static/assets
 	ln -s ../../assets $(ROOT_DIR)/docs/static/assets
@@ -22,12 +18,12 @@ stop-server:
 enter-server:
 	docker exec -w /usr/share/nginx/html -it purajit.com sh
 
-generate-pages-local: get-yass
-	uv run ./generate_site.py yass_config_local.json
+generate-pages-local:
+	uv run https://raw.githubusercontent.com/purajit/YASS/refs/heads/main/generate_site.py yass_config_local.json
 
 # only used in local testing, but with "CDN" paths instead of local ones
-generate-pages-cdn: get-yass
-	uv run ./generate_site.py yass_config_prod.json
+generate-pages-cdn:
+	uv run https://raw.githubusercontent.com/purajit/YASS/refs/heads/main/generate_site.py yass_config_prod.json
 
 clean:
 	git clean -fd
