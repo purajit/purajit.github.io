@@ -272,9 +272,8 @@
       "route": "tools",
       "children": [
         {
-          "title": "hex map editor",
-          "route": "hexmaps",
-          "template": "template_hexmaps.html"
+          "title": "hexaggon",
+          "route": "https://hexaggon.com"
         },
         {
           "title": "hourglass",
