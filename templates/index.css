@@ -27,8 +27,9 @@
     --page-margin: 8%;
 }
 
-body {
+html, body {
     font-family: "Libre Caslon Text";
+    font-size: 2vh;
     color: var(--text);
     background-color: var(--light-bg);
     width: 100%;
@@ -51,7 +52,7 @@ a.nostyle {
 
 a.monospace {
     font-family: "Lekton";
-    font-size: 21px;
+    font-size: 1.5rem;
 }
 
 ol, ul {
@@ -78,7 +79,7 @@ code {
     color: var(--light-bg);
     page-break-inside: avoid;
     font-family: "Lekton";
-    font-size: 19px;
+    font-size: 1.5rem;
     line-height: 1.6;
     max-width: 100%;
     overflow: auto;
@@ -96,7 +97,7 @@ code {
 }
 
 #name {
-    font-size: 60px;
+    font-size: 4rem;
     font-weight: bold;
     background-color: var(--bg);
     color: var(--light-bg);
@@ -126,7 +127,7 @@ code {
 }
 
 .contents-item {
-    font-size: 45px;
+    font-size: 3rem;
     width: fit-content;
     padding: 10px 10px 10px 10px;
     /* background-color: var(--bg); */
@@ -146,7 +147,7 @@ code {
 .page-content {
     width: 100%;
     padding: 50px;
-    font-size: 25px;
+    font-size: 1.5rem;
     background: var(--bg);
     border-radius: 20px;
     box-sizing: border-box;
@@ -181,7 +182,7 @@ code {
 }
 
 .table-row.label {
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 .table-column {
@@ -241,7 +242,7 @@ code {
 
 .recipe-sources {
     padding-top: 20px;
-    font-size: 10px;
+    font-size: 0.5rem;
 }
 
 /* about page */
@@ -310,7 +311,7 @@ code {
     outline: none;
     color: var(--text);
     font-family: "Libre Caslon Text";
-    font-size: 30px;
+    font-size: 2rem;
     margin-top: 30px;
 }
 
@@ -326,7 +327,7 @@ code {
 }
 
 .force-dyad {
-    font-size: 10px;
+    font-size: 0.5rem;
     justify-content: right;
     align-content: flex-end;
     display: flex;
@@ -347,5 +348,5 @@ code {
 }
 
 .notes {
-    font-size: 15px;
+    font-size: 1rem;
 }
