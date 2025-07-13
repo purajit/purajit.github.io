@@ -18,30 +18,29 @@
   --font-color: light-dark(#111111, #f5f5f5);
 }
 
-body {
+html, body {
   margin: 0;
   font-family: "Libre Caslon Text";
-  padding: var(--gap);
+  padding: 0;
+  margin: 0;
   background-color: var(--background-color);
   color: var(--font-color);
+  font-size: 2vh;
 }
 
-#main {
-  max-width: 1200px;
+#continuous-dice {
+  width: min(98vw, 1200px);
   margin: auto;
 }
 
 .title {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin: 2rem 0 1.5rem 0;
+  font-size: 2rem;
 }
 
 .flex-row {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
 }
 
 .flex-col {
@@ -55,6 +54,7 @@ body {
 
 #dice {
   align-items: center;
+  margin: auto;
 }
 
 .tile {
@@ -91,14 +91,14 @@ body {
 }
 
 .history-label {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   margin-bottom: 0.25rem;
 }
 
 .history-entry {
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
   background: rgba(128, 128, 128, 0.1);
   padding: 4px 6px;
@@ -118,88 +118,84 @@ body {
   </style>
 </head>
 <body>
-  <div id="main">
-    <div id="contents">
-      <div class="page-content">
-        <h1 class="title">Continuous dice</h1>
-        <div id="dice" class="flex-col gappy">
-          <div class="flex-row gappy">
-            <div class="flex-col tile">
-              <div id="d2" class="result"></div>
-              <div class="label">d2</div>
-            </div>
-            <div class="flex-col tile">
-              <div id="d4" class="result"></div>
-              <div class="label">d4</div>
-            </div>
-            <div class="flex-col tile">
-              <div id="d6" class="result"></div>
-              <div class="label">d6</div>
-            </div>
-          </div>
-          <div class="flex-row gappy">
-            <div class="flex-col tile">
-              <div id="d8" class="result"></div>
-              <div class="label">d8</div>
-            </div>
-            <div class="flex-col tile-no-bg"><div class="result">🎲</div></div>
-            <div class="flex-col tile">
-              <div id="d10" class="result"></div>
-              <div class="label">d10</div>
-            </div>
-          </div>
-          <div class="flex-row gappy">
-            <div class="flex-col tile">
-              <div id="d12" class="result"></div>
-              <div class="label">d12</div>
-            </div>
-            <div class="flex-col tile">
-              <div id="d20" class="result"></div>
-              <div class="label">d20</div>
-            </div>
-            <div class="flex-col tile">
-              <div id="d100" class="result"></div>
-              <div class="label">d100</div>
-            </div>
-          </div>
+  <div id="continuous-dice" class="flex-col gappy">
+    <h1 class="title">Continuous dice</h1>
+    <div id="dice" class="flex-col gappy">
+      <div class="flex-row gappy">
+        <div class="flex-col tile">
+          <div id="d2" class="result"></div>
+          <div class="label">d2</div>
         </div>
-        <div id="history" class="flex-row gappy">
-          <div class="flex-col gappy">
-            <div class="history-label">d2</div>
-            <div id="d2-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d4</div>
-            <div id="d4-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d6</div>
-            <div id="d6-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d8</div>
-            <div id="d8-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d10</div>
-            <div id="d10-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d12</div>
-            <div id="d12-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d20</div>
-            <div id="d20-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d100</div>
-            <div id="d100-history" class="flex-col gappy"></div>
-          </div>
+        <div class="flex-col tile">
+          <div id="d4" class="result"></div>
+          <div class="label">d4</div>
         </div>
-        <div class="notes">Hold spacebar to stop rolling</div>
+        <div class="flex-col tile">
+          <div id="d6" class="result"></div>
+          <div class="label">d6</div>
+        </div>
+      </div>
+      <div class="flex-row gappy">
+        <div class="flex-col tile">
+          <div id="d8" class="result"></div>
+          <div class="label">d8</div>
+        </div>
+        <div class="flex-col tile-no-bg"><div class="result">🎲</div></div>
+        <div class="flex-col tile">
+          <div id="d10" class="result"></div>
+          <div class="label">d10</div>
+        </div>
+      </div>
+      <div class="flex-row gappy">
+        <div class="flex-col tile">
+          <div id="d12" class="result"></div>
+          <div class="label">d12</div>
+        </div>
+        <div class="flex-col tile">
+          <div id="d20" class="result"></div>
+          <div class="label">d20</div>
+        </div>
+        <div class="flex-col tile">
+          <div id="d100" class="result"></div>
+          <div class="label">d100</div>
+        </div>
       </div>
     </div>
+    <div id="history" class="flex-row gappy">
+      <div class="flex-col gappy">
+        <div class="history-label">d2</div>
+        <div id="d2-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d4</div>
+        <div id="d4-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d6</div>
+        <div id="d6-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d8</div>
+        <div id="d8-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d10</div>
+        <div id="d10-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d12</div>
+        <div id="d12-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d20</div>
+        <div id="d20-history" class="flex-col gappy"></div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="history-label">d100</div>
+        <div id="d100-history" class="flex-col gappy"></div>
+      </div>
+    </div>
+    <div class="notes">Hold spacebar/tap and hold to stop rolling</div>
   </div>
 </body>
 
