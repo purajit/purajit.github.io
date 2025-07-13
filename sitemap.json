@@ -281,9 +281,9 @@
           "template": "template_hourglass.html"
         },
         {
-          "title": "constant rolls",
-          "route": "constantrolls",
-          "template": "template_constant_rolls.html"
+          "title": "continuous dice",
+          "route": "continuousdice",
+          "template": "template_continuous_dice.html"
         },
         {
           "title": "jaxbox",

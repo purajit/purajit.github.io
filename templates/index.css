@@ -314,79 +314,10 @@ code {
     margin-top: 30px;
 }
 
-.page-content.hourglass {
-    align-content: center
-}
-
-#hourglass-header {
-    width: 100%;
-}
-
 #fullscreen-btn {
     margin-left: auto;
     width: fit-content;
     cursor: pointer;
-}
-
-#hourglass-form {
-    width: fit-content;
-    margin: 10px auto;
-}
-
-#hourglass-display {
-    width: 500px;
-    margin: 0 auto;
-}
-
-#hourglass-display .table-column {
-    display: flex;
-    justify-content: center;
-}
-
-.timedisplay {
-    min-width: 200px;
-    font-size: 200px;
-    margin-bottom: -20px;
-}
-
-.hourglass-btn {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-#constantrolls-dice {
-    display: grid;
-}
-
-@media (min-width: 350px) {
-  #constantrolls-dice { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 500px) {
-  #constantrolls-dice { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 650px) {
-  #constantrolls-dice { grid-template-columns: repeat(4, 1fr); }
-}
-
-@media (min-width: 800px) {
-  #constantrolls-dice { grid-template-columns: repeat(5, 1fr); }
-}
-
-.constantrolls-tile {
-    display: flex;
-    flex-direction: column;
-    width: 150px;
-    flex: 1;
-}
-.constantrolls-result {
-    font-size: 100px;
-    align-self: center;
-}
-.constantrolls-label {
-    font-size: 20px;
-    align-self: center;
 }
 
 /* generics */
