@@ -3,29 +3,112 @@
   <meta charset="utf-8"/>
   <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
   <style>
-@font-face {
-    font-family: 'Libre Caslon Text';
-    src: local('Libre Caslon Text Regular'), url(/static/LibreCaslonText-Regular.ttf) format('truetype');
-}
-
 :root {
   color-scheme: light dark;
-  --btn-bg: light-dark(#e0e0e0, #2a2a2a);
-  --btn-hover: light-dark(#cfcfcf, #3a3a3a);
-  --radius: 0.5rem;
-  --gap: 1rem;
+  --led-bg: #222222;
+  --led-text: #00ff55;
+  --btn-shadow: rgba(255, 255, 255, 0.1);
+  --border-radius: 20px;
   --background-color: light-dark(#f9f9f9, #121212);
   --font-color: light-dark(#111111, #f5f5f5);
-  --tile-background-color: light-dark(rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.02));
+  --btn-font-color: light-dark(#111111, #111111);
+  --gap: 1rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.hourglass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(90vw, 600px);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+}
+
+#hourglass-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+#hourglass-display {
+  width: 100%;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 30px 0px 30px 0px
+}
+
+.timedisplay {
+  font-family: 'Digital-7', 'Courier New', Courier, monospace;
+  font-size: 6rem;
+  background: var(--led-bg);
+  color: var(--led-text);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow:
+    inset -1px -1px 4px rgba(0,0,0,0.5),
+    inset 2px 2px 6px rgba(0,255,0,0.2),
+    0 0 20px rgba(0,255,0,0.4);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.label {
+  font-weight: bold;
+  margin: 1rem 0;
+  font-size: 2rem;
   color: var(--font-color);
-  font-family: "Libre Caslon Text";
+}
+
+.btn {
+  width: 100%;
+  max-width: 400px;
+  color: var(--btn-font-color);
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, #f0f0f0, #bbb);
+  border: 2px solid #888;
+  box-shadow: var(--btn-shadow), 0 3px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  margin: 0 auto 0 auto;
+  transition: background 0.2s ease;
+  font-size: 2rem;
+}
+
+.btn:hover {
+}
+
+.btn:active {
+  background: #ffffff;
+}
+
+#hourglass-form {
+  align-items: center;
+}
+
+#hourglass-timerequested {
+  width: 100px;
+  padding: 0.5rem;
+  border: 2px inset #aaa;
+  background: #f9f9f9;
+  border-radius: 8px;
+  color: black;
 }
 
 .flex-col {
@@ -42,199 +125,124 @@ html, body {
   gap: var(--gap);
 }
 
-.hourglass {
-  align-items: center;
-  width: fit-content;
-  padding: 1rem;
-  box-sizing: border-box;
+.justify-center {
   margin: auto;
-  height: 100vh;
-  justify-content: center;
 }
-
-#hourglass-display {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--tile-background-color);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  box-sizing: border-box;
-}
-
-.timedisplay {
-  font-size: 10rem;
-  font-weight: bold;
-  line-height: 1.1;
-  width: 5ch; /* Enough for 9999 */
-  text-align: center;
-}
-
-.label {
-  font-size: 2rem;
-  opacity: 0.7;
-  margin-bottom: 0.5rem;
-}
-
-.btn {
-  background: var(--btn-bg);
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-weight: 500;
-  transition: background 0.2s;
-  user-select: none;
-  font-size: 3rem;
-}
-
-.btn:hover {
-  background: var(--btn-hover);
-}
-
-#hourglass-form {
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
-}
-
-#hourglass-timerequested {
-  width: 80px;
-  padding: 0.3rem 0.5rem;
-  font-size: 1rem;
-  border-radius: var(--radius);
-  border: 1px solid light-dark(#ccc, #333);
-  background: light-dark(#fff, #2a2a2a);
-  color: inherit;
-}
-
   </style>
 </head>
 <body>
-  <div id="main">
-    <div id="contents">
-      <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
-      <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
-      <div class="hourglass flex-col gappy">
-        <div id="hourglass-display" class="flex-col gappy">
-          <div class="flex-row">
-            <div class="timedisplay" id="hourglass-timeleft"></div>
-          </div>
-          <div class="flex-row label">
-            <div class="flex-col">seconds left</div>
-          </div>
-          <div class="flex-row">
-            <div class="timedisplay" id="hourglass-timeelapsed"></div>
-          </div>
-          <div class="flex-row label">
-            <div class="flex-col">seconds elapsed</div>
-          </div>
-          <div class="flex-row gappy">
-            <div class="btn" id="hg-control">Start</div>
-            <div class="btn" id="hg-flip">Flip</div>
-          </div>
-        </div>
-        <form id="hourglass-form" class="gappy">
-          <input inputmode="numeric" id="hourglass-timerequested">seconds
-        </form>
+  <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
+  <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
+  <div class="hourglass flex-col">
+    <div id="hourglass-display" class="flex-col">
+      <div class="flex-row">
+        <div class="timedisplay" id="hourglass-timeleft"></div>
+      </div>
+      <div class="flex-row label">
+        <div class="justify-center">seconds left</div>
+      </div>
+      <div class="flex-row">
+        <div class="timedisplay" id="hourglass-timeelapsed"></div>
+      </div>
+      <div class="flex-row label">
+        <div class="justify-center">seconds elapsed</div>
+      </div>
+      <div class="flex-col gappy">
+        <div class="btn" id="hg-control">Start</div>
+        <div class="btn" id="hg-flip">Flip</div>
       </div>
     </div>
+    <form id="hourglass-form" class="flex-row gappy">
+      <input inputmode="numeric" id="hourglass-timerequested"><div>seconds</div>
+    </form>
   </div>
 </body>
 
 <script>
- let totalTime;
- let timeLeft;
- let currentTimer;
+let totalTime;
+let timeLeft;
+let currentTimer;
 
- function flip() {
-     timeLeft = totalTime - timeLeft;
-     document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
-     document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
+function flip() {
+  timeLeft = totalTime - timeLeft;
+  document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? "0" : timeLeft;
+  document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
  }
 
- function reset() {
-     document.getElementById("hourglass-timerequested").blur();
+function reset() {
+  document.getElementById("hourglass-timerequested").blur();
 
-     clearInterval(currentTimer);
+  clearInterval(currentTimer);
 
-     totalTime = document.getElementById("hourglass-timerequested").value;
-     timeLeft = totalTime;
+  totalTime = document.getElementById("hourglass-timerequested").value;
+  timeLeft = totalTime;
 
-     document.getElementById("hourglass-timeleft").textContent = totalTime;
-     document.getElementById("hourglass-timeelapsed").textContent = 0;
+  document.getElementById("hourglass-timeleft").textContent = totalTime;
+  document.getElementById("hourglass-timeelapsed").textContent = 0;
 
-     document.getElementById("hg-control").textContent = "Start";
- }
+  document.getElementById("hg-control").textContent = "Start";
+}
 
- function initiateTimer() {
-     reset();
-     currentTimer = setInterval(function() {
-         timeLeft--;
-         document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? '0' : timeLeft;
-         document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
-         if (timeLeft > 0 && timeLeft <= 5) {
-             document.getElementById('hourglass-beep').play();
-         }
+function initiateTimer() {
+  reset();
+  currentTimer = setInterval(function() {
+    timeLeft--;
+    document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? "0" : timeLeft;
+    document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
+    if (timeLeft > 0 && timeLeft <= 5) {
+      document.getElementById("hourglass-beep").play();
+    }
 
-         if (timeLeft <= 0) {
-             document.getElementById("hg-control").textContent = "Start";
-             document.getElementById('hourglass-end').play();
-             clearInterval(currentTimer);
-         }
-     }, 1000);
+    if (timeLeft <= 0) {
+      document.getElementById("hg-control").textContent = "Start";
+      document.getElementById("hourglass-end").play();
+      clearInterval(currentTimer);
+    }
+  }, 1000);
 
-     document.getElementById("hg-control").textContent = "Reset";
- }
+  document.getElementById("hg-control").textContent = "Reset";
+}
 
- // primary action taken on click/hitting space
- function primaryAction() {
-     if (timeLeft <= 0 || !currentTimer) {
-         initiateTimer();
-     } else {
-         flip();
-     }
- }
+// primary action taken on click/hitting space
+function primaryAction() {
+  if (timeLeft <= 0 || !currentTimer) {
+    initiateTimer();
+  } else {
+    flip();
+  }
+}
 
- window.onload = function() {
-     window.onkeydown = function(e) {
-         if (e.key == " " || e.code == "Space" || e.keyCode == 32) {
-             e.preventDefault();
-             primaryAction();
-         }
-     }
+window.addEventListener("keydown", function(e) {
+  if (e.code == "Space") {
+    e.preventDefault();
+    primaryAction();
+  }
+});
 
-     document.getElementById("hg-control").textContent = "Start";
-     document.getElementById("hourglass-timerequested").value = 180;
-     document.getElementById("hourglass-timeleft").textContent = 180;
-     document.getElementById("hourglass-timeelapsed").textContent = 0;
+document.getElementById("hg-control").textContent = "Start";
+document.getElementById("hourglass-timerequested").value = 180;
+document.getElementById("hourglass-timeleft").textContent = 180;
+document.getElementById("hourglass-timeelapsed").textContent = 0;
 
-     document.getElementById("hourglass-display").onclick = function(e) {
-         e.preventDefault();
-         primaryAction();
-     }
-     document.getElementsByClassName("page-content")[0].ondblclick = function(e) {
-         e.preventDefault();
-         enterAppMode();
-     }
-     document.getElementById("hourglass-form").onsubmit = function(e) {
-         e.preventDefault();
-         initiateTimer();
-     };
+document.getElementById("hourglass-display").addEventListener("click", function(e) {
+  e.preventDefault();
+  primaryAction();
+});
 
-     document.getElementById("hg-control").onclick = function(e) {
-         if (e.target.textContent === "Start") {
-             initiateTimer();
-         } else {
-             reset();
-         }
-     };
+document.getElementById("hourglass-form").addEventListener("submit",  function(e) {
+  e.preventDefault();
+  initiateTimer();
+});
 
-     document.getElementById("hg-flip").onclick = function(e) {
-         flip();
-     };
- };
+document.getElementById("hg-control").addEventListener("click",  function(e) {
+  if (e.target.textContent === "Start") {
+    initiateTimer();
+  } else {
+    reset();
+  }
+});
+
+document.getElementById("hg-flip").addEventListener("click",  function(e) {
+  flip();
+});
 </script>
