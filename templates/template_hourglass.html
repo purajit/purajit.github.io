@@ -1,33 +1,228 @@
-{% with title="purajit | tools" %}
-{% include './header.html' %}
-{% endwith %}
-<audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
-<audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
-<div class="page-content hourglass">
-    <div id="hourglass-header"><div id="fullscreen-btn" title="fullscreen">⛶</div></div>
-    <div id="hourglass-display" class="table no-borders">
-        <div class="table-row non-alternating">
+<head>
+  <title>purajit | {{ tab_title }}</title>
+  <meta charset="utf-8"/>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+  <style>
+:root {
+  color-scheme: light dark;
+  --bg-light: #f9f9f9;
+  --bg-dark: #121212;
+  --fg-light: #111;
+  --fg-dark: #f5f5f5;
+  --accent: #4e9af1;
+  --btn-bg: light-dark(#e0e0e0, #2a2a2a);
+  --btn-hover: light-dark(#cfcfcf, #3a3a3a);
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 0.5rem;
+  --gap: 1rem;
+  --mono-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  background-color: light-dark(var(--bg-light), var(--bg-dark));
+  color: light-dark(var(--fg-light), var(--fg-dark));
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: var(--background-color);
+  color: var(--font-color);
+  font-family: var(--font-stack);
+}
+
+.page-content.hourglass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+  max-width: 600px;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+#hourglass-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#fullscreen-btn {
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+#fullscreen-btn:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+#hourglass-display {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  background: light-dark(#ffffff, #1b1b1b);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.table-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.table-column {
+  text-align: center;
+}
+
+.timedisplay {
+  font-family: var(--mono-font);
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: bold;
+  line-height: 1.1;
+  width: 8ch; /* Enough for 9999 */
+  text-align: center;
+}
+
+.label {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  background: var(--btn-bg);
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+  user-select: none;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+#hourglass-form {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#hourglass-timerequested {
+  width: 80px;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid light-dark(#ccc, #333);
+  background: light-dark(#fff, #2a2a2a);
+  color: inherit;
+}
+
+/* 📱 Fullscreen stacked layout for mobile */
+@media (max-width: 600px) {
+  body, html {
+    overflow: hidden;
+  }
+
+  .page-content.hourglass {
+    padding: 0;
+    height: 100vh;
+    max-width: none;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #hourglass-display {
+    flex-grow: 1;
+    width: 100%;
+    border-radius: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .table-row {
+    flex-direction: column;
+    flex: 1 1 50%;
+    justify-content: center;
+  }
+
+  .table-row:nth-of-type(1),
+  .table-row:nth-of-type(3) {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timedisplay {
+    font-size: 20vw;
+    width: 100%;
+  }
+
+  .label {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .table-row:nth-of-type(5) {
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+  }
+
+  #hourglass-form {
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div id="contents">
+      <audio id="hourglass-beep" src="{{ static_url }}/sounds/timer-beep.mp3" preload="auto"></audio>
+      <audio id="hourglass-end" src="{{ static_url }}/sounds/timer-end.mp3" preload="auto"></audio>
+      <div class="page-content hourglass">
+        <div id="hourglass-header"><div id="fullscreen-btn" title="fullscreen">⛶</div></div>
+        <div id="hourglass-display" class="table no-borders">
+          <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeleft"></div>
-        </div>
-        <div class="table-row non-alternating label">
+          </div>
+          <div class="table-row non-alternating label">
             <div class="table-column">seconds left</div>
-        </div>
-        <div class="table-row non-alternating">
+          </div>
+          <div class="table-row non-alternating">
             <div class="table-column timedisplay" id="hourglass-timeelapsed"></div>
-        </div>
-        <div class="table-row non-alternating label">
+          </div>
+          <div class="table-row non-alternating label">
             <div class="table-column">seconds elapsed</div>
-        </div>
-        <div class="table-row non-alternating">
+          </div>
+          <div class="table-row non-alternating">
             <div class="table-column btn hourglass-btn" id="hg-control">Start</div>
             <div class="table-column btn hourglass-btn" id="hg-flip">Flip</div>
+          </div>
         </div>
+        <form id="hourglass-form">
+          <input inputmode="numeric" id="hourglass-timerequested">seconds
+        </form>
+      </div>
     </div>
-    <form id="hourglass-form">
-        <input inputmode="numeric" id="hourglass-timerequested">seconds
-    </form>
-</div>
-{% include './footer.html' %}
+  </div>
+</body>
 
 <script>
  let totalTime;
