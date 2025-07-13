@@ -20,6 +20,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   font-size: 2vh;
@@ -88,6 +89,10 @@ html, body {
   background: #ffffff;
 }
 
+.hidden {
+  display: none;
+}
+
 #hourglass-form {
   align-items: center;
 }
@@ -142,7 +147,8 @@ input {
         <div class="justify-center">seconds elapsed</div>
       </div>
       <div class="flex-col gappy">
-        <div class="btn" id="hg-control">Start</div>
+        <div class="btn" id="hg-start">Start</div>
+        <div class="btn" id="hg-reset">Reset</div>
         <div class="btn" id="hg-flip">Flip</div>
       </div>
     </div>
@@ -153,54 +159,66 @@ input {
 </body>
 
 <script>
-let totalTime;
-let timeLeft;
-let currentTimer;
+let TOTAL_TIME = 180;
+let TIME_LEFT = 180;
+let CURRENT_TIMER = null;
 
-function flip() {
-  timeLeft = totalTime - timeLeft;
-  document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? "0" : timeLeft;
-  document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
- }
+const START_BUTTON = document.getElementById("hg-start");
+const RESET_BUTTON = document.getElementById("hg-reset");
+const FLIP_BUTTON = document.getElementById("hg-flip");
+const TIME_LEFT_DIV = document.getElementById("hourglass-timeleft");
+const TIME_ELAPSED_DIV = document.getElementById("hourglass-timeelapsed");
+const TOTAL_TIME_INPUT = document.getElementById("hourglass-timerequested");
 
-function reset() {
-  document.getElementById("hourglass-timerequested").blur();
+function init(resetTimeDisplay = false) {
+  clearInterval(CURRENT_TIMER);
+  CURRENT_TIMER = null;
+  TIME_LEFT = TOTAL_TIME;
+  RESET_BUTTON.classList.add("hidden");
+  START_BUTTON.classList.remove("hidden");
 
-  clearInterval(currentTimer);
-
-  totalTime = document.getElementById("hourglass-timerequested").value;
-  timeLeft = totalTime;
-
-  document.getElementById("hourglass-timeleft").textContent = totalTime;
-  document.getElementById("hourglass-timeelapsed").textContent = 0;
-
-  document.getElementById("hg-control").textContent = "Start";
+  if (resetTimeDisplay) {
+    TIME_LEFT_DIV.textContent = TOTAL_TIME;
+    TIME_ELAPSED_DIV.textContent = 0;
+  }
 }
 
-function initiateTimer() {
+function flip() {
+  TIME_LEFT = TOTAL_TIME - TIME_LEFT;
+  TIME_LEFT_DIV.textContent = TIME_LEFT <= 0 ? "0" : TIME_LEFT;
+  TIME_ELAPSED_DIV.textContent = TIME_LEFT <= 0 ? TOTAL_TIME : TOTAL_TIME - TIME_LEFT;
+}
+
+function reset() {
+  TOTAL_TIME = TOTAL_TIME_INPUT.value;
+  init(true);
+  TOTAL_TIME_INPUT.blur();
+}
+
+function startTimer() {
   reset();
-  currentTimer = setInterval(function() {
-    timeLeft--;
-    document.getElementById("hourglass-timeleft").textContent = timeLeft <= 0 ? "0" : timeLeft;
-    document.getElementById("hourglass-timeelapsed").textContent = timeLeft <= 0 ? totalTime : totalTime - timeLeft;
-    if (timeLeft > 0 && timeLeft <= 5) {
+  CURRENT_TIMER = setInterval(function() {
+    TIME_LEFT--;
+    TIME_LEFT_DIV.textContent = TIME_LEFT <= 0 ? "0" : TIME_LEFT;
+    TIME_ELAPSED_DIV.textContent = TIME_LEFT <= 0 ? TOTAL_TIME : TOTAL_TIME - TIME_LEFT;
+    if (TIME_LEFT > 0 && TIME_LEFT <= 5) {
       document.getElementById("hourglass-beep").play();
     }
 
-    if (timeLeft <= 0) {
-      document.getElementById("hg-control").textContent = "Start";
+    if (TIME_LEFT <= 0) {
       document.getElementById("hourglass-end").play();
-      clearInterval(currentTimer);
+      init();
     }
   }, 1000);
 
-  document.getElementById("hg-control").textContent = "Reset";
+  RESET_BUTTON.classList.remove("hidden");
+  START_BUTTON.classList.add("hidden");
 }
 
 // primary action taken on click/hitting space
 function primaryAction() {
-  if (timeLeft <= 0 || !currentTimer) {
-    initiateTimer();
+  if (!CURRENT_TIMER) {
+    startTimer();
   } else {
     flip();
   }
@@ -213,30 +231,27 @@ window.addEventListener("keydown", function(e) {
   }
 });
 
-document.getElementById("hg-control").textContent = "Start";
-document.getElementById("hourglass-timerequested").value = 180;
-document.getElementById("hourglass-timeleft").textContent = 180;
-document.getElementById("hourglass-timeelapsed").textContent = 0;
-
-document.getElementById("hourglass-display").addEventListener("click", function(e) {
-  e.preventDefault();
-  primaryAction();
-});
-
 document.getElementById("hourglass-form").addEventListener("submit",  function(e) {
   e.preventDefault();
-  initiateTimer();
+  reset();
 });
 
-document.getElementById("hg-control").addEventListener("click",  function(e) {
-  if (e.target.textContent === "Start") {
-    initiateTimer();
-  } else {
-    reset();
-  }
+document.getElementById("hg-start").addEventListener("click",  function(e) {
+  e.preventDefault();
+  startTimer();
+});
+
+document.getElementById("hg-reset").addEventListener("click",  function(e) {
+  e.preventDefault();
+  reset();
 });
 
 document.getElementById("hg-flip").addEventListener("click",  function(e) {
+  e.preventDefault();
   flip();
 });
+
+TOTAL_TIME_INPUT.value = TIME_LEFT;
+init(true);
+
 </script>
