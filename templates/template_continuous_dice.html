@@ -13,7 +13,8 @@
   --radius: 0.5rem;
   --gap: 1rem;
   --background-color: light-dark(#f9f9f9, #121212);
-  --tile-background-color: light-dark(#ffffff, #1e1e1e);
+  --tile-background-color: light-dark(rgba(0, 0, 0, 0.02), rgba(255, 255, 255, 0.02));
+  --tile-border-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
   --font-color: light-dark(#111111, #f5f5f5);
 }
 
@@ -70,35 +71,29 @@ body {
 }
 
 #dice {
-  display: grid;
-}
-
-@media (min-width: 350px) {
-  #dice { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 500px) {
-  #dice { grid-template-columns: repeat(3, 1fr); }
-}
-@media (min-width: 650px) {
-  #dice { grid-template-columns: repeat(4, 1fr); }
-}
-@media (min-width: 800px) {
-  #dice { grid-template-columns: repeat(5, 1fr); }
+  align-items: center;
 }
 
 .tile {
   background: var(--tile-background-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--tile-border-color);
   border-radius: var(--radius);
   padding: 1rem;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 200px;
+}
+
+.tile-no-bg {
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  width: 200px;
 }
 
 .result {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin: auto;
 }
 
 .label {
@@ -147,46 +142,45 @@ body {
           <div id="fullscreen-btn" title="fullscreen">⛶</div>
         </div>
         <h1 class="title">Continuous dice</h1>
-        <div id="dice" class="gappy">
-          <div class="flex-col tile">
-            <div id="d2" class="result"></div>
-            <div class="label">d2</div>
+        <div id="dice" class="flex-col gappy">
+          <div class="flex-row gappy">
+            <div class="flex-col tile">
+              <div id="d2" class="result"></div>
+              <div class="label">d2</div>
+            </div>
+            <div class="flex-col tile">
+              <div id="d4" class="result"></div>
+              <div class="label">d4</div>
+            </div>
+            <div class="flex-col tile">
+              <div id="d6" class="result"></div>
+              <div class="label">d6</div>
+            </div>
           </div>
-          <div class="flex-col tile">
-            <div id="d4" class="result"></div>
-            <div class="label">d4</div>
+          <div class="flex-row gappy">
+            <div class="flex-col tile">
+              <div id="d8" class="result"></div>
+              <div class="label">d8</div>
+            </div>
+            <div class="flex-col tile-no-bg"><div class="result">🎲</div></div>
+            <div class="flex-col tile">
+              <div id="d10" class="result"></div>
+              <div class="label">d10</div>
+            </div>
           </div>
-          <div class="flex-col tile">
-            <div id="d6" class="result"></div>
-            <div class="label">d6</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d8" class="result"></div>
-            <div class="label">d8</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d10" class="result"></div>
-            <div class="label">d10</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d12" class="result"></div>
-            <div class="label">d12</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d14" class="result"></div>
-            <div class="label">d14</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d16" class="result"></div>
-            <div class="label">d16</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d20" class="result"></div>
-            <div class="label">d20</div>
-          </div>
-          <div class="flex-col tile">
-            <div id="d100" class="result"></div>
-            <div class="label">d100</div>
+          <div class="flex-row gappy">
+            <div class="flex-col tile">
+              <div id="d12" class="result"></div>
+              <div class="label">d12</div>
+            </div>
+            <div class="flex-col tile">
+              <div id="d20" class="result"></div>
+              <div class="label">d20</div>
+            </div>
+            <div class="flex-col tile">
+              <div id="d100" class="result"></div>
+              <div class="label">d100</div>
+            </div>
           </div>
         </div>
         <div id="history" class="flex-row gappy">
@@ -213,14 +207,6 @@ body {
           <div class="flex-col gappy">
             <div class="history-label">d12</div>
             <div id="d12-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d14</div>
-            <div id="d14-history" class="flex-col gappy"></div>
-          </div>
-          <div class="flex-col gappy">
-            <div class="history-label">d16</div>
-            <div id="d16-history" class="flex-col gappy"></div>
           </div>
           <div class="flex-col gappy">
             <div class="history-label">d20</div>
@@ -269,8 +255,6 @@ body {
     new Die(8),
     new Die(10),
     new Die(12),
-    new Die(14),
-    new Die(16),
     new Die(20),
     new Die(100),
   ];
@@ -335,7 +319,7 @@ body {
 
   document.addEventListener("touchend", function(e) {
     e.preventDefault();
-    stopRolling();
+    startRolling();
   }, { passive: false });
 
   startRolling();
