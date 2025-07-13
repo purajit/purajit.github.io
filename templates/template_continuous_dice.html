@@ -1,0 +1,342 @@
+<head>
+  <title>purajit | {{ tab_title }}</title>
+  <meta charset="utf-8"/>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+  <style>
+@font-face {
+    font-family: 'Libre Caslon Text';
+    src: local('Libre Caslon Text Regular'), url(/static/LibreCaslonText-Regular.ttf) format('truetype');
+}
+
+:root {
+  color-scheme: light dark;
+  --radius: 0.5rem;
+  --gap: 1rem;
+  --background-color: light-dark(#f9f9f9, #121212);
+  --tile-background-color: light-dark(#ffffff, #1e1e1e);
+  --font-color: light-dark(#111111, #f5f5f5);
+}
+
+body {
+  margin: 0;
+  font-family: "Libre Caslon Text";
+  padding: var(--gap);
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+#main {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1.5rem 0;
+}
+
+#header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+#fullscreen-btn {
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+#fullscreen-btn:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gappy {
+  gap: var(--gap);
+}
+
+#dice {
+  display: grid;
+}
+
+@media (min-width: 350px) {
+  #dice { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 500px) {
+  #dice { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 650px) {
+  #dice { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 800px) {
+  #dice { grid-template-columns: repeat(5, 1fr); }
+}
+
+.tile {
+  background: var(--tile-background-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.result {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+#history {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.history-label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.history-entry {
+  font-size: 1.5rem;
+  text-align: center;
+  background: rgba(128, 128, 128, 0.1);
+  padding: 4px 6px;
+  border-radius: var(--radius);
+}
+.history-entry:first-child {
+  background: #435942;
+  color: white;
+}
+
+.notes {
+  margin-top: 2rem;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.7;
+}
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div id="contents">
+      <div class="page-content">
+        <div id="header">
+          <div id="fullscreen-btn" title="fullscreen">⛶</div>
+        </div>
+        <h1 class="title">Continuous dice</h1>
+        <div id="dice" class="gappy">
+          <div class="flex-col tile">
+            <div id="d2" class="result"></div>
+            <div class="label">d2</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d4" class="result"></div>
+            <div class="label">d4</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d6" class="result"></div>
+            <div class="label">d6</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d8" class="result"></div>
+            <div class="label">d8</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d10" class="result"></div>
+            <div class="label">d10</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d12" class="result"></div>
+            <div class="label">d12</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d14" class="result"></div>
+            <div class="label">d14</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d16" class="result"></div>
+            <div class="label">d16</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d20" class="result"></div>
+            <div class="label">d20</div>
+          </div>
+          <div class="flex-col tile">
+            <div id="d100" class="result"></div>
+            <div class="label">d100</div>
+          </div>
+        </div>
+        <div id="history" class="flex-row gappy">
+          <div class="flex-col gappy">
+            <div class="history-label">d2</div>
+            <div id="d2-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d4</div>
+            <div id="d4-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d6</div>
+            <div id="d6-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d8</div>
+            <div id="d8-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d10</div>
+            <div id="d10-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d12</div>
+            <div id="d12-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d14</div>
+            <div id="d14-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d16</div>
+            <div id="d16-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d20</div>
+            <div id="d20-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d100</div>
+            <div id="d100-history" class="flex-col gappy"></div>
+          </div>
+        </div>
+        <div class="notes">Hold spacebar to stop rolling</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  class Die {
+    constructor(faces) {
+      this.faces = faces;
+      this.dieDiv = document.getElementById(`d${this.faces}`)
+      this.historyDiv = document.getElementById(`d${this.faces}-history`)
+    }
+
+    roll() {
+      const result = roll(this.faces);
+      this.dieDiv.textContent = result;
+    }
+
+    record() {
+      const result = this.dieDiv.textContent;
+      if (this.historyDiv.childElementCount > 7) {
+        this.historyDiv.removeChild(this.historyDiv.lastChild);
+      }
+      const historyEntryDiv = document.createElement("div");
+      historyEntryDiv.classList.add("history-entry");
+      historyEntryDiv.textContent = result;
+      this.historyDiv.prepend(historyEntryDiv);
+    }
+  }
+
+  const DICE = [
+    new Die(2),
+    new Die(4),
+    new Die(6),
+    new Die(8),
+    new Die(10),
+    new Die(12),
+    new Die(14),
+    new Die(16),
+    new Die(20),
+    new Die(100),
+  ];
+
+  let PAUSED = true;
+  let TIMER = null;
+
+  function enterAppMode() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      const div = document.getElementsByClassName("page-content")[0];
+      div.requestFullscreen();
+    }
+  }
+
+  function roll(die) {
+    return Math.floor(Math.random() * die) + 1;
+  }
+
+  function startRolling() {
+    if (!PAUSED) return;
+
+    PAUSED = false;
+    TIMER = setInterval(function() {
+      DICE.forEach(d => d.roll());
+    }, 10);
+  }
+
+  function stopRolling() {
+    if (PAUSED) return;
+
+    clearInterval(TIMER);
+    TIMER = null;
+    DICE.forEach(d => d.record());
+    PAUSED = true;
+  }
+
+  document.getElementById("fullscreen-btn").onclick = function(e) {
+    e.preventDefault();
+    enterAppMode();
+  }
+
+  document.addEventListener("keydown", function(e) {
+    if (e.code == "Space") {
+      e.preventDefault();
+      stopRolling();
+    }
+  });
+
+  document.addEventListener("keyup", function(e) {
+    if (e.code == "Space") {
+      e.preventDefault();
+      startRolling();
+    }
+  });
+
+  document.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    stopRolling();
+  }, { passive: false });
+
+  document.addEventListener("touchend", function(e) {
+    e.preventDefault();
+    stopRolling();
+  }, { passive: false });
+
+  startRolling();
+</script>
