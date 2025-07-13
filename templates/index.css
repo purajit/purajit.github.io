@@ -35,9 +35,13 @@ html, body {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 0;
+}
+
+body {
     padding-top: 8%;
     padding-bottom: 8%;
-    margin: 0;
+
 }
 
 /* overriding defaults */
@@ -79,7 +83,7 @@ code {
     color: var(--light-bg);
     page-break-inside: avoid;
     font-family: "Lekton";
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1.6;
     max-width: 100%;
     overflow: auto;
@@ -93,11 +97,11 @@ code {
     display: flex;
     flex-direction: column;
     font-weight: 500;
-    width: min(1000px, 100vw);
+    width: min(1000px, 95vw);
 }
 
 #name {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     background-color: var(--bg);
     color: var(--light-bg);
@@ -127,7 +131,7 @@ code {
 }
 
 .contents-item {
-    font-size: 3rem;
+    font-size: 2rem;
     width: fit-content;
     padding: 10px 10px 10px 10px;
     /* background-color: var(--bg); */
@@ -147,7 +151,7 @@ code {
 .page-content {
     width: 100%;
     padding: 50px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background: var(--bg);
     border-radius: 20px;
     box-sizing: border-box;
