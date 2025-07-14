@@ -2,10 +2,10 @@
 {% include './header.html' %}
 {% endwith %}
 <div class="page-content flex-col gappy">
-    <h1>software engineer / writer (barely) / musician (not even)</h1>
+    <div class="writing-title">software engineer / writer (barely) / musician (not even)</div>
     <div>i'd love to contribute to: education, public transit, biology, sustainability, lab research</div>
     <div>don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services</div>
-    <h1>worked at:</h1>
+    <div class="writing-title">worked at:</div>
     <div class="flex-row gappy">
     {% for job in data['work'] %}
       <a href="{{ job['link'] }}"><img class="work-logo" src="{{ static_url }}/images/work-{{ job['key'] }}.png" height="100px"></a>

@@ -3,7 +3,7 @@
 {% endwith %}
 <div class="page-content flex-col gappy">
     <div class="flex-row">
-        <h1 class="writing-title">
+        <div class="writing-title">
             {% if not data["first_zeitgeist"] %}
             <a class="nostyle" href="/zeitgeist/{{ data['year'] - 1 }}">←</a>
             {% else %}
@@ -13,10 +13,10 @@
             {% if not data["latest_zeitgeist"] %}
             <a class="nostyle" href="/zeitgeist/{{ data['year'] + 1 }}">→</a>
             {% endif %}
-        </h1>
+        </div>
     </div>
     <div class="zeitgeist-section">
-        <h1>albums of the year {{ data.get("notes", "") }}</h1>
+        <div class="writing-title">albums of the year {{ data.get("notes", "") }}</div>
         {% set num_albums = data["albums"]|length %}
         <div class="flex-col gappy">
             <div class="flex-row gappy">
@@ -40,7 +40,7 @@
     </div>
 
     <div class="zeitgeist-section">
-        <h1>movies of the year {{ data.get("notes", "") }}</h1>
+        <div class="writing-title">movies of the year {{ data.get("notes", "") }}</div>
         {% set num_movies = data["movies"]|length %}
         <div class="flex-col gappy">
             <div class="flex-row gappy">

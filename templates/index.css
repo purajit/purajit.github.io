@@ -30,7 +30,7 @@
 
 html, body {
     font-family: "Libre Caslon Text";
-    font-size: 2vh;
+    font-size: max(20px, 2vh);
     color: var(--text);
     background-color: var(--light-bg);
     width: 100%;
@@ -137,12 +137,6 @@ code {
     /* background-color: var(--bg); */
 }
 
-/* TODO: just remove h1s and define classes with larger fonts */
-#contents h1 {
-    padding: 0;
-    margin: 0;
-}
-
 /* main box for all other pages*/
 .page-content {
     width: 100%;
@@ -239,6 +233,7 @@ code {
 
 .writing-title {
     color: var(--light-bg);
+    font-size: 2rem;
 }
 
 .force-dyad {
