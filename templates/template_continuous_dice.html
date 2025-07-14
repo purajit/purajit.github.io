@@ -13,11 +13,9 @@
   --radius: 0.5rem;
   --gap: 1rem;
   --background-color: light-dark(#f9f9f9, #121212);
-  --tile-background-color: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+  --tile-background-color: light-dark(#f9f9f9, #121212);;
   --tile-border-color: #a8a8a8;
   --font-color: light-dark(#111111, #f5f5f5);
-  --inner-shadow: inset 2px 2px 4px rgba(0,0,0,0.1), inset -2px -2px 4px rgba(255,255,255,0.5);
-  --outer-shadow: 4px 4px 10px rgba(0,0,0,0.1);
   --highlight: #435942;
   --highlight-text: white;
 }
@@ -68,7 +66,6 @@ html, body {
   padding: 1rem;
   text-align: center;
   width: 200px;
-  box-shadow: var(--outer-shadow), var(--inner-shadow);
 }
 
 .tile-no-bg {
@@ -98,7 +95,7 @@ html, body {
   width: fit-content;
   padding: 1rem;
   border-radius: var(--radius);
-  background: #f0f0f0;
+  background: var(--tile-background);
   box-shadow: var(--outer-shadow);
   border: 1px solid #ccc;
 }
@@ -116,7 +113,6 @@ html, body {
   background: rgba(128, 128, 128, 0.1);
   padding: 4px 6px;
   border-radius: var(--radius);
-  box-shadow: var(--inner-shadow);
 }
 
 .history-entry:first-child {
@@ -129,6 +125,10 @@ html, body {
   text-align: center;
   font-style: italic;
   opacity: 0.7;
+}
+
+.text-center {
+  text-align: center;
 }
   </style>
 </head>
@@ -178,36 +178,41 @@ html, body {
     </div>
     <div id="history" class="flex-row gappy">
       <div class="flex-col gappy">
-        <div class="history-label">d2</div>
-        <div id="d2-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d4</div>
-        <div id="d4-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d6</div>
-        <div id="d6-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d8</div>
-        <div id="d8-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d10</div>
-        <div id="d10-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d12</div>
-        <div id="d12-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d20</div>
-        <div id="d20-history" class="flex-col gappy"></div>
-      </div>
-      <div class="flex-col gappy">
-        <div class="history-label">d100</div>
-        <div id="d100-history" class="flex-col gappy"></div>
+        <div class="text-center">Roll history</div>
+        <div class="flex-row gappy">
+          <div class="flex-col gappy">
+            <div class="history-label">d2</div>
+            <div id="d2-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d4</div>
+            <div id="d4-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d6</div>
+            <div id="d6-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d8</div>
+            <div id="d8-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d10</div>
+            <div id="d10-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d12</div>
+            <div id="d12-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d20</div>
+            <div id="d20-history" class="flex-col gappy"></div>
+          </div>
+          <div class="flex-col gappy">
+            <div class="history-label">d100</div>
+            <div id="d100-history" class="flex-col gappy"></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="notes">Hold spacebar/tap and hold to stop rolling</div>
