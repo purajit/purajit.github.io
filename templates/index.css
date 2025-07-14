@@ -25,6 +25,7 @@
     --bg: #301f15;
     --text: #e8e6e3;
     --page-margin: 8%;
+    --gap: 0.5rem;
 }
 
 html, body {
@@ -133,78 +134,80 @@ code {
 .contents-item {
     font-size: 2rem;
     width: fit-content;
-    padding: 10px 10px 10px 10px;
     /* background-color: var(--bg); */
-}
-
-.contents-item:not(:first-of-type) {
-    margin-top: 10px;
 }
 
 /* TODO: just remove h1s and define classes with larger fonts */
 #contents h1 {
     padding: 0;
-    margin: 0px 0px 0px 0px;
+    margin: 0;
 }
 
 /* main box for all other pages*/
 .page-content {
     width: 100%;
     padding: 50px;
-    font-size: 1rem;
     background: var(--bg);
     border-radius: 20px;
     box-sizing: border-box;
 }
 
-.writing {
-    background: var(--bg);
-    color: D7CDB0;
+/* recipe page */
+.recipe-sidebar {
+    width: max(350px, 25%);
+    min-width: max(350px, 25%);
 }
 
-.preserve-whitespace {
-    white-space: pre-wrap;
+.recipe-sources {
+    font-size: 0.5rem;
 }
 
-.writing-title {
-    color: var(--light-bg);
+/* zeitgeist page */
+.zeitgeist-section .flex-row {
+    width: 100%;
 }
 
-/* tables
-   TODO: use simplified version used in mythmancer.com
-*/
-.table {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 40px;
+.zeitgeist-section img {
+    border: 0;
+    max-width: calc((100% - 2rem) / 5);
 }
 
-.table-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.zeitgeist-lower-row img {
+    max-width: calc((100% - 4.5rem) / 10);
 }
 
-.table-row.label {
+/* tools */
+#screamintovoid {
+    width: min(500px, 100%);
+    height: 300px;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid var(--light-bg);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 15px;
+    outline: none;
+    color: var(--text);
+    font-family: "Libre Caslon Text";
     font-size: 1rem;
 }
 
-.table-column {
-    flex: 1;
-    border: 1px solid var(--light-bg);
-    min-height: 40px;
+/* generics */
+.flex-col {
     display: flex;
-    align-items: center;
-    padding-left: 10px;
-    overflow: hidden;
+    flex-direction: column;
 }
 
-.table.no-borders .table-column {
-    border: none;
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
 
-.table-column:not(:nth-last-of-type(1)) {
-    border-right: 1px solid var(--light-bg);
+.gappy {
+    gap: var(--gap);
+}
+
+.gappy-2x {
+    gap: calc(2 * var(--gap));
 }
 
 .table-header {
@@ -215,119 +218,27 @@ code {
     top: 0;
 }
 
-.table .table-row:nth-child(even) {
+.table .flex-col {
+    min-height: 40px;
+    align-items: center;
+    overflow: hidden;
+    width: 50%;
+}
+
+.table > .flex-row:nth-child(even) {
     background-color: rgb(255, 255, 255, 0.15);
 }
 
-.table .table-row.non-alternating:nth-child(even) {
+.table > .flex-row.non-alternating:nth-child(even) {
     background-color: transparent !important;
 }
 
-/* recipe page */
-.recipe-card {
-    display: flex;
-    flex-direction: row;
+.preserve-whitespace {
+    white-space: pre-wrap;
 }
 
-.recipe-sidebar {
-    display: flex;
-    flex-direction: column;
-    min-width: 350px;
-    max-width: 25%;
-}
-
-.recipe-ingredients {
-    padding-top: 20px;
-}
-
-.recipe-steps {
-    padding-left: 30px;
-}
-
-.recipe-sources {
-    padding-top: 20px;
-    font-size: 0.5rem;
-}
-
-/* about page */
-.work-logo {
-    height: 100px;
-    width: auto;
-}
-
-/* thoughts page */
-.thought-group {
-    margin-bottom: 40px;
-}
-
-/* TODO: replace brs with meaningful divs/sizing */
-.thoughts br {
-    margin-top: 5px;
-    display: block;
-}
-
-/* zeitgeist page */
-.zeitgeist-heading {
-    display: flex;
-    flex-direction: row;
-}
-
-.zeitgeist-section .table img {
-    width: 100%;
-}
-
-.zeitgeist-section .table-column {
-    padding: 5px;
-    border: 0;
-    border-right: 0;
-    max-width: 20%;
-}
-
-.zeitgeist-lower-row .table-column {
-    max-width: 10%;
-    box-sizing: border-box;
-}
-
-.zeitgeist-section .table-column:not(:nth-last-of-type(1)) {
-    border: 0;
-}
-
-.zeitgeist-section .table .table-row:nth-child(even) {
-    background-color: transparent;
-}
-
-/* tools */
-#qr {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    align-self: center;
-}
-
-#screamintovoid {
-    min-width: 40%;
-    max-width: 300px;
-    height: 300px;
-    resize: none;
-    border: none;
-    border-bottom: 1px solid var(--light-bg);
-    background: transparent;
-    outline: none;
-    color: var(--text);
-    font-family: "Libre Caslon Text";
-    font-size: 2rem;
-    margin-top: 30px;
-}
-
-#fullscreen-btn {
-    margin-left: auto;
-    width: fit-content;
-    cursor: pointer;
-}
-
-/* generics */
-.v-spacer {
-    height: 100%;
+.writing-title {
+    color: var(--light-bg);
 }
 
 .force-dyad {
@@ -335,20 +246,6 @@ code {
     justify-content: right;
     align-content: flex-end;
     display: flex;
-}
-
-.btn {
-    /* Button, should be paired with a color */
-    display: flex;
-    justify-content: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: var(--cs-height-min);
-    cursor: pointer;
-    user-select: none;
-    border-radius: 5px;
-    background: var(--light-bg);
-    color: var(--bg);
 }
 
 .notes {

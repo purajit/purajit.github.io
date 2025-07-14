@@ -1,13 +1,15 @@
 {% with title="purajit | about" %}
 {% include './header.html' %}
 {% endwith %}
-<div class="about page-content">
+<div class="page-content flex-col gappy">
     <h1>software engineer / writer (barely) / musician (not even)</h1>
-    i'd love to contribute to: education, public transit, biology, sustainability, lab research<br/>
-    don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services<br/><br/>
+    <div>i'd love to contribute to: education, public transit, biology, sustainability, lab research</div>
+    <div>don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services</div>
     <h1>worked at:</h1>
+    <div class="flex-row gappy">
     {% for job in data['work'] %}
-    <a href="{{ job['link'] }}"><img class="work-logo" src="{{ static_url }}/images/work-{{ job['key'] }}.png"></a>
+      <a href="{{ job['link'] }}"><img class="work-logo" src="{{ static_url }}/images/work-{{ job['key'] }}.png" height="100px"></a>
     {% endfor %}
+    </div>
 </div>
 {% include './footer.html' %}

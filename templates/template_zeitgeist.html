@@ -1,8 +1,8 @@
 {% with title="purajit | zeitgeist" %}
 {% include './header.html' %}
 {% endwith %}
-<div class="page-content">
-    <div class="zeitgeist-heading">
+<div class="page-content flex-col gappy">
+    <div class="flex-row">
         <h1 class="writing-title">
             {% if not data["first_zeitgeist"] %}
             <a class="nostyle" href="/zeitgeist/{{ data['year'] - 1 }}">←</a>
@@ -18,27 +18,21 @@
     <div class="zeitgeist-section">
         <h1>albums of the year {{ data.get("notes", "") }}</h1>
         {% set num_albums = data["albums"]|length %}
-        <div class="table">
-            <div class="table-row">
+        <div class="flex-col gappy">
+            <div class="flex-row gappy">
                 {% for album in data["albums"][:5] %}
-                <div class="table-column">
-                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
-                </div>
+                <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 {% endfor %}
             </div>
-            <div class="table-row">
+            <div class="flex-row gappy">
                 {% for album in data["albums"][5:10] %}
-                <div class="table-column">
-                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
-                </div>
+              <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 {% endfor %}
             </div>
             {% for i in range(10, num_albums, 10) %}
-            <div class="table-row zeitgeist-lower-row">
+            <div class="flex-row zeitgeist-lower-row gappy">
                 {% for album in data["albums"][i:i+10] %}
-                <div class="table-column">
-                    <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
-                </div>
+                <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
                 {% endfor %}
             </div>
             {% endfor %}
@@ -48,27 +42,21 @@
     <div class="zeitgeist-section">
         <h1>movies of the year {{ data.get("notes", "") }}</h1>
         {% set num_movies = data["movies"]|length %}
-        <div class="table">
-            <div class="table-row">
+        <div class="flex-col gappy">
+            <div class="flex-row gappy">
                 {% for movie in data["movies"][:5] %}
-                <div class="table-column">
-                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-                </div>
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
                 {% endfor  %}
             </div>
-            <div class="table-row">
+            <div class="flex-row gappy">
                 {% for movie in data["movies"][5:10] %}
-                <div class="table-column">
-                    <img src="{{ movie['link'] }}" title="{{ movie['movie'] }}">
-                </div>
+                <img src="{{ movie['link'] }}" title="{{ movie['movie'] }}">
                 {% endfor  %}
             </div>
             {% for i in range(10, num_movies, 10) %}
-            <div class="table-row zeitgeist-lower-row">
+            <div class="flex-row zeitgeist-lower-row gappy">
                 {% for movie in data["movies"][i:i+10] %}
-                <div class="table-column">
-                    <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-                </div>
+                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
                 {% endfor %}
             </div>
             {% endfor %}
