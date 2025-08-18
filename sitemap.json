@@ -51,6 +51,18 @@
           "data_type": "text"
         },
         {
+          "title": "all the time in the world | 2021",
+          "route": "all-the-time-in-the-world",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
+          "title": "unbridled joy | 2021",
+          "route": "unbridled-joy",
+          "template": "template_writing.html",
+          "data_type": "text"
+        },
+        {
           "title": "protector | 2020",
           "route": "protector",
           "template": "template_writing.html",
