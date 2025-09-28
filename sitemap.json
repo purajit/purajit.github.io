@@ -298,6 +298,11 @@
           "template": "template_continuous_dice.html"
         },
         {
+          "title": "connections",
+          "route": "connections",
+          "template": "template_connections.html"
+        },
+        {
           "title": "jaxbox",
           "route": "jaxbox",
           "template": "template_jaxbox.html"

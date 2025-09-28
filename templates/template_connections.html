@@ -1,0 +1,596 @@
+<head>
+  <title>purajit | {{ tab_title }}</title>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+  <style>
+    @font-face {
+      font-family: "Libre Caslon Text";
+      src:
+        local("Libre Caslon Text Regular"),
+        url(/static/LibreCaslonText-Regular.ttf) format("truetype");
+    }
+
+    :root {
+      color-scheme: light dark;
+      --background-color: light-dark(#f9f9f9, #121212);
+      --font-color: #e6e6e6;
+      --muted: #9aa3b2;
+
+      --easy: #f0d348; /* yellow */
+      --medium: #a8de7e; /* green */
+      --hard: #7bb6f0; /* blue */
+      --trick: #b58be0; /* purple */
+
+      --tile-background-color: #22262f;
+      --tile-hover: #2b3040;
+      --tile-selected: #364156;
+      --gap: 10px;
+    }
+
+    html,
+    body {
+      margin: 0;
+      font-family: "Libre Caslon Text";
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--font-color);
+      font-size: 2vh;
+    }
+
+    .flex-row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .flex-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gappy {
+      gap: var(--gap);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    #container {
+      width: min(98vw, 800px);
+      margin: auto;
+      padding-top: 2%;
+      padding-bottom: 2%;
+    }
+
+    #solved {
+      display: grid;
+      gap: var(--gap);
+      margin-bottom: 12px;
+    }
+
+    .solved-card {
+      padding: 14px;
+      border-radius: 12px;
+      color: #101010;
+      font-weight: 600;
+    }
+
+    .solved-title {
+      font-size: 14px;
+    }
+
+    .easy-group {
+      background: var(--easy);
+    }
+
+    .medium-group {
+      background: var(--medium);
+    }
+
+    .hard-group {
+      background: var(--hard);
+    }
+
+    .trick-group {
+      background: var(--trick);
+    }
+
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--gap);
+      transition: 150ms ease grid-template-rows;
+    }
+
+    .tile {
+      user-select: none;
+      background: var(--tile-background-color);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+      font-weight: 650;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+    }
+
+    .tile:hover {
+      background: var(--tile-hover);
+      transform: translateY(-1px);
+    }
+
+    .tile.selected {
+      background: var(--tile-selected);
+      outline: 2px solid #6074ff3a;
+    }
+
+    .tile.disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .toolbar {
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .button {
+      cursor: pointer;
+    }
+
+    button.action {
+      appearance: none;
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 700;
+      background: #2a2f3b;
+      color: var(--font-color);
+      transition:
+        background 120ms ease,
+        transform 80ms ease;
+    }
+
+    button.action:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    button.action {
+      background: #4b70ff;
+      color: white;
+    }
+
+    button.action:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .flex {
+      flex-grow: 1;
+    }
+
+    #puzzleBuilderGroups > div {
+      padding: 10px;
+      border-radius: 12px;
+      color: black;
+    }
+
+    input {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 10px;
+      border-radius: 12px;
+      color: black;
+      flex: 1;
+      min-width: 0;
+    }
+
+    #puzzleGenerationResult {
+      place-items: center;
+    }
+
+    #puzzleGenerationLink {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 600px;
+    }
+
+    svg path {
+      stroke: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="container" class="flex-col gappy">
+    <div class="title">Connections</div>
+
+    <div id="puzzle" class="flex-col gappy">
+      <div id="solved"></div>
+      <div id="grid"></div>
+      <div class="toolbar flex-row">
+        <button class="action" id="giveUpBtn" title="Give up">Give Up</button>
+        <button class="action" id="shuffleBtn" title="Shuffle remaining">
+          Shuffle
+        </button>
+        <button
+          class="action"
+          id="deselectBtn"
+          title="Clear selection"
+          disabled
+        >
+          Deselect
+        </button>
+        <div class="flex"></div>
+        <button class="action" id="submitBtn" disabled>Submit</button>
+      </div>
+    </div>
+
+    <div id="puzzleBuilder" class="flex-col gappy">
+      <div id="puzzleBuilderGroups" class="flex-col gappy">
+        <div class="easy-group flex-col gappy">
+          <div class="flex-col">
+            Category<input type="text" class="category" value="" />
+          </div>
+          <div class="flex-col">
+            Answers
+            <div class="flex-row gappy">
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+            </div>
+          </div>
+        </div>
+        <div class="medium-group flex-col gappy">
+          <div class="flex-col">
+            Category<input type="text" class="category" value="" />
+          </div>
+          <div class="flex-col">
+            Answers
+            <div class="flex-row gappy">
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+            </div>
+          </div>
+        </div>
+        <div class="hard-group flex-col gappy">
+          <div class="flex-col">
+            Category<input type="text" class="category" value="" />
+          </div>
+          <div class="flex-col">
+            Answers
+            <div class="flex-row gappy">
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+            </div>
+          </div>
+        </div>
+        <div class="trick-group flex-col gappy">
+          <div class="flex-col">
+            Category<input type="text" class="category" value="" />
+          </div>
+          <div class="flex-col">
+            Answers
+            <div class="flex-row gappy">
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+              <input type="text" class="answer" value="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row gappy">
+        <button class="action" id="generatePuzzleBtn" title="Generate puzzle">
+          Generate
+        </button>
+        <div class="flex"></div>
+        <div id="puzzleGenerationResult" class="flex-row">
+          <div id="puzzleGenerationLink"></div>
+          <svg
+            id="copyPuzzleLinkBtn"
+            class="button"
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Copy link to puzzle</title>
+            <path
+              d="M12.7917 15.7991L14.2223 14.3676C16.5926 11.9959 16.5926 8.15054 14.2223 5.7788C11.8521 3.40707 8.0091 3.40707 5.63885 5.7788L2.77769 8.64174C0.407436 11.0135 0.407436 14.8588 2.77769 17.2306C3.87688 18.3304 5.29279 18.9202 6.73165 19"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M21.2223 15.3583C23.5926 12.9865 23.5926 9.14118 21.2223 6.76945C20.1231 5.66957 18.7072 5.07976 17.2683 5M18.3612 18.2212C15.9909 20.5929 12.1479 20.5929 9.77769 18.2212C7.40744 15.8495 7.40744 12.0041 9.77769 9.63239L11.2083 8.20092"
+              stroke="#ffffff"
+              stroke-width="1.5"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg
+            id="openPuzzleBtn"
+            class="button"
+            width="25px"
+            height="25px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>Open generated puzzle</title>
+            <path
+              d="M5 12V6C5 5.44772 5.44772 5 6 5H18C18.5523 5 19 5.44772 19 6V18C19 18.5523 18.5523 19 18 19H12M8.11111 12H12M12 12V15.8889M12 12L5 19"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+  // Difficulty ordering: easy, medium, hard, trick
+  const PUZZLE_DEFINITION = getPuzzleFromURL();
+
+  const COLORS = ["easy", "medium", "hard", "trick"];
+  const PUZZLE = document.getElementById("puzzle");
+  const PUZZLE_BUILDER = document.getElementById("puzzleBuilder");
+  const PUZZLE_GENERATION_RESULT = document.getElementById(
+    "puzzleGenerationResult",
+  );
+  const SOLVED_AREA = document.getElementById("solved");
+  const GIVE_UP_BTN = document.getElementById("giveUpBtn");
+  const SHUFFLE_BTN = document.getElementById("shuffleBtn");
+  const DESELECT_BTN = document.getElementById("deselectBtn");
+  const SUBMIT_BTN = document.getElementById("submitBtn");
+  const PUZZLE_GENERATION_LINK = document.getElementById(
+    "puzzleGenerationLink",
+  );
+  const GENERATE_PUZZLE_BTN = document.getElementById("generatePuzzleBtn");
+
+  const state = {
+    unsolvedGroups: [],
+    unsolvedWords: [],
+    selection: new Set(),
+    solvedGroups: [],
+  };
+
+  function init() {
+    PUZZLE_GENERATION_RESULT.classList.add("hidden");
+
+    if (PUZZLE_DEFINITION == null) {
+      PUZZLE.classList.add("hidden");
+      PUZZLE_BUILDER.classList.remove("hidden");
+      return;
+    }
+    PUZZLE.classList.remove("hidden");
+    PUZZLE_BUILDER.classList.add("hidden");
+
+    state.unsolvedGroups = PUZZLE_DEFINITION.groups.map((group, index) => ({
+      category: group.category,
+      items: [...group.items],
+      difficulty: COLORS[index],
+    }));
+
+    // Build the pool of all items and shuffle
+    // TODO: put selection at the start
+    state.unsolvedWords = state.unsolvedGroups.flatMap((g) =>
+      g.items.map((w) => ({ word: w, group: g.category })),
+    );
+    shuffle(state.unsolvedWords);
+
+    renderGrid();
+    renderToolbar();
+  }
+
+  function renderSolved() {
+    SOLVED_AREA.innerHTML = "";
+    for (const g of state.solvedGroups) {
+      const card = document.createElement("div");
+      card.classList.add("solved-card");
+      card.classList.add("gappy");
+      card.classList.add("flex-col");
+      card.classList.add(`${g.difficulty}-group`);
+      card.innerHTML = `<div class="solved-title">${g.category}</div><div class="solved-items">${g.items.join(", ")}</div>`;
+      SOLVED_AREA.appendChild(card);
+    }
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    for (const t of state.unsolvedWords) {
+      const btn = document.createElement("button");
+      btn.classList.add("tile");
+      btn.textContent = t.word;
+      btn.dataset.word = t.word;
+      btn.addEventListener("click", () => toggleSelect(t.word));
+      if (state.selection.has(t.word)) {
+        btn.classList.add("selected");
+      }
+      grid.appendChild(btn);
+    }
+
+    // Disable tiles when 4 selected
+    if (state.selection.size >= 4) {
+      [...grid.children].forEach((el) => {
+        if (!state.selection.has(el.dataset.word)) el.classList.add("disabled");
+      });
+    }
+  }
+
+  function renderToolbar() {
+    GIVE_UP_BTN.disabled = state.unsolvedWords.length == 0;
+    SHUFFLE_BTN.disabled = state.unsolvedWords.length == 0;
+    SUBMIT_BTN.disabled = state.selection.size != 4;
+    DESELECT_BTN.disabled = state.selection.size == 0;
+  }
+
+  function toggleSelect(word) {
+    if (state.selection.has(word)) {
+      state.selection.delete(word);
+    } else if (state.selection.size >= 4) {
+      return;
+    } else {
+      state.selection.add(word);
+    }
+    renderGrid();
+    renderToolbar();
+  }
+
+  function deselectAll() {
+    state.selection.clear();
+    renderGrid();
+    renderToolbar();
+  }
+
+  function shufflePool() {
+    shuffle(state.unsolvedWords);
+    renderGrid();
+  }
+
+  function submitSelection() {
+    if (state.selection.size !== 4) return;
+    const pick = [...state.selection];
+    // Check if pick exactly matches any remaining group's items
+    let matched = null;
+    for (const g of state.unsolvedGroups) {
+      if (equalsIgnoreOrder(pick, g.items)) {
+        matched = g;
+        break;
+      }
+    }
+
+    if (matched) {
+      const words = new Set(matched.items);
+      state.unsolvedWords = state.unsolvedWords.filter(
+        (t) => !words.has(t.word),
+      );
+      // Remove group from remaining and push to solved
+      state.unsolvedGroups = state.unsolvedGroups.filter((g) => g !== matched);
+      state.solvedGroups.push(matched);
+    }
+
+    state.selection.clear();
+    renderSolved();
+    renderGrid();
+    renderToolbar();
+  }
+
+  function reveal() {
+    for (const g of [...state.unsolvedGroups]) {
+      state.solvedGroups.push(g);
+    }
+    state.unsolvedGroups = [];
+    state.unsolvedWords = [];
+    renderSolved();
+    renderGrid();
+    renderToolbar();
+  }
+
+  function generatePuzzle() {
+    PUZZLE_GENERATION_LINK.textContent = "";
+    PUZZLE_GENERATION_RESULT.classList.add("hidden");
+
+    const categories = document.getElementsByClassName("category");
+    const answers = document.getElementsByClassName("answer");
+    const puzzleDefinition = { groups: [] };
+    for (let i = 0; i < categories.length; i++) {
+      const category = categories[i].value.trim();
+      const groupAnswers = [
+        answers[i * 4].value.trim(),
+        answers[i * 4 + 1].value.trim(),
+        answers[i * 4 + 2].value.trim(),
+        answers[i * 4 + 3].value.trim(),
+      ];
+      console.log(category, groupAnswers);
+      if (
+        category == "" ||
+        groupAnswers[0] == "" ||
+        groupAnswers[1] == "" ||
+        groupAnswers[2] == "" ||
+        groupAnswers[3] == ""
+      ) {
+        return;
+      }
+      puzzleDefinition.groups.push({
+        category: category,
+        items: groupAnswers,
+      });
+    }
+
+    const puzzleId = btoa(JSON.stringify(puzzleDefinition));
+    PUZZLE_GENERATION_LINK.textContent = `${window.location.protocol}//${window.location.hostname}/tools/connections/?puzzle=${puzzleId}`;
+    PUZZLE_GENERATION_RESULT.classList.remove("hidden");
+  }
+
+  // utils
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function equalsIgnoreOrder(a, b) {
+    if (a.length !== b.length) return false;
+    const s = new Set(a);
+    for (const x of b) if (!s.has(x)) return false;
+    return true;
+  }
+
+  function getPuzzleFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("puzzle");
+    if (!raw) {
+      return null;
+    }
+    try {
+      const json = atob(raw);
+      return JSON.parse(json);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  GENERATE_PUZZLE_BTN.addEventListener("click", generatePuzzle);
+  SHUFFLE_BTN.addEventListener("click", shufflePool);
+  DESELECT_BTN.addEventListener("click", deselectAll);
+  GIVE_UP_BTN.addEventListener("click", reveal);
+  SUBMIT_BTN.addEventListener("click", submitSelection);
+
+  document
+    .getElementById("copyPuzzleLinkBtn")
+    .addEventListener("click", (submitSelection) => {
+      const url = PUZZLE_GENERATION_LINK.textContent;
+      navigator.clipboard.writeText(url);
+    });
+  document.getElementById("openPuzzleBtn").addEventListener("click", () => {
+    const url = PUZZLE_GENERATION_LINK.textContent;
+    window.open(url, "_blank").focus();
+  });
+  init();
+</script>
