@@ -13,7 +13,7 @@
     :root {
       color-scheme: light dark;
       --background-color: light-dark(#f9f9f9, #121212);
-      --font-color: #e6e6e6;
+      --font-color: light-dark(#111111, #f5f5f5);
       --muted: #9aa3b2;
 
       --easy: #f0d348; /* yellow */
@@ -21,9 +21,15 @@
       --hard: #7bb6f0; /* blue */
       --trick: #b58be0; /* purple */
 
-      --tile-background-color: #22262f;
-      --tile-hover: #2b3040;
-      --tile-selected: #364156;
+      --tile-background-color: light-dark(
+        rgba(0, 0, 0, 0.06),
+        rgba(255, 255, 255, 0.06)
+      );
+      --tile-hover: light-dark(rgba(0, 0, 0, 0.12), rgba(255, 255, 255, 0.12));
+      --tile-selected: light-dark(
+        rgba(0, 0, 0, 0.24),
+        rgba(255, 255, 255, 0.24)
+      );
       --gap: 10px;
     }
 
@@ -34,7 +40,7 @@
       padding: 0;
       background-color: var(--background-color);
       color: var(--font-color);
-      font-size: 2vh;
+      font-size: max(2vh, 20px);
     }
 
     .flex-row {
@@ -82,7 +88,7 @@
     }
 
     .solved-title {
-      font-size: 14px;
+      font-size: 1rem;
     }
 
     .easy-group {
@@ -114,6 +120,7 @@
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 12px;
       padding: 16px 10px;
+      font-size: 1rem;
       text-align: center;
       font-weight: 650;
       letter-spacing: 0.2px;
