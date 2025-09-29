@@ -14,7 +14,6 @@
       color-scheme: light dark;
       --background-color: light-dark(#f9f9f9, #121212);
       --font-color: light-dark(#111111, #f5f5f5);
-      --muted: #9aa3b2;
 
       --easy: #f0d348; /* yellow */
       --medium: #a8de7e; /* green */
@@ -41,6 +40,7 @@
       background-color: var(--background-color);
       color: var(--font-color);
       font-size: max(2vh, 20px);
+      width: 100%;
     }
 
     .flex-row {
@@ -75,9 +75,7 @@
     }
 
     #solved {
-      display: grid;
       gap: var(--gap);
-      margin-bottom: 12px;
     }
 
     .solved-card {
@@ -107,13 +105,6 @@
       background: var(--trick);
     }
 
-    #grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--gap);
-      transition: 150ms ease grid-template-rows;
-    }
-
     .tile {
       user-select: none;
       background: var(--tile-background-color);
@@ -126,8 +117,9 @@
       letter-spacing: 0.2px;
       cursor: pointer;
       min-height: 58px;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex: 1;
+      justify-content: center;
     }
 
     .tile:hover {
@@ -160,6 +152,7 @@
     button.action {
       appearance: none;
       border: 0;
+      font-size: 1rem;
       cursor: pointer;
       border-radius: 999px;
       padding: 10px 14px;
@@ -225,8 +218,8 @@
     <div class="title">Connections</div>
 
     <div id="puzzle" class="flex-col gappy">
-      <div id="solved"></div>
-      <div id="grid"></div>
+      <div id="solved" class="flex-col"></div>
+      <div id="grid" class="flex-col gappy"></div>
       <div class="toolbar flex-row">
         <button class="action" id="giveUpBtn" title="Give up">Give Up</button>
         <button class="action" id="shuffleBtn" title="Shuffle remaining">
@@ -366,6 +359,7 @@
   const PUZZLE_GENERATION_RESULT = document.getElementById(
     "puzzleGenerationResult",
   );
+  const GRID = document.getElementById("grid");
   const SOLVED_AREA = document.getElementById("solved");
   const GIVE_UP_BTN = document.getElementById("giveUpBtn");
   const SHUFFLE_BTN = document.getElementById("shuffleBtn");
@@ -425,24 +419,32 @@
   }
 
   function renderGrid() {
-    const grid = document.getElementById("grid");
-    grid.innerHTML = "";
-
-    for (const t of state.unsolvedWords) {
-      const btn = document.createElement("button");
-      btn.classList.add("tile");
-      btn.textContent = t.word;
-      btn.dataset.word = t.word;
-      btn.addEventListener("click", () => toggleSelect(t.word));
-      if (state.selection.has(t.word)) {
-        btn.classList.add("selected");
+    GRID.innerHTML = "";
+    for (let i = 0; i < state.unsolvedWords.length; i += 4) {
+      console.log(i);
+      const row = document.createElement("div");
+      row.classList.add("flex-row");
+      row.classList.add("gappy");
+      for (let j = i; j < i + 4; j++) {
+        const t = state.unsolvedWords[j];
+        const btn = document.createElement("button");
+        btn.classList.add("tile");
+        btn.textContent = t.word;
+        btn.dataset.word = t.word;
+        btn.addEventListener("click", () => toggleSelect(t.word));
+        if (state.selection.has(t.word)) {
+          btn.classList.add("selected");
+        }
+        row.appendChild(btn);
+        console.log(row);
       }
-      grid.appendChild(btn);
+      GRID.appendChild(row);
+      console.log(GRID);
     }
 
     // Disable tiles when 4 selected
     if (state.selection.size >= 4) {
-      [...grid.children].forEach((el) => {
+      [...GRID.children].forEach((el) => {
         if (!state.selection.has(el.dataset.word)) el.classList.add("disabled");
       });
     }
