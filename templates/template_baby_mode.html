@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>Baby Mode</title>
+    <style>
+      :root {
+        --bg: #0b0e11;
+        --fg: #f8fafc;
+        --muted: #a3b1c6;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          "Helvetica Neue",
+          Arial;
+      }
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        cursor: none;
+      }
+      .ui {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        z-index: 3;
+        background:
+          radial-gradient(
+            1200px 800px at 50% 40%,
+            rgba(255, 255, 255, 0.08),
+            transparent 60%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.04),
+            rgba(255, 255, 255, 0)
+          );
+      }
+      .card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 28px;
+        max-width: 720px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+      .btn {
+        user-select: none;
+        -webkit-user-select: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 14px 18px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.18),
+          rgba(255, 255, 255, 0.06)
+        );
+        color: var(--fg);
+        cursor: pointer;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      }
+      .btn:active {
+        transform: translateY(1px);
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        justify-content: center;
+        margin-top: 1rem;
+      }
+      .hint {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-top: 0.75rem;
+      }
+      .hud {
+        position: fixed;
+        left: 12px;
+        bottom: 12px;
+        z-index: 2;
+        color: #cbd5e1;
+        font-size: 13px;
+        opacity: 0.8;
+        background: rgba(0, 0, 0, 0.35);
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+      .hidden {
+        display: none;
+      }
+      .exitHotspot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80px;
+        height: 80px;
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+
+    <div id="start" class="ui">
+      <div class="card">
+        <h1
+          style="margin: 0 0 0.25rem 0; font-size: clamp(1.4rem, 2.2vw, 2rem)"
+        >
+          Baby Mode
+        </h1>
+        <p style="margin: 0.25rem 0 1rem 0; color: #cbd5e1">
+          Fullscreen, kid-safe canvas. Keys make friendly things happen.
+        </p>
+        <div class="row">
+          <button id="go" class="btn">Start Baby Mode</button>
+          <button id="mute" class="btn" aria-pressed="false">Sound: On</button>
+          <button id="reduceMotion" class="btn" aria-pressed="false">
+            Motion: Normal
+          </button>
+        </div>
+        <div class="hint">
+          Esc/top-left triple‑click exits. Prevents most key effects; OS
+          shortcuts (e.g., Alt‑Tab, volume) can’t be blocked by browsers.
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="exitHotspot"
+      id="exitHotspot"
+      title="Triple‑click to exit"
+    ></div>
+    <div id="hud" class="hud hidden"></div>
+
+    <script>
+      (() => {
+        const canvas = document.getElementById("c");
+        const ctx = canvas.getContext("2d", { alpha: false });
+        let W = 0,
+          H = 0,
+          DPR = 1;
+        const hud = document.getElementById("hud");
+        const ui = document.getElementById("start");
+        const btnGo = document.getElementById("go");
+        const btnMute = document.getElementById("mute");
+        const btnRM = document.getElementById("reduceMotion");
+        const exitHotspot = document.getElementById("exitHotspot");
+
+        // Settings
+        const settings = {
+          muted: false,
+          reduceMotion: false,
+          paletteIndex: 0,
+        };
+
+        const palettes = [
+          ["#ffd6e8", "#ffecb3", "#c8f7dc", "#d6e4ff", "#f1d1ff", "#ffe5cc"], // pastels
+          ["#9b5de5", "#f15bb5", "#fee440", "#00bbf9", "#00f5d4"], // playful
+          ["#ffd1a4", "#ffa6c1", "#a9def9", "#e4c1f9", "#caffbf"], // soft
+          ["#f6bd60", "#f7ede2", "#84a59d", "#f28482", "#f5cac3"], // warm
+        ];
+
+        const rand = (a = 1, b = 0) => Math.random() * (a - b) + b;
+        const randi = (a, b = 0) => Math.floor(rand(a + 1, b));
+
+        function resize() {
+          DPR = Math.min(2, devicePixelRatio || 1);
+          W = canvas.width = Math.round(innerWidth * DPR);
+          H = canvas.height = Math.round(innerHeight * DPR);
+          canvas.style.width = innerWidth + "px";
+          canvas.style.height = innerHeight + "px";
+        }
+        addEventListener("resize", resize);
+        resize();
+
+        // ---------- Audio (gentle plinks) ----------
+        let AC, masterGain;
+        function initAudio() {
+          if (AC) return;
+          try {
+            AC = new (window.AudioContext || window.webkitAudioContext)();
+            masterGain = AC.createGain();
+            masterGain.gain.value = settings.muted ? 0 : 0.15;
+            masterGain.connect(AC.destination);
+          } catch {}
+        }
+        function plink() {
+          if (!AC || settings.muted) return;
+          const o = AC.createOscillator();
+          const g = AC.createGain();
+          o.type = "sine";
+          o.frequency.value = 220 * Math.pow(2, rand(0, 2));
+          g.gain.setValueAtTime(0, AC.currentTime);
+          g.gain.linearRampToValueAtTime(0.6, AC.currentTime + 0.01);
+          g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + 0.35);
+          o.connect(g).connect(masterGain);
+          o.start();
+          o.stop(AC.currentTime + 0.4);
+        }
+
+        // ---------- Effects Engine ----------
+        let t = 0,
+          effectIdx = 0;
+        const effects = [];
+
+        // Utility draw helpers
+        function clear(bg) {
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, W, H);
+        }
+        function pick(arr) {
+          return arr[randi(arr.length - 1)];
+        }
+        function palette() {
+          return palettes[settings.paletteIndex % palettes.length];
+        }
+
+        // Effect 0: Triangular shards fan from center; recolor on key
+        effects.push({
+          name: "Shards",
+          init() {
+            this.shards = [];
+            this.reseed();
+          },
+          reseed() {
+            const cols = palette();
+            const n = settings.reduceMotion ? 20 : 40;
+            this.shards = [];
+            let ang = 0,
+              cx = W / 2,
+              cy = H / 2;
+            for (let i = 0; i < n; i++) {
+              const a1 = ang;
+              const a2 = ang + rand(Math.PI * 0.05, Math.PI * 0.25);
+              ang = a2;
+              const r1 = rand(H * 0.25, H * 0.6);
+              const r2 = rand(H * 0.25, H * 0.6);
+              const color = pick(cols);
+              this.shards.push({ a1, a2, r1, r2, color });
+            }
+          },
+          key() {
+            this.reseed();
+            plink();
+          },
+          draw(dt) {
+            clear("#0b0e11");
+            ctx.save();
+            ctx.translate(0.5, 0.5);
+            for (const s of this.shards) {
+              ctx.beginPath();
+              const cx = W / 2,
+                cy = H / 2;
+              ctx.moveTo(cx, cy);
+              ctx.lineTo(
+                cx + Math.cos(s.a1 + t * 0.1) * s.r1,
+                cy + Math.sin(s.a1 + t * 0.1) * s.r1,
+              );
+              ctx.lineTo(
+                cx + Math.cos(s.a2 - t * 0.1) * s.r2,
+                cy + Math.sin(s.a2 - t * 0.1) * s.r2,
+              );
+              ctx.closePath();
+              ctx.fillStyle = s.color;
+              ctx.globalAlpha = 0.9;
+              ctx.fill();
+            }
+            ctx.restore();
+          },
+        });
+
+        // Effect 1: Random thick path drawing
+        effects.push({
+          name: "Squiggle",
+          init() {
+            this.points = [];
+            this.speed = settings.reduceMotion ? 40 : 80;
+            this.thick = Math.max(12, Math.min(W, H) / 40);
+            this.reset();
+          },
+          reset() {
+            this.x = rand(W);
+            this.y = rand(H);
+            this.vx = rand(-1, 1) * this.speed;
+            this.vy = rand(-1, 1) * this.speed;
+            this.points.length = 0;
+            this.colorIdx = 0;
+          },
+          key() {
+            this.colorIdx = (this.colorIdx + 1) % palette().length;
+            plink();
+          },
+          draw(dt) {
+            // trail fade
+            ctx.fillStyle = "rgba(11,14,17,0.12)";
+            ctx.fillRect(0, 0, W, H);
+            // move
+            this.x += this.vx * dt;
+            this.y += this.vy * dt;
+            if (this.x < 0 || this.x > W) {
+              this.vx *= -1;
+              plink();
+            }
+            if (this.y < 0 || this.y > H) {
+              this.vy *= -1;
+              plink();
+            }
+            // draw segment
+            const col = palette()[this.colorIdx];
+            this.points.push([this.x, this.y]);
+            if (this.points.length > 512) this.points.shift();
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            ctx.strokeStyle = col;
+            ctx.lineWidth = this.thick;
+            ctx.beginPath();
+            for (let i = 0; i < this.points.length; i++) {
+              const [px, py] = this.points[i];
+              if (i === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.stroke();
+          },
+        });
+
+        // Effect 2: Bubbles float up; key spawns burst
+        effects.push({
+          name: "Bubbles",
+          init() {
+            this.b = [];
+          },
+          spawn(n = 10) {
+            for (let i = 0; i < n; i++) {
+              this.b.push({
+                x: rand(W),
+                y: H + rand(H * 0.2),
+                r: rand(10, Math.min(W, H) / 10),
+                vy: rand(-40, -120),
+                c: pick(palette()),
+              });
+            }
+          },
+          key() {
+            this.spawn(20);
+            plink();
+          },
+          draw(dt) {
+            clear("#081018");
+            if (Math.random() < 0.05) this.spawn(1);
+            ctx.globalAlpha = 1;
+            for (const o of this.b) {
+              o.y += o.vy * dt;
+              if (o.y + o.r < 0) {
+                o.y = H + o.r;
+                o.x = rand(W);
+                o.c = pick(palette());
+              }
+              ctx.beginPath();
+              ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
+              const g = ctx.createLinearGradient(
+                o.x,
+                o.y - o.r,
+                o.x,
+                o.y + o.r,
+              );
+              g.addColorStop(0, "rgba(255,255,255,0.35)");
+              g.addColorStop(1, o.c);
+              ctx.fillStyle = g;
+              ctx.fill();
+            }
+          },
+        });
+
+        // Effect 3: Emoji pop
+        const EMOJI = [
+          "🫧",
+          "⭐️",
+          "🌈",
+          "💫",
+          "✨",
+          "🫶",
+          "🦄",
+          "🐣",
+          "🧸",
+          "🍓",
+          "🍉",
+          "🎈",
+          "🌼",
+        ];
+        effects.push({
+          name: "Emoji Pop",
+          init() {
+            this.items = [];
+          },
+          key() {
+            this.addBurst();
+            plink();
+          },
+          addBurst() {
+            const n = settings.reduceMotion ? 10 : 24;
+            for (let i = 0; i < n; i++) {
+              this.items.push({
+                e: EMOJI[randi(EMOJI.length - 1)],
+                x: rand(W),
+                y: rand(H),
+                vx: rand(-60, 60),
+                vy: rand(-30, -120),
+                a: rand(0, Math.PI * 2),
+                va: rand(-2, 2),
+                s: rand(24, 72 * DPR),
+                life: rand(0.8, 2),
+              });
+            }
+          },
+          draw(dt) {
+            ctx.fillStyle = "rgba(12,12,16,0.18)";
+            ctx.fillRect(0, 0, W, H);
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            for (const it of this.items) {
+              it.vy += 60 * dt; // gravity-like downward
+              it.x += it.vx * dt;
+              it.y += it.vy * dt;
+              it.a += it.va * dt;
+              it.life -= dt;
+              const alpha = Math.max(0, Math.min(1, it.life));
+              ctx.save();
+              ctx.translate(it.x, it.y);
+              ctx.rotate(it.a);
+              ctx.globalAlpha = alpha;
+              ctx.font = `${it.s}px system-ui, Apple Color Emoji, Noto Color Emoji`;
+              ctx.fillText(it.e, 0, 0);
+              ctx.restore();
+            }
+            this.items = this.items.filter(
+              (it) => it.life > 0 && it.y < H + 80,
+            );
+            if (this.items.length < 5 && Math.random() < 0.02) this.addBurst();
+          },
+        });
+
+        // Effect 4: Confetti spray on key, gentle drift
+        effects.push({
+          name: "Confetti",
+          init() {
+            this.bits = [];
+          },
+          key() {
+            const n = settings.reduceMotion ? 40 : 120;
+            for (let i = 0; i < n; i++) {
+              const c = pick(palette());
+              this.bits.push({
+                x: W / 2,
+                y: H * 0.2,
+                vx: rand(-200, 200),
+                vy: rand(-20, -300),
+                s: rand(4, 10) * DPR,
+                a: rand(0, Math.PI * 2),
+                va: rand(-6, 6),
+                c,
+              });
+            }
+            plink();
+          },
+          draw(dt) {
+            clear("#0b0e11");
+            for (const b of this.bits) {
+              b.vy += 500 * dt;
+              b.x += b.vx * dt;
+              b.y += b.vy * dt;
+              b.a += b.va * dt;
+              ctx.save();
+              ctx.translate(b.x, b.y);
+              ctx.rotate(b.a);
+              ctx.fillStyle = b.c;
+              ctx.fillRect(-b.s * 0.5, -b.s * 0.25, b.s, b.s * 0.5);
+              ctx.restore();
+            }
+            this.bits = this.bits.filter((b) => b.y < H + 40);
+          },
+        });
+
+        function setEffect(i) {
+          effectIdx = ((i % effects.length) + effects.length) % effects.length;
+          const e = effects[effectIdx];
+          if (!e._inited) {
+            e.init();
+            e._inited = true;
+          }
+          showHUD(`${e.name}`);
+        }
+
+        // ---------- Engine Loop ----------
+        let last = performance.now();
+        function loop(now) {
+          const dt =
+            Math.min(0.05, (now - last) / 1000) *
+            (settings.reduceMotion ? 0.6 : 1);
+          last = now;
+          t += dt;
+          const e = effects[effectIdx];
+          e.draw(dt);
+          requestAnimationFrame(loop);
+        }
+
+        // ---------- Controls & Safety ----------
+        function showHUD(msg) {
+          hud.textContent = msg;
+          hud.classList.remove("hidden");
+          clearTimeout(showHUD._t);
+          showHUD._t = setTimeout(() => hud.classList.add("hidden"), 1200);
+        }
+
+        async function enterFullscreen() {
+          const el = document.documentElement;
+          if (el.requestFullscreen)
+            await el
+              .requestFullscreen({ navigationUI: "hide" })
+              .catch(() => {});
+        }
+        async function lockKeys() {
+          if (navigator.keyboard && navigator.keyboard.lock) {
+            try {
+              // You cannot intercept OS shortcuts like Alt+Tab or volume. Esc may still leave FS.
+              await navigator.keyboard.lock([
+                "Escape",
+                "F1",
+                "F2",
+                "F3",
+                "F4",
+                "F5",
+                "F6",
+                "F7",
+                "F8",
+                "F9",
+                "F10",
+                "F11",
+                "F12",
+                "Tab",
+                "Alt",
+              ]);
+            } catch {}
+          }
+        }
+        let wakeLock;
+        async function keepAwake() {
+          try {
+            if ("wakeLock" in navigator)
+              wakeLock = await navigator.wakeLock.request("screen");
+          } catch {}
+          document.addEventListener("visibilitychange", async () => {
+            if (document.visibilityState === "visible" && wakeLock) {
+              try {
+                wakeLock = await navigator.wakeLock.request("screen");
+              } catch {}
+            }
+          });
+        }
+
+        function preventDefaultKeys(e) {
+          // Stop most browser-level interactions
+          e.preventDefault();
+          e.stopPropagation();
+        }
+
+        let pressedTime = 0; // for hold-to-exit with key 'E'
+
+        addEventListener(
+          "keydown",
+          (e) => {
+            // Prevent text focus navigation etc
+            preventDefaultKeys(e);
+            if (!started) return;
+            if (e.code === "KeyE") {
+              pressedTime = performance.now();
+            }
+            // Number keys select effects 1..n; any other key triggers current effect
+            const num = parseInt(e.key, 10);
+            if (!Number.isNaN(num)) {
+              setEffect(num - 1);
+              plink();
+              return;
+            }
+            const cur = effects[effectIdx];
+            if (cur.key) cur.key();
+            else plink();
+          },
+          true,
+        );
+
+        addEventListener(
+          "keyup",
+          (e) => {
+            if (e.code === "KeyE" && pressedTime) {
+              const held = performance.now() - pressedTime;
+              pressedTime = 0;
+              if (held > 1500) exit();
+            }
+          },
+          true,
+        );
+
+        // Exit via Esc as a fallback
+        addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            exit();
+          }
+        });
+
+        // Exit via triple-click hotspot (top-left)
+        let clicks = [];
+        exitHotspot.addEventListener("click", () => {
+          const now = performance.now();
+          clicks = clicks.filter((t) => now - t < 600);
+          clicks.push(now);
+          if (clicks.length >= 3) exit();
+        });
+
+        function exit() {
+          document.exitFullscreen?.();
+          ui.classList.remove("hidden");
+          canvas.style.cursor = "default";
+          showHUD("Exited");
+        }
+
+        // Disable context menu / selection
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+        document.addEventListener("dragstart", (e) => e.preventDefault());
+        document.addEventListener("selectstart", (e) => e.preventDefault());
+
+        // Touch = KEY surrogate
+        canvas.addEventListener("pointerdown", () => {
+          if (!started) return;
+          const cur = effects[effectIdx];
+          cur.key?.();
+          plink();
+        });
+
+        // ---------- Start / UI ----------
+        let started = false;
+        async function start() {
+          started = true;
+          ui.classList.add("hidden");
+          canvas.style.cursor = "none";
+          initAudio();
+          await enterFullscreen();
+          await lockKeys();
+          await keepAwake();
+          setEffect(0);
+          requestAnimationFrame(loop);
+        }
+
+        btnGo.addEventListener("click", start);
+        btnMute.addEventListener("click", () => {
+          settings.muted = !settings.muted;
+          btnMute.textContent = settings.muted ? "Sound: Off" : "Sound: On";
+          if (AC) {
+            masterGain.gain.value = settings.muted ? 0 : 0.15;
+          }
+        });
+        btnRM.addEventListener("click", () => {
+          settings.reduceMotion = !settings.reduceMotion;
+          btnRM.textContent = settings.reduceMotion
+            ? "Motion: Reduced"
+            : "Motion: Normal";
+          // Reinit current effect to apply motion changes
+          const e = effects[effectIdx];
+          e._inited = false;
+          setEffect(effectIdx);
+        });
+
+        // Palette cycling on Enter
+        addEventListener(
+          "keydown",
+          (e) => {
+            if (!started) return;
+            if (e.code === "Enter") {
+              settings.paletteIndex =
+                (settings.paletteIndex + 1) % palettes.length;
+              showHUD("Palette");
+              plink();
+            }
+            if (e.code === "Backspace") {
+              const efx = effects[effectIdx];
+              if (efx.init) {
+                efx._inited = false;
+                efx.init();
+                efx._inited = true;
+              }
+              showHUD("Reset");
+            }
+          },
+          true,
+        );
+      })();
+    </script>
+  </body>
+</html>
