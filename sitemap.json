@@ -284,18 +284,13 @@
       "route": "tools",
       "children": [
         {
-          "title": "hexaggon",
+          "title": "hexaggon 🔗",
           "route": "https://hexaggon.com"
         },
         {
-          "title": "hourglass",
-          "route": "hourglass",
-          "template": "template_hourglass.html"
-        },
-        {
-          "title": "continuous dice",
-          "route": "continuousdice",
-          "template": "template_continuous_dice.html"
+          "title": "baby mode",
+          "route": "babymode",
+          "template": "template_baby_mode.html"
         },
         {
           "title": "connections",
@@ -303,19 +298,29 @@
           "template": "template_connections.html"
         },
         {
+          "title": "continuous dice",
+          "route": "continuousdice",
+          "template": "template_continuous_dice.html"
+        },
+        {
+          "title": "hourglass",
+          "route": "hourglass",
+          "template": "template_hourglass.html"
+        },
+        {
           "title": "jaxbox",
           "route": "jaxbox",
           "template": "template_jaxbox.html"
         },
         {
-          "title": "scream into the void",
-          "route": "scream-into-the-void",
-          "template": "template_void_scream.html"
-        },
-        {
           "title": "qr",
           "route": "qr",
           "template": "template_qr.html"
+        },
+        {
+          "title": "scream into the void",
+          "route": "scream-into-the-void",
+          "template": "template_void_scream.html"
         }
       ]
     },
