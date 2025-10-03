@@ -297,6 +297,16 @@ html, body {
     }
   });
 
+  document.addEventListener("mousedown", function(e) {
+    e.preventDefault();
+    stopRolling();
+  });
+
+  document.addEventListener("mouseup", function(e) {
+    e.preventDefault();
+    startRolling();
+  });
+
   document.addEventListener("touchstart", function(e) {
     e.preventDefault();
     stopRolling();
