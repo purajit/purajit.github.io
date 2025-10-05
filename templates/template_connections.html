@@ -191,11 +191,17 @@
 
     input {
       background: rgba(255, 255, 255, 0.5);
+      outline: 1px solid rgba(0, 0, 0, 0.4);
+      border: none;
       padding: 10px;
       border-radius: 12px;
       color: black;
       flex: 1;
       min-width: 0;
+    }
+
+    input:focus {
+      outline: 2px solid black;
     }
 
     #puzzleGenerationResult {
