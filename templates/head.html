@@ -1,6 +1,7 @@
 <head>
-    <title>purajit | {{ tab_title }}</title>
+    <title>{{ "purajit | " ~ (tab_title|default(title, true)|default("home", true)) }}</title>
     <meta charset="utf-8"/>
+    {% include 'head_meta.html' %}
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
     <style>
         {% include 'index.css' %}
