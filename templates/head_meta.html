@@ -1,24 +1,18 @@
 {% set meta_title_value = meta_title|default("purajit | " ~ (tab_title|default(title, true)|default("home", true)), true) %}
 {% set meta_site_name_value = meta_site_name|default("purajit", true) %}
 {% set meta_type_value = meta_type|default("website", true) %}
+{% set meta_description_value = meta_description|default(description, true)|default(meta_title_value, true) %}
+{% set meta_image_value = meta_image|default(image, true)|default("https://purajit.com/static/tiledspace.jpg", true) %}
 <meta property="og:title" content="{{ meta_title_value }}"/>
 <meta property="og:site_name" content="{{ meta_site_name_value }}"/>
 <meta property="og:type" content="{{ meta_type_value }}"/>
 <meta name="twitter:title" content="{{ meta_title_value }}"/>
-{% if meta_description is defined or description is defined %}
-{% set meta_description_value = meta_description|default(description, true) %}
 <meta name="description" content="{{ meta_description_value }}"/>
 <meta property="og:description" content="{{ meta_description_value }}"/>
 <meta name="twitter:description" content="{{ meta_description_value }}"/>
-{% endif %}
-{% if meta_image is defined or image is defined %}
-{% set meta_image_value = meta_image|default(image, true) %}
 <meta property="og:image" content="{{ meta_image_value }}"/>
 <meta name="twitter:image" content="{{ meta_image_value }}"/>
 <meta name="twitter:card" content="summary_large_image"/>
-{% else %}
-<meta name="twitter:card" content="summary"/>
-{% endif %}
 {% if meta_url is defined or url is defined %}
 {% set meta_url_value = meta_url|default(url, true) %}
 <meta property="og:url" content="{{ meta_url_value }}"/>
