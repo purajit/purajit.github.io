@@ -241,57 +241,209 @@
           return palettes[settings.paletteIndex % palettes.length];
         }
 
-        // Effect 0: Triangular shards fan from center; recolor on key
-        effects.push({
-          name: "Shards",
-          init() {
-            this.shards = [];
-            this.reseed();
-          },
-          reseed() {
-            const cols = palette();
-            const n = settings.reduceMotion ? 20 : 40;
-            this.shards = [];
-            let ang = 0,
-              cx = W / 2,
-              cy = H / 2;
-            for (let i = 0; i < n; i++) {
-              const a1 = ang;
-              const a2 = ang + rand(Math.PI * 0.05, Math.PI * 0.25);
-              ang = a2;
-              const r1 = rand(H * 0.25, H * 0.6);
-              const r2 = rand(H * 0.25, H * 0.6);
-              const color = pick(cols);
-              this.shards.push({ a1, a2, r1, r2, color });
+        // ---------- Delaunay triangulation helpers ----------
+        // True when p lies inside the circumcircle of triangle a,b,c.
+        function inCircumcircle(a, b, c, p) {
+          const ax = a[0] - p[0],
+            ay = a[1] - p[1];
+          const bx = b[0] - p[0],
+            by = b[1] - p[1];
+          const cx = c[0] - p[0],
+            cy = c[1] - p[1];
+          const det =
+            (ax * ax + ay * ay) * (bx * cy - by * cx) -
+            (bx * bx + by * by) * (ax * cy - ay * cx) +
+            (cx * cx + cy * cy) * (ax * by - ay * bx);
+          // Flip the sign so it works for either triangle winding.
+          const orient =
+            (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+          return orient > 0 ? det > 0 : det < 0;
+        }
+
+        // Bowyer-Watson Delaunay triangulation. Returns triangles as index
+        // triples into the returned `points` array.
+        function delaunay(points) {
+          // Work in a normalized [0,1] box. This keeps the far-away
+          // super-triangle vertices from wrecking the floating point tests
+          // for very wide/tall screens.
+          let minX = Infinity,
+            minY = Infinity,
+            maxX = -Infinity,
+            maxY = -Infinity;
+          for (const p of points) {
+            if (p[0] < minX) minX = p[0];
+            if (p[0] > maxX) maxX = p[0];
+            if (p[1] < minY) minY = p[1];
+            if (p[1] > maxY) maxY = p[1];
+          }
+          const spanX = maxX - minX || 1,
+            spanY = maxY - minY || 1;
+          const pts = points.map((p) => [
+            (p[0] - minX) / spanX,
+            (p[1] - minY) / spanY,
+          ]);
+          // The super-triangle must be far larger than any circumcircle of
+          // the input points, otherwise it leaves holes near the boundary.
+          const s = 100000;
+          const base = pts.length;
+          pts.push([0.5 - s, 0.5 - s], [0.5 + s, 0.5 - s], [0.5, 0.5 + s]);
+
+          let tris = [[base, base + 1, base + 2]];
+          const hasEdge = (tri, u, v) =>
+            (tri[0] === u || tri[1] === u || tri[2] === u) &&
+            (tri[0] === v || tri[1] === v || tri[2] === v);
+
+          for (let pi = 0; pi < points.length; pi++) {
+            const p = pts[pi];
+            const bad = [];
+            for (let i = 0; i < tris.length; i++) {
+              const [a, b, c] = tris[i];
+              if (inCircumcircle(pts[a], pts[b], pts[c], p)) bad.push(i);
             }
+            if (!bad.length) continue;
+            // Edges that bound the polygonal hole left by the bad triangles.
+            const edges = [];
+            for (const i of bad) {
+              const tri = tris[i];
+              for (let e = 0; e < 3; e++) {
+                const u = tri[e],
+                  v = tri[(e + 1) % 3];
+                let shared = false;
+                for (const j of bad) {
+                  if (j !== i && hasEdge(tris[j], u, v)) {
+                    shared = true;
+                    break;
+                  }
+                }
+                if (!shared) edges.push([u, v]);
+              }
+            }
+            bad.sort((x, y) => y - x);
+            for (const i of bad) tris.splice(i, 1);
+            for (const [u, v] of edges) tris.push([u, v, pi]);
+          }
+
+          tris = tris.filter(
+            (tri) => tri[0] < base && tri[1] < base && tri[2] < base,
+          );
+          return { triangles: tris, points: pts };
+        }
+
+        // Backtracking 4-coloring of the triangle adjacency graph. The dual of
+        // a planar triangulation is planar, so four colors always suffice.
+        function color4(adj, n) {
+          const colors = new Array(n).fill(-1);
+          const order = Array.from({ length: n }, (_, i) => i).sort(
+            (a, b) => adj[b].size - adj[a].size,
+          );
+          let steps = 0;
+          const limit = 500000;
+          const bt = (k) => {
+            if (k === n) return true;
+            if (++steps > limit) return false;
+            const node = order[k];
+            const used = new Set();
+            for (const nb of adj[node]) if (colors[nb] >= 0) used.add(colors[nb]);
+            for (let c = 0; c < 4; c++) {
+              if (used.has(c)) continue;
+              colors[node] = c;
+              if (bt(k + 1)) return true;
+              colors[node] = -1;
+            }
+            return false;
+          };
+          if (!bt(0)) {
+            // Safety net: greedy fallback (may rarely reuse a color).
+            colors.fill(-1);
+            for (const node of order) {
+              const used = new Set();
+              for (const nb of adj[node])
+                if (colors[nb] >= 0) used.add(colors[nb]);
+              let c = 0;
+              while (used.has(c)) c++;
+              colors[node] = c % 4;
+            }
+          }
+          return colors;
+        }
+
+        // Effect 0: Full-screen random Delaunay triangle grid, 4-colored.
+        // Space cycles the palette; click/tap re-grids the screen.
+        effects.push({
+          name: "Triangles",
+          init() {
+            this.regrid();
           },
-          key() {
-            this.reseed();
+          regrid() {
+            const points = [];
+            // Corners guarantee the convex hull covers the whole screen.
+            points.push([0, 0], [W, 0], [0, H], [W, H]);
+            const cell = Math.min(W, H) / (settings.reduceMotion ? 6 : 9);
+            for (let x = cell / 2; x < W; x += cell) {
+              for (let y = cell / 2; y < H; y += cell) {
+                points.push([
+                  Math.max(0, Math.min(W, x + rand(cell * 0.4, -cell * 0.4))),
+                  Math.max(0, Math.min(H, y + rand(cell * 0.4, -cell * 0.4))),
+                ]);
+              }
+            }
+            const { triangles } = delaunay(points);
+            this.points = points;
+            this.triangles = triangles;
+            this.colorTriangles();
+          },
+          colorTriangles() {
+            const n = this.triangles.length;
+            const adj = Array.from({ length: n }, () => new Set());
+            const edgeMap = new Map();
+            const ekey = (a, b) => (a < b ? a + "," + b : b + "," + a);
+            this.triangles.forEach((tri, i) => {
+              for (let e = 0; e < 3; e++) {
+                const k = ekey(tri[e], tri[(e + 1) % 3]);
+                if (!edgeMap.has(k)) edgeMap.set(k, []);
+                edgeMap.get(k).push(i);
+              }
+            });
+            for (const list of edgeMap.values()) {
+              for (let i = 0; i < list.length; i++) {
+                for (let j = i + 1; j < list.length; j++) {
+                  adj[list[i]].add(list[j]);
+                  adj[list[j]].add(list[i]);
+                }
+              }
+            }
+            this.colors = color4(adj, n);
+          },
+          onSpace() {
+            settings.paletteIndex =
+              (settings.paletteIndex + 1) % palettes.length;
+            showHUD("Palette");
             plink();
           },
-          draw(dt) {
+          onClick() {
+            this.regrid();
+            plink();
+          },
+          draw() {
+            const cols = palette();
             clear("#0b0e11");
-            ctx.save();
-            ctx.translate(0.5, 0.5);
-            for (const s of this.shards) {
+            ctx.lineJoin = "round";
+            ctx.lineWidth = Math.max(1, Math.min(W, H) * 0.004);
+            ctx.strokeStyle = "#0b0e11";
+            for (let i = 0; i < this.triangles.length; i++) {
+              const tri = this.triangles[i];
+              const p0 = this.points[tri[0]];
+              const p1 = this.points[tri[1]];
+              const p2 = this.points[tri[2]];
               ctx.beginPath();
-              const cx = W / 2,
-                cy = H / 2;
-              ctx.moveTo(cx, cy);
-              ctx.lineTo(
-                cx + Math.cos(s.a1 + t * 0.1) * s.r1,
-                cy + Math.sin(s.a1 + t * 0.1) * s.r1,
-              );
-              ctx.lineTo(
-                cx + Math.cos(s.a2 - t * 0.1) * s.r2,
-                cy + Math.sin(s.a2 - t * 0.1) * s.r2,
-              );
+              ctx.moveTo(p0[0], p0[1]);
+              ctx.lineTo(p1[0], p1[1]);
+              ctx.lineTo(p2[0], p2[1]);
               ctx.closePath();
-              ctx.fillStyle = s.color;
-              ctx.globalAlpha = 0.9;
+              ctx.fillStyle = cols[this.colors[i] % cols.length];
               ctx.fill();
+              ctx.stroke();
             }
-            ctx.restore();
           },
         });
 
@@ -608,6 +760,10 @@
               return;
             }
             const cur = effects[effectIdx];
+            if (e.code === "Space" && cur.onSpace) {
+              cur.onSpace();
+              return;
+            }
             if (cur.key) cur.key();
             else plink();
           },
@@ -654,12 +810,16 @@
         document.addEventListener("dragstart", (e) => e.preventDefault());
         document.addEventListener("selectstart", (e) => e.preventDefault());
 
-        // Touch = KEY surrogate
+        // Touch / click = effect-specific action (or KEY surrogate)
         canvas.addEventListener("pointerdown", () => {
           if (!started) return;
           const cur = effects[effectIdx];
-          cur.key?.();
-          plink();
+          if (cur.onClick) {
+            cur.onClick();
+          } else {
+            cur.key?.();
+            plink();
+          }
         });
 
         // ---------- Start / UI ----------
