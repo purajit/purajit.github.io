@@ -466,6 +466,7 @@
     {
       "title": "tools",
       "route": "tools",
+      "template": "template_tools.html",
       "children": [
         {
           "title": "hexaggon \ud83d\udd17",

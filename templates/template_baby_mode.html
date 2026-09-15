@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
+      content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover"
     />
     <title>Baby Mode</title>
     <style>
@@ -35,81 +35,42 @@
         height: 100vh;
         cursor: none;
       }
-      .ui {
-        position: fixed;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        z-index: 3;
-        background:
-          radial-gradient(
-            1200px 800px at 50% 40%,
-            rgba(255, 255, 255, 0.08),
-            transparent 60%
-          ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.04),
-            rgba(255, 255, 255, 0)
-          );
-      }
-      .card {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 20px;
-        padding: 28px;
-        max-width: 720px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      }
-      .btn {
-        user-select: none;
-        -webkit-user-select: none;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        padding: 14px 18px;
-        font-weight: 700;
-        font-size: 1.05rem;
-        border-radius: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.18),
-          rgba(255, 255, 255, 0.06)
-        );
-        color: var(--fg);
-        cursor: pointer;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-      }
-      .btn:active {
-        transform: translateY(1px);
-      }
-      .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-        margin-top: 1rem;
-      }
-      .hint {
-        font-size: 0.9rem;
-        color: var(--muted);
-        margin-top: 0.75rem;
-      }
-      .hud {
+      .tabs {
         position: fixed;
         left: 12px;
         bottom: 12px;
         z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        max-width: calc(100vw - 24px);
+        padding: 6px;
         color: #cbd5e1;
         font-size: 13px;
-        opacity: 0.8;
-        background: rgba(0, 0, 0, 0.35);
-        padding: 8px 10px;
-        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.45);
         border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+        pointer-events: none;
+      }
+      .tab {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        opacity: 0.65;
+        white-space: nowrap;
+      }
+      .tab .num {
+        font-weight: 700;
+        opacity: 0.55;
+      }
+      .tab.active {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        opacity: 1;
+        font-weight: 700;
       }
       .hidden {
         display: none;
@@ -127,36 +88,12 @@
   <body>
     <canvas id="c"></canvas>
 
-    <div id="start" class="ui">
-      <div class="card">
-        <h1
-          style="margin: 0 0 0.25rem 0; font-size: clamp(1.4rem, 2.2vw, 2rem)"
-        >
-          Baby Mode
-        </h1>
-        <p style="margin: 0.25rem 0 1rem 0; color: #cbd5e1">
-          Fullscreen, kid-safe canvas. Keys make friendly things happen.
-        </p>
-        <div class="row">
-          <button id="go" class="btn">Start Baby Mode</button>
-          <button id="mute" class="btn" aria-pressed="false">Sound: On</button>
-          <button id="reduceMotion" class="btn" aria-pressed="false">
-            Motion: Normal
-          </button>
-        </div>
-        <div class="hint">
-          Esc/top-left triple‑click exits. Prevents most key effects; OS
-          shortcuts (e.g., Alt‑Tab, volume) can’t be blocked by browsers.
-        </div>
-      </div>
-    </div>
-
     <div
       class="exitHotspot"
       id="exitHotspot"
       title="Triple‑click to exit"
     ></div>
-    <div id="hud" class="hud hidden"></div>
+    <div id="tabs" class="tabs hidden"></div>
 
     <script>
       (() => {
@@ -165,11 +102,7 @@
         let W = 0,
           H = 0,
           DPR = 1;
-        const hud = document.getElementById("hud");
-        const ui = document.getElementById("start");
-        const btnGo = document.getElementById("go");
-        const btnMute = document.getElementById("mute");
-        const btnRM = document.getElementById("reduceMotion");
+        const tabsEl = document.getElementById("tabs");
         const exitHotspot = document.getElementById("exitHotspot");
 
         // Settings
@@ -180,10 +113,39 @@
         };
 
         const palettes = [
-          ["#ffd6e8", "#ffecb3", "#c8f7dc", "#d6e4ff", "#f1d1ff", "#ffe5cc"], // pastels
-          ["#9b5de5", "#f15bb5", "#fee440", "#00bbf9", "#00f5d4"], // playful
-          ["#ffd1a4", "#ffa6c1", "#a9def9", "#e4c1f9", "#caffbf"], // soft
-          ["#f6bd60", "#f7ede2", "#84a59d", "#f28482", "#f5cac3"], // warm
+          // pastels & softs
+          ["#ffd6e8", "#ffecb3", "#c8f7dc", "#d6e4ff", "#f1d1ff", "#ffe5cc"],
+          ["#ffd1a4", "#ffa6c1", "#a9def9", "#e4c1f9", "#caffbf"],
+          ["#ffc8dd", "#ffafcc", "#bde0fe", "#a2d2ff"],
+          ["#ffadad", "#ffd6a5", "#fdffb6", "#caffbf"],
+          ["#f6bd60", "#f7ede2", "#84a59d", "#f28482", "#f5cac3"],
+          ["#e2ece9", "#bee1e6", "#cddafd", "#f0efeb", "#dfe7fd"],
+          // bright & playful
+          ["#9b5de5", "#f15bb5", "#fee440", "#00bbf9", "#00f5d4"],
+          ["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff"],
+          ["#ffbe0b", "#fb5607", "#ff006e", "#8338ec"],
+          ["#ff9e00", "#ff6d00", "#ff3d00", "#c2185b"],
+          ["#f72585", "#b5179e", "#7209b7", "#4361ee"],
+          ["#39ff14", "#ff073a", "#00e5ff", "#ffea00"],
+          ["#ff5d8f", "#ffca3a", "#8ac926", "#1982c4", "#6a4c93"],
+          // nature
+          ["#2d6a4f", "#40916c", "#74c69d", "#b7e4c7"],
+          ["#606c38", "#588157", "#dda15e", "#bc6c25", "#fefae0"],
+          ["#06d6a0", "#1b9aaa", "#a0e8af", "#f4f1bb"],
+          ["#80b918", "#aacc00", "#bfd200", "#d4edda"],
+          ["#a7c957", "#f2e8cf", "#bc4749", "#6a994e"],
+          // water & sky
+          ["#0077b6", "#00b4d8", "#90e0ef", "#caf0f8"],
+          ["#0466c8", "#00b4d8", "#90e0ef", "#caf0f8"],
+          ["#023e8a", "#0096c7", "#48cae4", "#ade8f4"],
+          // sunset & fire
+          ["#ffba08", "#f48c06", "#dc2f02", "#9d0208"],
+          ["#ffd60a", "#ffc300", "#ff9505", "#e85d04"],
+          ["#f4a261", "#e76f51", "#2a9d8f", "#e9c46a"],
+          // purple & galaxy
+          ["#3c096c", "#7b2cbf", "#c77dff", "#e0aaff"],
+          ["#5a189a", "#7b2cbf", "#9d4edd", "#c77dff"],
+          ["#9d4edd", "#c77dff", "#ff6ec7", "#ffb3f0"],
         ];
 
         const rand = (a = 1, b = 0) => Math.random() * (a - b) + b;
@@ -199,7 +161,7 @@
         addEventListener("resize", resize);
         resize();
 
-        // ---------- Audio (gentle plinks) ----------
+        // ---------- Audio ----------
         let AC, masterGain;
         function initAudio() {
           if (AC) return;
@@ -207,21 +169,100 @@
             AC = new (window.AudioContext || window.webkitAudioContext)();
             masterGain = AC.createGain();
             masterGain.gain.value = settings.muted ? 0 : 0.15;
-            masterGain.connect(AC.destination);
+            // Soft limiter so a flurry of keypresses never gets harsh.
+            const comp = AC.createDynamicsCompressor();
+            comp.threshold.value = -14;
+            comp.ratio.value = 12;
+            masterGain.connect(comp).connect(AC.destination);
           } catch {}
         }
-        function plink() {
+
+        // Generic synth voice. `slideTo` bends the pitch, `delay` offsets start.
+        function tone(o = {}) {
           if (!AC || settings.muted) return;
-          const o = AC.createOscillator();
+          const {
+            freq = 440,
+            slideTo = null,
+            type = "sine",
+            dur = 0.3,
+            vol = 0.4,
+            attack = 0.008,
+            delay = 0,
+          } = o;
+          const t0 = AC.currentTime + delay;
+          const osc = AC.createOscillator();
           const g = AC.createGain();
-          o.type = "sine";
-          o.frequency.value = 220 * Math.pow(2, rand(0, 2));
-          g.gain.setValueAtTime(0, AC.currentTime);
-          g.gain.linearRampToValueAtTime(0.6, AC.currentTime + 0.01);
-          g.gain.exponentialRampToValueAtTime(0.0001, AC.currentTime + 0.35);
-          o.connect(g).connect(masterGain);
-          o.start();
-          o.stop(AC.currentTime + 0.4);
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, t0);
+          if (slideTo)
+            osc.frequency.exponentialRampToValueAtTime(slideTo, t0 + dur);
+          g.gain.setValueAtTime(0.0001, t0);
+          g.gain.linearRampToValueAtTime(vol, t0 + attack);
+          g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+          osc.connect(g).connect(masterGain);
+          osc.start(t0);
+          osc.stop(t0 + dur + 0.05);
+        }
+
+        // Filtered noise burst, good for bangs and splashes.
+        function noiseBurst(o = {}) {
+          if (!AC || settings.muted) return;
+          const { dur = 0.4, vol = 0.3, from = 6000, to = 300, delay = 0 } = o;
+          const t0 = AC.currentTime + delay;
+          const len = Math.max(1, Math.floor(AC.sampleRate * dur));
+          const buf = AC.createBuffer(1, len, AC.sampleRate);
+          const data = buf.getChannelData(0);
+          for (let i = 0; i < len; i++)
+            data[i] = (Math.random() * 2 - 1) * (1 - i / len);
+          const src = AC.createBufferSource();
+          src.buffer = buf;
+          const filter = AC.createBiquadFilter();
+          filter.type = "lowpass";
+          filter.frequency.setValueAtTime(from, t0);
+          filter.frequency.exponentialRampToValueAtTime(to, t0 + dur);
+          const g = AC.createGain();
+          g.gain.setValueAtTime(vol, t0);
+          g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+          src.connect(filter).connect(g).connect(masterGain);
+          src.start(t0);
+          src.stop(t0 + dur + 0.05);
+        }
+
+        // A little bell/chime used by the kaleidoscope.
+        function bell(semitone = 0) {
+          const base = 392 * Math.pow(2, semitone / 12);
+          tone({ freq: base, type: "triangle", dur: 0.9, vol: 0.22 });
+          tone({
+            freq: base * 1.5,
+            type: "sine",
+            dur: 0.7,
+            vol: 0.11,
+            delay: 0.05,
+          });
+          tone({ freq: base * 2, type: "sine", dur: 0.45, vol: 0.07, delay: 0.1 });
+        }
+
+        // A watery "plop" for the ripples: a fast downward pitch bend with a
+        // short wet tick on top.
+        function plop() {
+          if (!AC || settings.muted) return;
+          const t0 = AC.currentTime;
+          const osc = AC.createOscillator();
+          const g = AC.createGain();
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(560, t0);
+          osc.frequency.exponentialRampToValueAtTime(90, t0 + 0.14);
+          g.gain.setValueAtTime(0.0001, t0);
+          g.gain.linearRampToValueAtTime(0.55, t0 + 0.006);
+          g.gain.exponentialRampToValueAtTime(0.0001, t0 + 0.22);
+          osc.connect(g).connect(masterGain);
+          osc.start(t0);
+          osc.stop(t0 + 0.28);
+          noiseBurst({ dur: 0.05, vol: 0.1, from: 2200, to: 500 });
+        }
+
+        function plink() {
+          tone({ freq: 220 * Math.pow(2, rand(0, 2)), dur: 0.35, vol: 0.5 });
         }
 
         // ---------- Effects Engine ----------
@@ -239,6 +280,28 @@
         }
         function palette() {
           return palettes[settings.paletteIndex % palettes.length];
+        }
+
+        // Device-pixel position of a pointer event (falls back to random).
+        function pointerPos(e) {
+          if (!e || e.clientX == null) return [rand(W), rand(H)];
+          const rect =
+            canvas.getBoundingClientRect?.() || { left: 0, top: 0 };
+          return [(e.clientX - rect.left) * DPR, (e.clientY - rect.top) * DPR];
+        }
+
+        function drawPoly(x, y, r, sides, rot, color) {
+          ctx.beginPath();
+          for (let i = 0; i < sides; i++) {
+            const a = rot + (i / sides) * Math.PI * 2;
+            const px = x + Math.cos(a) * r;
+            const py = y + Math.sin(a) * r;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+          }
+          ctx.closePath();
+          ctx.fillStyle = color;
+          ctx.fill();
         }
 
         // ---------- Delaunay triangulation helpers ----------
@@ -329,75 +392,69 @@
           return { triangles: tris, points: pts };
         }
 
-        // Backtracking 4-coloring of the triangle adjacency graph. The dual of
-        // a planar triangulation is planar, so four colors always suffice.
-        function color4(adj, n) {
-          const colors = new Array(n).fill(-1);
-          const order = Array.from({ length: n }, (_, i) => i).sort(
-            (a, b) => adj[b].size - adj[a].size,
-          );
-          let steps = 0;
-          const limit = 500000;
-          const bt = (k) => {
-            if (k === n) return true;
-            if (++steps > limit) return false;
-            const node = order[k];
-            const used = new Set();
-            for (const nb of adj[node]) if (colors[nb] >= 0) used.add(colors[nb]);
-            for (let c = 0; c < 4; c++) {
-              if (used.has(c)) continue;
-              colors[node] = c;
-              if (bt(k + 1)) return true;
-              colors[node] = -1;
-            }
-            return false;
-          };
-          if (!bt(0)) {
-            // Safety net: greedy fallback (may rarely reuse a color).
-            colors.fill(-1);
-            for (const node of order) {
-              const used = new Set();
-              for (const nb of adj[node])
-                if (colors[nb] >= 0) used.add(colors[nb]);
-              let c = 0;
-              while (used.has(c)) c++;
-              colors[node] = c % 4;
-            }
-          }
-          return colors;
-        }
-
         // Effect 0: Full-screen random Delaunay triangle grid, 4-colored.
         // Space cycles the palette; click/tap re-grids the screen.
         effects.push({
           name: "Triangles",
           init() {
-            this.regrid();
+            this.triColor = new Map();
+            this.anim = null;
+            this.regrid(true);
           },
-          regrid() {
+          onResize() {
+            // The grid layout depends on the viewport, so snap instead of morph.
+            this.regrid(true);
+          },
+          // A fresh jittered grid of corners.
+          makePoints() {
             const points = [];
-            // Corners guarantee the convex hull covers the whole screen.
-            points.push([0, 0], [W, 0], [0, H], [W, H]);
+            // Overscan past every edge so the dark separators never form a
+            // frame around the screen. The visible area stays fully covered.
+            const m = Math.max(8 * DPR, Math.min(W, H) * 0.04);
+            const x0 = -m,
+              y0 = -m,
+              x1 = W + m,
+              y1 = H + m;
+            points.push([x0, y0], [x1, y0], [x0, y1], [x1, y1]);
             const cell = Math.min(W, H) / (settings.reduceMotion ? 6 : 9);
-            for (let x = cell / 2; x < W; x += cell) {
-              for (let y = cell / 2; y < H; y += cell) {
+            for (let x = x0 + cell / 2; x < x1; x += cell) {
+              for (let y = y0 + cell / 2; y < y1; y += cell) {
                 points.push([
-                  Math.max(0, Math.min(W, x + rand(cell * 0.4, -cell * 0.4))),
-                  Math.max(0, Math.min(H, y + rand(cell * 0.4, -cell * 0.4))),
+                  x + rand(cell * 0.4, -cell * 0.4),
+                  y + rand(cell * 0.4, -cell * 0.4),
                 ]);
               }
             }
-            const { triangles } = delaunay(points);
-            this.points = points;
+            return points;
+          },
+          regrid(snap) {
+            const target = this.makePoints();
+            if (snap || !this.points || this.points.length !== target.length) {
+              // Init/resize: no matching corners to morph, so just snap.
+              this.triColor = new Map();
+              this.points = target;
+              this.anim = null;
+              this.triangulate();
+              return;
+            }
+            // Morph every corner from where it is now to its new spot.
+            this.from = this.points.map((p) => [p[0], p[1]]);
+            this.target = target;
+            this.t = 0;
+            this.anim = true;
+          },
+          triangulate() {
+            const { triangles } = delaunay(this.points);
             this.triangles = triangles;
             this.colorTriangles();
           },
           colorTriangles() {
-            const n = this.triangles.length;
+            const tris = this.triangles;
+            const n = tris.length;
             const adj = Array.from({ length: n }, () => new Set());
             const edgeMap = new Map();
             const ekey = (a, b) => (a < b ? a + "," + b : b + "," + a);
-            this.triangles.forEach((tri, i) => {
+            tris.forEach((tri, i) => {
               for (let e = 0; e < 3; e++) {
                 const k = ekey(tri[e], tri[(e + 1) % 3]);
                 if (!edgeMap.has(k)) edgeMap.set(k, []);
@@ -412,19 +469,78 @@
                 }
               }
             }
-            this.colors = color4(adj, n);
+            // Greedy 4-colouring seeded with the previous frame's colours,
+            // keyed by the triangle's vertex triple. Triangles that survive
+            // the morph keep their colour, so the grid doesn't flicker as it
+            // flows to its new corners.
+            const prev = this.triColor;
+            const key = (t) => {
+              let a = t[0],
+                b = t[1],
+                c = t[2];
+              if (a > b) [a, b] = [b, a];
+              if (b > c) [b, c] = [c, b];
+              if (a > b) [a, b] = [b, a];
+              return a + "," + b + "," + c;
+            };
+            const order = Array.from({ length: n }, (_, i) => i).sort(
+              (a, b) => adj[b].size - adj[a].size,
+            );
+            const colors = new Array(n).fill(-1);
+            for (const node of order) {
+              const used = new Set();
+              for (const nb of adj[node])
+                if (colors[nb] >= 0) used.add(colors[nb]);
+              let c = prev.get(key(tris[node]));
+              if (c === undefined || used.has(c)) {
+                c = 0;
+                while (used.has(c)) c++;
+              }
+              colors[node] = c;
+            }
+            const map = new Map();
+            tris.forEach((t, i) => map.set(key(t), colors[i]));
+            this.triColor = map;
+            this.colors = colors;
           },
           onSpace() {
-            settings.paletteIndex =
-              (settings.paletteIndex + 1) % palettes.length;
-            showHUD("Palette");
+            this.nextPalette();
             plink();
+          },
+          key() {
+            // every key does something: either a fresh grid or new colours
+            if (Math.random() < 0.5) this.regrid();
+            else this.nextPalette();
+            plink();
+          },
+          nextPalette() {
+            settings.paletteIndex =
+              (settings.paletteIndex + 1 + randi(palettes.length - 1)) %
+              palettes.length;
           },
           onClick() {
             this.regrid();
             plink();
           },
-          draw() {
+          draw(dt) {
+            // Morph corners towards their new spots, re-triangulating each
+            // frame so the mesh stays a valid Delaunay as it flows.
+            if (this.anim) {
+              this.t = Math.min(1, this.t + dt / 0.5);
+              const e = this.t * this.t * (3 - 2 * this.t);
+              for (let i = 0; i < this.points.length; i++) {
+                const a = this.from[i],
+                  b = this.target[i];
+                this.points[i][0] = a[0] + (b[0] - a[0]) * e;
+                this.points[i][1] = a[1] + (b[1] - a[1]) * e;
+              }
+              this.triangulate();
+              if (this.t >= 1) {
+                this.anim = false;
+                this.from = null;
+                this.target = null;
+              }
+            }
             const cols = palette();
             clear("#0b0e11");
             ctx.lineJoin = "round";
@@ -447,215 +563,552 @@
           },
         });
 
-        // Effect 1: Random thick path drawing
+        // Effect 1: Paint - every key throws a splat of colour; taps paint too
         effects.push({
-          name: "Squiggle",
+          name: "Paint",
           init() {
-            this.points = [];
-            this.speed = settings.reduceMotion ? 40 : 80;
-            this.thick = Math.max(12, Math.min(W, H) / 40);
-            this.reset();
+            this.splats = [];
           },
-          reset() {
-            this.x = rand(W);
-            this.y = rand(H);
-            this.vx = rand(-1, 1) * this.speed;
-            this.vy = rand(-1, 1) * this.speed;
-            this.points.length = 0;
-            this.colorIdx = 0;
-          },
-          key() {
-            this.colorIdx = (this.colorIdx + 1) % palette().length;
-            plink();
-          },
-          draw(dt) {
-            // trail fade
-            ctx.fillStyle = "rgba(11,14,17,0.12)";
-            ctx.fillRect(0, 0, W, H);
-            // move
-            this.x += this.vx * dt;
-            this.y += this.vy * dt;
-            if (this.x < 0 || this.x > W) {
-              this.vx *= -1;
-              plink();
-            }
-            if (this.y < 0 || this.y > H) {
-              this.vy *= -1;
-              plink();
-            }
-            // draw segment
-            const col = palette()[this.colorIdx];
-            this.points.push([this.x, this.y]);
-            if (this.points.length > 512) this.points.shift();
-            ctx.lineCap = "round";
-            ctx.lineJoin = "round";
-            ctx.strokeStyle = col;
-            ctx.lineWidth = this.thick;
-            ctx.beginPath();
-            for (let i = 0; i < this.points.length; i++) {
-              const [px, py] = this.points[i];
-              if (i === 0) ctx.moveTo(px, py);
-              else ctx.lineTo(px, py);
-            }
-            ctx.stroke();
-          },
-        });
-
-        // Effect 2: Bubbles float up; key spawns burst
-        effects.push({
-          name: "Bubbles",
-          init() {
-            this.b = [];
-          },
-          spawn(n = 10) {
+          splat(x, y) {
+            // a huge range of colours across every hue
+            const c = `hsl(${rand(360)}, ${rand(95, 62)}%, ${rand(68, 48)}%)`;
+            const R = rand(Math.min(W, H) * 0.11, Math.min(W, H) * 0.04);
+            const blobs = [];
+            const n = randi(8, 4);
             for (let i = 0; i < n; i++) {
-              this.b.push({
-                x: rand(W),
-                y: H + rand(H * 0.2),
-                r: rand(10, Math.min(W, H) / 10),
-                vy: rand(-40, -120),
-                c: pick(palette()),
+              const a = rand(Math.PI * 2);
+              const d = rand(R * 1.5, 0);
+              blobs.push({
+                x: Math.cos(a) * d,
+                y: Math.sin(a) * d,
+                r: rand(R * 0.7, R * 0.22),
               });
             }
+            this.splats.push({
+              x,
+              y,
+              R,
+              c,
+              blobs,
+              seed: rand(100),
+              rot: rand(Math.PI * 2),
+              born: 0,
+            });
+            const cap = settings.reduceMotion ? 34 : 70;
+            if (this.splats.length > cap) this.splats.shift();
+            noiseBurst({ dur: 0.12, vol: 0.2, from: 3200, to: 400 });
+            tone({
+              freq: rand(520, 260),
+              slideTo: rand(200, 90),
+              dur: 0.14,
+              type: "triangle",
+              vol: 0.16,
+            });
           },
-          key() {
-            this.spawn(20);
-            plink();
+          key(e) {
+            // holding a key keeps inflating the newest splat
+            if (e && e.repeat && this.splats.length) this.growSplat();
+            else this.splat(rand(W), rand(H));
           },
-          draw(dt) {
-            clear("#081018");
-            if (Math.random() < 0.05) this.spawn(1);
-            ctx.globalAlpha = 1;
-            for (const o of this.b) {
-              o.y += o.vy * dt;
-              if (o.y + o.r < 0) {
-                o.y = H + o.r;
-                o.x = rand(W);
-                o.c = pick(palette());
-              }
-              ctx.beginPath();
-              ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2);
-              const g = ctx.createLinearGradient(
-                o.x,
-                o.y - o.r,
-                o.x,
-                o.y + o.r,
-              );
-              g.addColorStop(0, "rgba(255,255,255,0.35)");
-              g.addColorStop(1, o.c);
-              ctx.fillStyle = g;
-              ctx.fill();
+          growSplat() {
+            const s = this.splats[this.splats.length - 1];
+            const f = 1.09;
+            s.R = Math.min(s.R * f, Math.min(W, H) * 0.55);
+            for (const b of s.blobs) {
+              b.x *= f;
+              b.y *= f;
+              b.r *= f;
+            }
+            const now = performance.now();
+            if (now - (this.lastGrow || 0) > 70) {
+              this.lastGrow = now;
+              tone({ freq: rand(760, 440), dur: 0.05, vol: 0.05 });
             }
           },
-        });
-
-        // Effect 3: Emoji pop
-        const EMOJI = [
-          "🫧",
-          "⭐️",
-          "🌈",
-          "💫",
-          "✨",
-          "🫶",
-          "🦄",
-          "🐣",
-          "🧸",
-          "🍓",
-          "🍉",
-          "🎈",
-          "🌼",
-        ];
-        effects.push({
-          name: "Emoji Pop",
-          init() {
-            this.items = [];
-          },
-          key() {
-            this.addBurst();
-            plink();
-          },
-          addBurst() {
-            const n = settings.reduceMotion ? 10 : 24;
-            for (let i = 0; i < n; i++) {
-              this.items.push({
-                e: EMOJI[randi(EMOJI.length - 1)],
-                x: rand(W),
-                y: rand(H),
-                vx: rand(-60, 60),
-                vy: rand(-30, -120),
-                a: rand(0, Math.PI * 2),
-                va: rand(-2, 2),
-                s: rand(24, 72 * DPR),
-                life: rand(0.8, 2),
-              });
-            }
+          onClick(e) {
+            const p = pointerPos(e);
+            this.splat(p[0], p[1]);
           },
           draw(dt) {
-            ctx.fillStyle = "rgba(12,12,16,0.18)";
-            ctx.fillRect(0, 0, W, H);
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
-            for (const it of this.items) {
-              it.vy += 60 * dt; // gravity-like downward
-              it.x += it.vx * dt;
-              it.y += it.vy * dt;
-              it.a += it.va * dt;
-              it.life -= dt;
-              const alpha = Math.max(0, Math.min(1, it.life));
+            clear("#0e0e16");
+            for (const s of this.splats) {
+              s.born = Math.min(1, s.born + dt * 6);
+              const grow = 0.55 + 0.45 * s.born;
               ctx.save();
-              ctx.translate(it.x, it.y);
-              ctx.rotate(it.a);
-              ctx.globalAlpha = alpha;
-              ctx.font = `${it.s}px system-ui, Apple Color Emoji, Noto Color Emoji`;
-              ctx.fillText(it.e, 0, 0);
+              ctx.translate(s.x, s.y);
+              ctx.rotate(s.rot);
+              ctx.scale(grow, grow);
+              // irregular main blob
+              ctx.beginPath();
+              const steps = 16;
+              for (let i = 0; i <= steps; i++) {
+                const a = (i / steps) * Math.PI * 2;
+                const wob =
+                  1 +
+                  0.16 * Math.sin(a * 3 + s.seed) +
+                  0.09 * Math.sin(a * 5 - s.seed * 1.7);
+                const rr = s.R * wob;
+                const px = Math.cos(a) * rr;
+                const py = Math.sin(a) * rr;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+              }
+              ctx.closePath();
+              ctx.fillStyle = s.c;
+              ctx.fill();
+              // satellite droplets
+              for (const b of s.blobs) {
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                ctx.fill();
+              }
+              // glossy highlight
+              ctx.beginPath();
+              ctx.arc(-s.R * 0.28, -s.R * 0.3, s.R * 0.22, 0, Math.PI * 2);
+              ctx.fillStyle = "rgba(255,255,255,0.22)";
+              ctx.fill();
               ctx.restore();
             }
-            this.items = this.items.filter(
-              (it) => it.life > 0 && it.y < H + 80,
-            );
-            if (this.items.length < 5 && Math.random() < 0.02) this.addBurst();
           },
         });
 
-        // Effect 4: Confetti spray on key, gentle drift
+        // Effect 2: Ripples - a wavy, interfering pond. Keys drop anywhere,
+        // clicks drop exactly where you point.
         effects.push({
-          name: "Confetti",
+          name: "Ripples",
+          cursor: "crosshair",
           init() {
-            this.bits = [];
+            this.waves = [];
+            this.rings = [];
+            this.ambT = 0;
+            this.buf = null;
+            this.bufW = 0;
+            this.bufH = 0;
+          },
+          ensureBuffer() {
+            let gw = 120,
+              gh = Math.round((120 * H) / W);
+            if (gh > 120) {
+              gh = 120;
+              gw = Math.round((120 * W) / H);
+            }
+            gw = Math.max(24, gw);
+            gh = Math.max(24, gh);
+            if (this.buf && this.bufW === gw && this.bufH === gh) return;
+            this.bufW = gw;
+            this.bufH = gh;
+            this.buf = document.createElement("canvas");
+            this.buf.width = gw;
+            this.buf.height = gh;
+            this.bufCtx = this.buf.getContext("2d");
+            this.img = this.bufCtx.createImageData(gw, gh);
+          },
+          addWave(x, y) {
+            const lam = rand(130, 75) * DPR;
+            const k = (Math.PI * 2) / lam;
+            const spd = rand(280, 180) * DPR;
+            this.waves.push({
+              x,
+              y,
+              age: 0,
+              k,
+              w: k * spd,
+              amp: rand(9, 5) * DPR,
+              spread: rand(560, 320) * DPR,
+              damp: rand(0.5, 0.32),
+            });
+            const cap = settings.reduceMotion ? 7 : 11;
+            if (this.waves.length > cap) this.waves.shift();
+          },
+          ripple(x, y) {
+            this.addWave(x, y);
+            this.rings.push({ x, y, age: 0, dur: 0.45, r: rand(24, 14) * DPR });
+            plop();
           },
           key() {
-            const n = settings.reduceMotion ? 40 : 120;
-            for (let i = 0; i < n; i++) {
-              const c = pick(palette());
-              this.bits.push({
-                x: W / 2,
-                y: H * 0.2,
-                vx: rand(-200, 200),
-                vy: rand(-20, -300),
-                s: rand(4, 10) * DPR,
-                a: rand(0, Math.PI * 2),
-                va: rand(-6, 6),
-                c,
-              });
+            this.ripple(rand(W), rand(H));
+          },
+          onClick(e) {
+            const p = pointerPos(e);
+            this.ripple(p[0], p[1]);
+          },
+          draw(dt) {
+            this.ensureBuffer();
+            this.ambT += dt;
+
+            for (let i = this.waves.length - 1; i >= 0; i--) {
+              const wv = this.waves[i];
+              wv.age += dt;
+              if (wv.age > 7) this.waves.splice(i, 1);
             }
-            plink();
+
+            // Render the interference field into a small buffer, then upscale.
+            const gw = this.bufW,
+              gh = this.bufH;
+            const data = this.img.data;
+            const waves = this.waves;
+            const ambT = this.ambT;
+            // time decay is constant for a wave across the whole grid this frame
+            for (let wi = 0; wi < waves.length; wi++)
+              waves[wi]._decay = Math.exp(-waves[wi].damp * waves[wi].age);
+            for (let gy = 0; gy < gh; gy++) {
+              const wy = ((gy + 0.5) / gh) * H;
+              for (let gx = 0; gx < gw; gx++) {
+                const wx = ((gx + 0.5) / gw) * W;
+                // gentle ambient swell so the whole surface always undulates
+                let h =
+                  3 * DPR * Math.sin(wx * 0.017 + wy * 0.011 + ambT * 1.1) +
+                  2.4 * DPR * Math.sin(wx * 0.012 - wy * 0.019 - ambT * 0.8);
+                for (let wi = 0; wi < waves.length; wi++) {
+                  const wv = waves[wi];
+                  const dx = wx - wv.x,
+                    dy = wy - wv.y;
+                  const d = Math.sqrt(dx * dx + dy * dy);
+                  h +=
+                    wv.amp *
+                    Math.exp(-d / wv.spread) *
+                    wv._decay *
+                    Math.sin(wv.k * d - wv.w * wv.age);
+                }
+                const t = Math.max(0, Math.min(1, h / (16 * DPR) + 0.5));
+                const idx = (gy * gw + gx) * 4;
+                data[idx] = 4 + t * 120;
+                data[idx + 1] = 30 + t * 200;
+                data[idx + 2] = 48 + t * 205;
+                data[idx + 3] = 255;
+              }
+            }
+            this.bufCtx.putImageData(this.img, 0, 0);
+            ctx.imageSmoothingEnabled = true;
+            ctx.drawImage(this.buf, 0, 0, W, H);
+
+            // impact flash rings
+            for (let i = this.rings.length - 1; i >= 0; i--) {
+              const r = this.rings[i];
+              r.age += dt;
+              const p = r.age / r.dur;
+              if (p >= 1) {
+                this.rings.splice(i, 1);
+                continue;
+              }
+              ctx.globalAlpha = (1 - p) * 0.8;
+              ctx.strokeStyle = "#e9fbff";
+              ctx.lineWidth = Math.max(1, 3 * DPR * (1 - p));
+              ctx.beginPath();
+              ctx.arc(r.x, r.y, r.r * (1 + p * 2.4), 0, Math.PI * 2);
+              ctx.stroke();
+            }
+            ctx.globalAlpha = 1;
+          },
+        });
+
+        // Effect 3: Bouncy - persistent physics balls with goofy faces
+        effects.push({
+          name: "Bouncy",
+          init() {
+            this.balls = [];
+            this.lastBoing = 0;
+          },
+          spawn(x, y) {
+            const r = rand(Math.min(W, H) * 0.07, Math.min(W, H) * 0.028);
+            const a = rand(Math.PI * 2);
+            const sp = rand(300, 140) * DPR;
+            this.balls.push({
+              x: x == null ? rand(W - r, r) : x,
+              y: y == null ? rand(H - r, r) : y,
+              vx: Math.cos(a) * sp,
+              vy: Math.sin(a) * sp,
+              r,
+              c: pick(palette()),
+              squash: 1,
+              blink: rand(3, 1.5),
+              surprised: 0,
+            });
+            const cap = settings.reduceMotion ? 12 : 28;
+            if (this.balls.length > cap) this.balls.shift();
+            tone({
+              freq: rand(620, 300),
+              slideTo: rand(240, 120),
+              dur: 0.18,
+              type: "triangle",
+              vol: 0.2,
+            });
+          },
+          boing(r) {
+            const now = performance.now();
+            if (now - this.lastBoing < 45) return;
+            this.lastBoing = now;
+            tone({
+              freq: Math.max(90, 700 - (r / DPR) * 1.4),
+              slideTo: 80,
+              dur: 0.14,
+              type: "square",
+              vol: 0.08,
+            });
+          },
+          key() {
+            this.spawn();
+          },
+          onClick(e) {
+            const p = pointerPos(e);
+            this.spawn(p[0], p[1]);
           },
           draw(dt) {
             clear("#0b0e11");
-            for (const b of this.bits) {
-              b.vy += 500 * dt;
+            const balls = this.balls;
+            for (const b of balls) {
               b.x += b.vx * dt;
               b.y += b.vy * dt;
-              b.a += b.va * dt;
+              b.blink -= dt;
+              if (b.blink < -0.12) b.blink = rand(4, 1.5);
+              if (b.surprised > 0) b.surprised -= dt;
+              let hit = false;
+              if (b.x - b.r < 0) {
+                b.x = b.r;
+                b.vx = Math.abs(b.vx);
+                hit = true;
+              }
+              if (b.x + b.r > W) {
+                b.x = W - b.r;
+                b.vx = -Math.abs(b.vx);
+                hit = true;
+              }
+              if (b.y - b.r < 0) {
+                b.y = b.r;
+                b.vy = Math.abs(b.vy);
+                hit = true;
+              }
+              if (b.y + b.r > H) {
+                b.y = H - b.r;
+                b.vy = -Math.abs(b.vy);
+                hit = true;
+              }
+              if (hit) {
+                b.squash = 0.68;
+                this.boing(b.r);
+              }
+              b.squash += (1 - b.squash) * Math.min(1, dt * 12);
+            }
+            // elastic ball-ball collisions
+            for (let i = 0; i < balls.length; i++) {
+              for (let j = i + 1; j < balls.length; j++) {
+                const a = balls[i],
+                  b = balls[j];
+                let dx = b.x - a.x,
+                  dy = b.y - a.y;
+                let d = Math.hypot(dx, dy);
+                if (d < 0.001) {
+                  dx = 0.001;
+                  dy = 0;
+                  d = 0.001;
+                }
+                const min = a.r + b.r;
+                if (d < min) {
+                  const nx = dx / d,
+                    ny = dy / d;
+                  const push = (min - d) / 2;
+                  a.x -= nx * push;
+                  a.y -= ny * push;
+                  b.x += nx * push;
+                  b.y += ny * push;
+                  const vn = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+                  if (vn < 0) {
+                    a.vx += vn * nx;
+                    a.vy += vn * ny;
+                    b.vx -= vn * nx;
+                    b.vy -= vn * ny;
+                    a.squash = b.squash = 0.72;
+                    a.surprised = b.surprised = 0.14;
+                    this.boing((a.r + b.r) / 2);
+                  }
+                }
+              }
+            }
+            // keep any ball shoved by a collision inside the walls
+            for (const b of balls) {
+              b.x = Math.min(W - b.r, Math.max(b.r, b.x));
+              b.y = Math.min(H - b.r, Math.max(b.r, b.y));
+            }
+            for (const b of balls) {
+              const ang = Math.atan2(b.vy, b.vx);
+              // squashed body, stretched along the direction of travel
               ctx.save();
               ctx.translate(b.x, b.y);
-              ctx.rotate(b.a);
+              ctx.rotate(ang);
+              ctx.scale(1 + (1 - b.squash), b.squash);
+              ctx.beginPath();
+              ctx.arc(0, 0, b.r, 0, Math.PI * 2);
               ctx.fillStyle = b.c;
-              ctx.fillRect(-b.s * 0.5, -b.s * 0.25, b.s, b.s * 0.5);
+              ctx.fill();
+              ctx.beginPath();
+              ctx.arc(-b.r * 0.32, -b.r * 0.32, b.r * 0.26, 0, Math.PI * 2);
+              ctx.fillStyle = "rgba(255,255,255,0.55)";
+              ctx.fill();
+              ctx.restore();
+              // upright face
+              const lx = Math.cos(ang) * b.r * 0.12;
+              const ly = Math.sin(ang) * b.r * 0.12;
+              const surprised = b.surprised > 0;
+              const eyeR = Math.max(1.5, b.r * (surprised ? 0.18 : 0.13));
+              ctx.fillStyle = "#20202a";
+              for (const s of [-1, 1]) {
+                if (b.blink < 0 && !surprised) {
+                  ctx.fillRect(
+                    b.x + s * b.r * 0.3 - eyeR,
+                    b.y - b.r * 0.14,
+                    eyeR * 2,
+                    eyeR * 0.6,
+                  );
+                } else {
+                  ctx.beginPath();
+                  ctx.arc(
+                    b.x + s * b.r * 0.3 + lx,
+                    b.y - b.r * 0.14 + ly,
+                    eyeR,
+                    0,
+                    Math.PI * 2,
+                  );
+                  ctx.fill();
+                }
+              }
+              ctx.fillStyle = "#20202a";
+              if (surprised) {
+                // quick ":o" mouth on a collision
+                ctx.beginPath();
+                ctx.ellipse(
+                  b.x + lx * 0.6,
+                  b.y + b.r * 0.28,
+                  b.r * 0.17,
+                  b.r * 0.24,
+                  0,
+                  0,
+                  Math.PI * 2,
+                );
+                ctx.fill();
+              } else {
+                ctx.strokeStyle = "#20202a";
+                ctx.lineWidth = Math.max(1.5, b.r * 0.07);
+                ctx.lineCap = "round";
+                ctx.beginPath();
+                ctx.arc(
+                  b.x + lx * 0.6,
+                  b.y + b.r * 0.06,
+                  b.r * 0.4,
+                  0.15 * Math.PI,
+                  0.85 * Math.PI,
+                );
+                ctx.stroke();
+              }
+            }
+          },
+        });
+
+        // Effect 4: Kaleidoscope - every key stamps a mirrored, rotating motif
+        effects.push({
+          name: "Kaleidoscope",
+          init() {
+            this.motifs = [];
+            this.rot = 0;
+            this.glow = 0;
+          },
+          key() {
+            const shapes = [];
+            const count = randi(6, 3);
+            for (let i = 0; i < count; i++) {
+              shapes.push({
+                rad: rand(0.62, 0.1),
+                ang: rand(Math.PI * 2),
+                size: rand(0.07, 0.018),
+                sides: randi(6, 3),
+                spin: rand(1, -1),
+              });
+            }
+            this.motifs.push({
+              shapes,
+              age: 0,
+              dur: rand(6, 4),
+              c: pick(palette()),
+            });
+            if (this.motifs.length > (settings.reduceMotion ? 8 : 16))
+              this.motifs.shift();
+            this.glow = 1;
+            bell(randi(9, 0) + (Math.random() < 0.5 ? 0 : 5));
+          },
+          onClick() {
+            this.key();
+          },
+          draw(dt) {
+            const bg = ctx.createRadialGradient(
+              W / 2,
+              H / 2,
+              0,
+              W / 2,
+              H / 2,
+              Math.max(W, H) * 0.7,
+            );
+            bg.addColorStop(0, "#120a24");
+            bg.addColorStop(1, "#05030c");
+            ctx.fillStyle = bg;
+            ctx.fillRect(0, 0, W, H);
+
+            this.rot += dt * 0.08;
+            this.glow += (0 - this.glow) * Math.min(1, dt * 2);
+
+            const cx = W / 2,
+              cy = H / 2;
+            const R = Math.min(W, H);
+            const folds = settings.reduceMotion ? 4 : 6;
+            for (const m of this.motifs) {
+              m.age += dt;
+              const p = m.age / m.dur;
+              if (p >= 1) continue;
+              const alpha = Math.sin((1 - p) * Math.PI * 0.5) * 0.9;
+              ctx.save();
+              ctx.translate(cx, cy);
+              ctx.rotate(this.rot + p * 0.3);
+              for (let f = 0; f < folds; f++) {
+                for (const mir of [1, -1]) {
+                  ctx.save();
+                  ctx.rotate((f / folds) * Math.PI * 2);
+                  ctx.scale(mir, 1);
+                  ctx.globalAlpha = alpha;
+                  for (const s of m.shapes) {
+                    const grow = 1 + p * 0.35;
+                    const x = Math.cos(s.ang) * s.rad * R * grow;
+                    const y = Math.sin(s.ang) * s.rad * R * grow;
+                    const pulse = 1 + 0.18 * Math.sin(m.age * 4 + s.spin * 2);
+                    drawPoly(
+                      x,
+                      y,
+                      s.size * R * pulse,
+                      s.sides,
+                      s.spin * this.rot * 3,
+                      m.c,
+                    );
+                  }
+                  ctx.restore();
+                }
+              }
               ctx.restore();
             }
-            this.bits = this.bits.filter((b) => b.y < H + 40);
+            // centre bloom
+            ctx.globalAlpha = 0.5 + this.glow * 0.5;
+            const cg = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.12);
+            cg.addColorStop(0, "rgba(255,255,255,0.5)");
+            cg.addColorStop(1, "rgba(255,255,255,0)");
+            ctx.fillStyle = cg;
+            ctx.beginPath();
+            ctx.arc(cx, cy, R * 0.12, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
           },
+        });
+
+        // Rebuild size-dependent effects when the viewport changes (e.g. when
+        // the page enters fullscreen) so they always fill the real screen.
+        addEventListener("resize", () => {
+          const e = effects[effectIdx];
+          if (e && e._inited && e.onResize) e.onResize();
         });
 
         function setEffect(i) {
@@ -665,7 +1118,8 @@
             e.init();
             e._inited = true;
           }
-          showHUD(`${e.name}`);
+          canvas.style.cursor = e.cursor || "none";
+          flashTabs();
         }
 
         // ---------- Engine Loop ----------
@@ -682,19 +1136,70 @@
         }
 
         // ---------- Controls & Safety ----------
-        function showHUD(msg) {
-          hud.textContent = msg;
-          hud.classList.remove("hidden");
-          clearTimeout(showHUD._t);
-          showHUD._t = setTimeout(() => hud.classList.add("hidden"), 1200);
+        // Tab bar showing every mode; the active one is highlighted.
+        function buildTabs() {
+          tabsEl.innerHTML = effects
+            .map(
+              (e, i) =>
+                `<div class="tab"><span class="num">${i + 1}</span>${e.name}</div>`,
+            )
+            .join("");
+        }
+        function showTabs() {
+          tabsEl.classList.remove("hidden");
+          [...tabsEl.children].forEach((el, i) =>
+            el.classList.toggle("active", i === effectIdx),
+          );
+        }
+        let tabsTimer;
+        function flashTabs(ms = 1600) {
+          showTabs();
+          clearTimeout(tabsTimer);
+          tabsTimer = setTimeout(() => tabsEl.classList.add("hidden"), ms);
+        }
+        function toggleTabs() {
+          if (tabsEl.classList.contains("hidden")) flashTabs(3000);
+          else {
+            clearTimeout(tabsTimer);
+            tabsEl.classList.add("hidden");
+          }
+        }
+
+        // Browsers only allow audio + fullscreen after a real gesture, so arm
+        // all of that on the very first key or tap.
+        let armed = false;
+        let allowFullscreen = true;
+        // When launched from the tools page we run inside a fullscreen iframe;
+        // the parent owns fullscreen there, so we must not request it again.
+        const embedded = (() => {
+          try {
+            return window.self !== window.top;
+          } catch {
+            return true;
+          }
+        })();
+        function arm() {
+          // Keep trying fullscreen until it sticks: browsers can reject an
+          // early attempt, so this is deliberately not gated on `armed`.
+          if (!embedded && allowFullscreen && !document.fullscreenElement) {
+            enterFullscreen().then(() => {
+              lockKeys();
+              keepAwake();
+            });
+          }
+          if (armed) return;
+          armed = true;
+          initAudio();
+          if (AC && AC.state === "suspended") AC.resume().catch(() => {});
         }
 
         async function enterFullscreen() {
           const el = document.documentElement;
-          if (el.requestFullscreen)
-            await el
-              .requestFullscreen({ navigationUI: "hide" })
-              .catch(() => {});
+          try {
+            if (el.requestFullscreen)
+              await el.requestFullscreen({ navigationUI: "hide" });
+            else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+          } catch {}
         }
         async function lockKeys() {
           if (navigator.keyboard && navigator.keyboard.lock) {
@@ -749,6 +1254,12 @@
             // Prevent text focus navigation etc
             preventDefaultKeys(e);
             if (!started) return;
+            if (e.key === "Escape") return; // handled by the exit listener
+            arm();
+            if (e.key === "?" || (e.code === "Slash" && e.shiftKey)) {
+              toggleTabs();
+              return;
+            }
             if (e.code === "KeyE") {
               pressedTime = performance.now();
             }
@@ -761,10 +1272,10 @@
             }
             const cur = effects[effectIdx];
             if (e.code === "Space" && cur.onSpace) {
-              cur.onSpace();
+              cur.onSpace(e);
               return;
             }
-            if (cur.key) cur.key();
+            if (cur.key) cur.key(e);
             else plink();
           },
           true,
@@ -799,61 +1310,57 @@
         });
 
         function exit() {
-          document.exitFullscreen?.();
-          ui.classList.remove("hidden");
+          allowFullscreen = false;
+          if (embedded) {
+            // Let the launcher page drop its fullscreen iframe.
+            try {
+              window.parent.postMessage("babymode-exit", "*");
+            } catch {}
+          } else {
+            document.exitFullscreen?.();
+          }
           canvas.style.cursor = "default";
-          showHUD("Exited");
+          flashTabs(2500);
         }
+
+        // If the user leaves fullscreen by any route (Esc, F11, system UI),
+        // stop trying to re-enter so the parent isn't trapped.
+        document.addEventListener("fullscreenchange", () => {
+          if (!document.fullscreenElement) allowFullscreen = false;
+        });
 
         // Disable context menu / selection
         document.addEventListener("contextmenu", (e) => e.preventDefault());
         document.addEventListener("dragstart", (e) => e.preventDefault());
         document.addEventListener("selectstart", (e) => e.preventDefault());
 
+        // Any first tap anywhere (including outside the canvas) arms
+        // fullscreen + audio, so the very first touch goes fullscreen.
+        addEventListener("pointerdown", arm);
+
         // Touch / click = effect-specific action (or KEY surrogate)
-        canvas.addEventListener("pointerdown", () => {
+        canvas.addEventListener("pointerdown", (e) => {
           if (!started) return;
+          arm();
           const cur = effects[effectIdx];
           if (cur.onClick) {
-            cur.onClick();
+            cur.onClick(e);
           } else {
-            cur.key?.();
+            cur.key?.(e);
             plink();
           }
         });
 
-        // ---------- Start / UI ----------
-        let started = false;
-        async function start() {
-          started = true;
-          ui.classList.add("hidden");
-          canvas.style.cursor = "none";
-          initAudio();
-          await enterFullscreen();
-          await lockKeys();
-          await keepAwake();
-          setEffect(0);
-          requestAnimationFrame(loop);
-        }
+        // ---------- Go ----------
+        let started = true;
+        buildTabs();
+        setEffect(0);
+        requestAnimationFrame(loop);
 
-        btnGo.addEventListener("click", start);
-        btnMute.addEventListener("click", () => {
-          settings.muted = !settings.muted;
-          btnMute.textContent = settings.muted ? "Sound: Off" : "Sound: On";
-          if (AC) {
-            masterGain.gain.value = settings.muted ? 0 : 0.15;
-          }
-        });
-        btnRM.addEventListener("click", () => {
-          settings.reduceMotion = !settings.reduceMotion;
-          btnRM.textContent = settings.reduceMotion
-            ? "Motion: Reduced"
-            : "Motion: Normal";
-          // Reinit current effect to apply motion changes
-          const e = effects[effectIdx];
-          e._inited = false;
-          setEffect(effectIdx);
-        });
+        // Best effort: some browsers preserve activation across a same-origin
+        // link navigation, so this can go fullscreen right away. If not, the
+        // first key/tap arms it via arm().
+        if (!embedded) enterFullscreen();
 
         // Palette cycling on Enter
         addEventListener(
@@ -863,7 +1370,6 @@
             if (e.code === "Enter") {
               settings.paletteIndex =
                 (settings.paletteIndex + 1) % palettes.length;
-              showHUD("Palette");
               plink();
             }
             if (e.code === "Backspace") {
@@ -873,7 +1379,6 @@
                 efx.init();
                 efx._inited = true;
               }
-              showHUD("Reset");
             }
           },
           true,
