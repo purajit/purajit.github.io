@@ -159,6 +159,7 @@ code {
 /* zeitgeist page */
 .zeitgeist-section .flex-row {
     width: 100%;
+    justify-content: center;
 }
 
 .zeitgeist-section img {
