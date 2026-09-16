@@ -246,3 +246,65 @@ code {
 .notes {
     font-size: 1rem;
 }
+
+/* ---- mobile ---- */
+@media (max-width: 700px) {
+    html, body {
+        font-size: max(18px, 2.4vw);
+        -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+        padding-top: 5%;
+        padding-bottom: 12%;
+    }
+
+    #name {
+        font-size: 1.7rem;
+        padding: 8px 14px;
+        margin-bottom: 18px;
+    }
+
+    .page-content {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .contents-item {
+        font-size: 1.5rem;
+    }
+
+    .writing-title {
+        font-size: 1.5rem;
+    }
+
+    /* recipe: stack the ingredient sidebar above the steps */
+    .recipe-body {
+        flex-direction: column;
+    }
+
+    .recipe-sidebar {
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* zeitgeist: three posters per row, wrapping */
+    .zeitgeist-section .flex-row {
+        flex-wrap: wrap;
+    }
+
+    .zeitgeist-section img,
+    .zeitgeist-lower-row img {
+        max-width: calc((100% - 2 * var(--gap)) / 3);
+    }
+
+    /* tables: a little tighter so all columns fit */
+    .table .flex-col {
+        min-height: 34px;
+        font-size: 0.85rem;
+    }
+
+    .work-logos {
+        flex-wrap: wrap;
+    }
+}

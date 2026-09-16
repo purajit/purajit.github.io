@@ -26,10 +26,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate statics
-        uses: purajit/YASS@v2.1
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          yass-config-path: yass_config_prod.json
+          python-version: '3.12'
+
+      - name: Generate statics
+        run: |
+          pip install jinja2 marko
+          python build.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

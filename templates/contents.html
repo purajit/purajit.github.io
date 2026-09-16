@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="flex-col gappy-2x">
+{% for item in contents %}
+<div class="contents-item"><a href="{{ item.link }}">{{ item.title }}</a></div>
+{% endfor %}
+</div>
+{% endblock %}

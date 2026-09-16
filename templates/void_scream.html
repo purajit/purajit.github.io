@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-content flex-col gappy">
+    <div class="writing-title">scream into the void</div><br>
+    <div>This is built as an infinitely scalable version of Twitter.</div>
+    <div>Say what you have to say and hit enter to send your message into the void.</div>
+    <textarea autofocus id="screamintovoid" onkeydown="checkSend();"></textarea>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+ function checkSend() {
+     if (window.event.keyCode != 13) {
+         return true;
+     }
+     window.event.stopPropagation();
+     window.event.preventDefault();
+     document.getElementById("screamintovoid").value = "";
+     return false;
+ }
+</script>
+{% endblock %}

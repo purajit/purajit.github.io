@@ -16,8 +16,8 @@ enter-server:
 	docker exec -w /usr/share/nginx/html -it purajit.com sh
 
 generate-pages-local:
-	uv run https://raw.githubusercontent.com/purajit/YASS/refs/heads/main/generate_site.py yass_config_local.json
+	uv run build.py --local
 
 # only used in local testing, but with "CDN" paths instead of local ones
 generate-pages-cdn:
-	uv run https://raw.githubusercontent.com/purajit/YASS/refs/heads/main/generate_site.py yass_config_prod.json
+	uv run build.py

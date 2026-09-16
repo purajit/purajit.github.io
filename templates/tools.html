@@ -1,7 +1,12 @@
-{% with title="purajit | " + title %}
-{% include './header.html' %}
-{% endwith %}
-{% include './template_content_table.html' %}
+{% extends "base.html" %}
+{% block content %}
+<div class="flex-col gappy-2x">
+{% for item in contents %}
+<div class="contents-item"><a href="{{ item.link }}">{{ item.title }}</a></div>
+{% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
 <script>
 // Baby mode is a fullscreen experience. A browser only grants fullscreen from a
 // real user gesture, and that gesture is the click on the link below - not the
@@ -68,4 +73,4 @@
   });
 })();
 </script>
-{% include './footer.html' %}
+{% endblock %}

@@ -2,7 +2,7 @@
   "title": "purajit malalur",
   "route": "",
   "tab_title": "home",
-  "template": "template_index.html",
+  "template": "index.html",
   "children": [
     {
       "title": "writing",
@@ -11,128 +11,91 @@
         {
           "title": "[upcoming] stagnation | 2023",
           "route": "stagnation",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/stagnation/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | stagnation | 2023",
-          "meta_type": "article"
+          "page_class": "preserve-whitespace",
+          "meta_type": "article",
+          "meta_description": "purajit | stagnation | 2023"
         },
         {
           "title": "[upcoming] you are a fish. | 2023",
           "route": "youareafish",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/youareafish/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | you are a fish. | 2023",
-          "meta_type": "article"
+          "page_class": "preserve-whitespace",
+          "meta_type": "article",
+          "meta_description": "purajit | you are a fish. | 2023"
         },
         {
           "title": "[upcoming] a guide to living in the void | 2023",
           "route": "voidliving",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/voidliving/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | a guide to living in the void | 2023",
-          "meta_type": "article"
+          "page_class": "preserve-whitespace",
+          "meta_type": "article",
+          "meta_description": "purajit | a guide to living in the void | 2023"
         },
         {
           "title": "misunderstood waters | 2024",
           "route": "misunderstood-waters",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/misunderstood-waters/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | misunderstood waters | 2024",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "obsolete | 2024",
           "route": "obsolete",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/obsolete/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | obsolete | 2024",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "the union | 2023",
           "route": "theunion",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/theunion/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | the union | 2023",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "ungrounding | 2022",
           "route": "ungrounding",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/ungrounding/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | ungrounding | 2022",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "all the time in the world | 2021",
           "route": "all-the-time-in-the-world",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/all-the-time-in-the-world/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | all the time in the world | 2021",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "unbridled joy | 2021",
           "route": "unbridled-joy",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/unbridled-joy/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | unbridled joy | 2021",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "protector | 2020",
           "route": "protector",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/protector/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | protector | 2020",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "at the pyre | 2015",
           "route": "pyre",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/pyre/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | at the pyre | 2015",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         },
         {
           "title": "dark visions | 2015",
           "route": "dark-visions",
-          "template": "template_writing.html",
           "data_type": "text",
-          "meta_url": "https://purajit.com/writing/dark-visions/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | dark visions | 2015",
+          "page_class": "preserve-whitespace",
           "meta_type": "article"
         }
-      ],
-      "meta_url": "https://purajit.com/writing/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | writing",
-      "meta_type": "website"
+      ]
     },
     {
       "title": "recipes",
@@ -141,217 +104,129 @@
         {
           "title": "basics: grain ratios, cook times, names, other tables",
           "route": "basics",
-          "template": "template_basics_table.html",
-          "meta_url": "https://purajit.com/recipes/basics/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | basics: grain ratios, cook times, names, other tables",
-          "meta_type": "website"
+          "template": "basics.html"
         },
         {
           "title": "basics: vaggarne",
           "route": "vaggarne",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/vaggarne/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | basics: vaggarne",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "akki roti",
           "route": "akki-roti",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/akki-roti/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | akki roti",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "avalakki vaggarne",
           "route": "avalakki-vaggarne",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/avalakki-vaggarne/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | avalakki vaggarne",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "bhel puri",
           "route": "bhel-puri",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/bhel-puri/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | bhel puri",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "bisi bele bhath",
           "route": "bisi-bele-bhath",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/bisi-bele-bhath/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | bisi bele bhath",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "chocolate mug cake",
           "route": "chocolate-mug-cake",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/chocolate-mug-cake/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | chocolate mug cake",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "chutney",
           "route": "chutney",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/chutney/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | chutney",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "chutneypudi",
           "route": "chutneypudi",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/chutneypudi/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | chutneypudi",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "date milkshake",
           "route": "date-milkshake",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/date-milkshake/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | date milkshake",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "dosa",
           "route": "dosa",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/dosa/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | dosa",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "garlic pickle",
           "route": "garlic-pickle",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/garlic-pickle/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | garlic pickle",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "hot chocolate",
           "route": "hot-chocolate",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/hot-chocolate/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | hot chocolate",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "idli",
           "route": "idli",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/idli/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | idli",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "instant pot rice and dal",
           "route": "instant-pot-rice-and-dal",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/instant-pot-rice-and-dal/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | instant pot rice and dal",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "pear salad",
           "route": "pear-salad",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/pear-salad/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | pear salad",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "rava idli",
           "route": "rava-idli",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/rava-idli/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | rava idli",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "uppitu",
           "route": "uppitu",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/uppitu/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | uppitu",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "usli",
           "route": "usli",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/usli/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | usli",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "to test",
           "route": "to-test",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/to-test/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | to test",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         },
         {
           "title": "to write",
           "route": "to-write",
-          "template": "template_recipe.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/recipes/to-write/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | to write",
-          "meta_type": "website"
+          "template": "recipe.html",
+          "data_type": "json"
         }
-      ],
-      "meta_url": "https://purajit.com/recipes/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | recipes",
-      "meta_type": "website"
+      ]
     },
     {
       "title": "zeitgeist",
@@ -360,190 +235,110 @@
         {
           "title": "2024 (ongoing)",
           "route": "2024",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2024/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2024 (ongoing)",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2023",
           "route": "2023",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2023/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2023",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2022",
           "route": "2022",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2022/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2022",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2021",
           "route": "2021",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2021/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2021",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2020",
           "route": "2020",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2020/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2020",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2019",
           "route": "2019",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2019/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2019",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2018",
           "route": "2018",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2018/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2018",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2017",
           "route": "2017",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2017/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2017",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2016",
           "route": "2016",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2016/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2016",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         },
         {
           "title": "2015",
           "route": "2015",
-          "template": "template_zeitgeist.html",
-          "data_type": "json",
-          "meta_url": "https://purajit.com/zeitgeist/2015/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | 2015",
-          "meta_type": "website"
+          "template": "zeitgeist.html",
+          "data_type": "json"
         }
-      ],
-      "meta_url": "https://purajit.com/zeitgeist/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | zeitgeist",
-      "meta_type": "website"
+      ]
     },
     {
       "title": "tools",
       "route": "tools",
-      "template": "template_tools.html",
+      "template": "tools.html",
       "children": [
         {
-          "title": "hexaggon \ud83d\udd17",
-          "route": "https://hexaggon.com",
-          "meta_url": "https://purajit.com/tools/https://hexaggon.com/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | hexaggon \ud83d\udd17",
-          "meta_type": "website"
+          "title": "hexaggon 🔗",
+          "route": "https://hexaggon.com"
         },
         {
           "title": "baby mode",
           "route": "babymode",
-          "template": "template_baby_mode.html",
-          "meta_url": "https://purajit.com/tools/babymode/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | baby mode",
-          "meta_type": "website"
+          "template": "baby_mode.html"
         },
         {
           "title": "connections",
           "route": "connections",
-          "template": "template_connections.html",
-          "meta_url": "https://purajit.com/tools/connections/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | connections",
-          "meta_type": "website"
+          "template": "connections.html"
         },
         {
           "title": "continuous dice",
           "route": "continuousdice",
-          "template": "template_continuous_dice.html",
-          "meta_url": "https://purajit.com/tools/continuousdice/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | continuous dice",
-          "meta_type": "website"
+          "template": "continuous_dice.html"
         },
         {
           "title": "hourglass",
           "route": "hourglass",
-          "template": "template_hourglass.html",
-          "meta_url": "https://purajit.com/tools/hourglass/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | hourglass",
-          "meta_type": "website"
+          "template": "hourglass.html"
         },
         {
           "title": "jaxbox",
           "route": "jaxbox",
-          "template": "template_jaxbox.html",
-          "meta_url": "https://purajit.com/tools/jaxbox/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | jaxbox",
-          "meta_type": "website"
+          "template": "jaxbox.html"
         },
         {
           "title": "qr",
           "route": "qr",
-          "template": "template_qr.html",
-          "meta_url": "https://purajit.com/tools/qr/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | qr",
-          "meta_type": "website"
+          "template": "qr.html"
         },
         {
           "title": "scream into the void",
           "route": "scream-into-the-void",
-          "template": "template_void_scream.html",
-          "meta_url": "https://purajit.com/tools/scream-into-the-void/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | scream into the void",
-          "meta_type": "website"
+          "template": "void_scream.html"
         }
-      ],
-      "meta_url": "https://purajit.com/tools/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | tools",
-      "meta_type": "website"
+      ]
     },
     {
       "title": "blog",
@@ -552,62 +347,35 @@
         {
           "title": "[eng] readings about xz",
           "route": "xz-backdoor-readings",
-          "template": "template_blog.html",
           "data_type": "markdown",
-          "meta_url": "https://purajit.com/blog/xz-backdoor-readings/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | [eng] readings about xz",
           "meta_type": "article"
         },
         {
           "title": "[eng] reducing my site size by ~75%",
           "route": "reduce-site-size",
-          "template": "template_blog.html",
           "data_type": "markdown",
-          "meta_url": "https://purajit.com/blog/reduce-site-size/",
-          "meta_image": "https://purajit.com/static/tiledspace.jpg",
-          "meta_description": "purajit | [eng] reducing my site size by ~75%",
           "meta_type": "article"
         }
-      ],
-      "meta_url": "https://purajit.com/blog/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | blog",
-      "meta_type": "website"
+      ]
     },
     {
       "title": "thoughts",
       "route": "thoughts",
-      "template": "template_thoughts.html",
+      "template": "thoughts.html",
       "data_type": "json",
-      "meta_url": "https://purajit.com/thoughts/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | thoughts",
       "meta_type": "article"
     },
     {
       "title": "lorem",
       "route": "lorem",
-      "template": "template_lorem.html",
       "data_type": "markdown",
-      "meta_url": "https://purajit.com/lorem/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | lorem",
-      "meta_type": "website"
+      "page_class": "flex-col"
     },
     {
       "title": "about",
       "route": "about",
-      "template": "template_about.html",
-      "data_type": "json",
-      "meta_url": "https://purajit.com/about/",
-      "meta_image": "https://purajit.com/static/tiledspace.jpg",
-      "meta_description": "purajit | about",
-      "meta_type": "website"
+      "template": "about.html",
+      "data_type": "json"
     }
-  ],
-  "meta_url": "https://purajit.com/",
-  "meta_image": "https://purajit.com/static/tiledspace.jpg",
-  "meta_description": "purajit | purajit malalur",
-  "meta_type": "website"
+  ]
 }
