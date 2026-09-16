@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main_class %} class="index-page"{% endblock %}
+{% block name %}{{ title }} <a id="forward" href="javascript:;">→</a>{% endblock %}
+{% block content %}
+<div class="flex-col gappy-2x">
+{% for item in contents %}
+<div class="contents-item"><a href="{{ item.link }}">{{ item.title }}</a></div>
+{% endfor %}
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+ let cur = 0;
+ document.getElementById("forward").addEventListener("click", function() {
+     cur += 90;
+     cur %= 360;
+     document.getElementById("main").style.transform = `rotate(${cur}deg)`;
+ });
+</script>
+{% endblock %}

@@ -1,6 +1,5 @@
-{% with title="purajit | tools" %}
-{% include './header.html' %}
-{% endwith %}
+{% extends "base.html" %}
+{% block head %}
 <style>
   .jaxbox-tool {
       height: 200px;
@@ -24,7 +23,6 @@
       font-size: 50px;
   }
 
-  // on hover
   .letter-jax:hover {
       padding-left: 10px;
       padding-right: 10px;
@@ -42,6 +40,8 @@
       font-size: 40px;
   }
 </style>
+{% endblock %}
+{% block content %}
 <div class="page-content">
     <div class="writing-title">jaxbox</div><br>
     <div class="jaxbox-tool">
@@ -71,8 +71,8 @@
         <div class="letter-jax"><div class="letter">W</div><div class="jax">jax</div></div>
         <div class="letter-jax"><div class="letter">X</div><div class="jax">jax</div></div>
         <div class="letter-jax"><div class="letter">Y</div><div class="jax">jax</div></div>
-        <div class="letter-jax"><div class="letter">Z</div><div class="jax">jax</div></div>        
+        <div class="letter-jax"><div class="letter">Z</div><div class="jax">jax</div></div>
       </div>
     </div>
 </div>
-{% include './footer.html' %}
+{% endblock %}

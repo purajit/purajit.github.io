@@ -6,31 +6,23 @@ There's really nothing impressive about complexity.
 
 The site's served at [https://purajit.com](https://purajit.com).
 
-# Development
-
-I use the static site generator [purajit/YASS](https://github.com/purajit/YASS), with the default structure.
-
 Assets are stored separately in the [purajit/assets.purajit.github.io](https://github.com/purajit/assets.purajit.github.io) repo to keep deploys artifacts and times small.
 
 ## Local testing
+
 ```sh
-# To run the website locally on `localhost:80`
+# run the site locally on localhost:80
 make run-server
 
-# To stop the server
+# stop it
 make stop-server
 
-# To regenerate the website if changes were made to non-static files
-# Changes will be instantly reflected
-make generate-pages-cdn
+# regenerate after changing content/templates/config
+make generate-pages-cdn    # production (CDN asset URLs)
+make generate-pages-local  # local asset URLs
 ```
 
-You will need [colima](https://github.com/abiosoft/colima).
-
-If you want to change assets and test it, you will have to clone the assets repo [purajit/assets.purajit.github.io](https://github.com/purajit/assets.purajit.github.io) into the same parent directory as this one. To use locally-available assets, run
-
-```sh
-make generate-pages-local
-```
-
-You could also use this simply to avoid network requests.
+If you want to change assets and test them, clone the assets repo
+[purajit/assets.purajit.github.io](https://github.com/purajit/assets.purajit.github.io)
+into the same parent directory as this one, then use
+`make generate-pages-local` so the site points at the local copies.

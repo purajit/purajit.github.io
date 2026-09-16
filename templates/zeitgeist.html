@@ -1,6 +1,5 @@
-{% with title="purajit | zeitgeist" %}
-{% include './header.html' %}
-{% endwith %}
+{% extends "base.html" %}
+{% block content %}
 <div class="page-content flex-col gappy">
     <div class="flex-row">
         <div class="writing-title">
@@ -63,4 +62,4 @@
         </div>
     </div>
 </div>
-{% include './footer.html' %}
+{% endblock %}

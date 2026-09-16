@@ -1,0 +1,9 @@
+{
+  "site_name": "purajit",
+  "base_url": "https://purajit.com",
+  "static_url": "https://assets.purajit.com",
+  "local_static_url": "/static/assets",
+  "default_image": "/static/tiledspace.jpg",
+  "functions_file": "site_functions.py",
+  "permanent_paths": ["CNAME", "static"]
+}

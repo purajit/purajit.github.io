@@ -1,15 +1,14 @@
-{% with title="purajit | about" %}
-{% include './header.html' %}
-{% endwith %}
+{% extends "base.html" %}
+{% block content %}
 <div class="page-content flex-col gappy">
     <div class="writing-title">software engineer / writer (barely) / musician (not even)</div>
     <div>i'd love to contribute to: education, public transit, biology, sustainability, lab research</div>
     <div>don't contact me about: crypto/web3/blockchain, fintech, amazon, facebook, tech middleman/marketplace services</div>
     <div class="writing-title">worked at:</div>
-    <div class="flex-row gappy">
+    <div class="flex-row gappy work-logos">
     {% for job in data['work'] %}
       <a href="{{ job['link'] }}"><img class="work-logo" src="{{ static_url }}/images/work-{{ job['key'] }}.png" height="100px"></a>
     {% endfor %}
     </div>
 </div>
-{% include './footer.html' %}
+{% endblock %}
