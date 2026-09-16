@@ -14,24 +14,27 @@
             {% endif %}
         </div>
     </div>
+
+    {# artwork is mirrored into the assets repo by fetch_assets.py; the filenames
+       below (music-<lastfm_id>.png / movie-<slug>.png) must match it. #}
     <div class="zeitgeist-section">
         <div class="writing-title">albums of the year {{ data.get("notes", "") }}</div>
         {% set num_albums = data["albums"]|length %}
         <div class="flex-col gappy">
             <div class="flex-row gappy">
                 {% for album in data["albums"][:5] %}
-                <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
+                <img src="{{ static_url }}/images/music-{{ album['lastfm_id'] }}.png" title="{{ album['album'] }} by {{ album['artist'] }}">
                 {% endfor %}
             </div>
             <div class="flex-row gappy">
                 {% for album in data["albums"][5:10] %}
-              <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
+                <img src="{{ static_url }}/images/music-{{ album['lastfm_id'] }}.png" title="{{ album['album'] }} by {{ album['artist'] }}">
                 {% endfor %}
             </div>
             {% for i in range(10, num_albums, 10) %}
             <div class="flex-row zeitgeist-lower-row gappy">
                 {% for album in data["albums"][i:i+10] %}
-                <img src="https://lastfm.freetls.fastly.net/i/u/300x300/{{ album['lastfm_id'] }}.png" title="{{ album["album"] }} by {{ album["artist"] }}">
+                <img src="{{ static_url }}/images/music-{{ album['lastfm_id'] }}.png" title="{{ album['album'] }} by {{ album['artist'] }}">
                 {% endfor %}
             </div>
             {% endfor %}
@@ -44,18 +47,18 @@
         <div class="flex-col gappy">
             <div class="flex-row gappy">
                 {% for movie in data["movies"][:5] %}
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
-                {% endfor  %}
+                <img src="{{ static_url }}/images/movie-{{ slugify(movie['movie']) }}.jpg" title="{{ movie['movie'] }}">
+                {% endfor %}
             </div>
             <div class="flex-row gappy">
                 {% for movie in data["movies"][5:10] %}
-                <img src="{{ movie['link'] }}" title="{{ movie['movie'] }}">
-                {% endfor  %}
+                <img src="{{ static_url }}/images/movie-{{ slugify(movie['movie']) }}.jpg" title="{{ movie['movie'] }}">
+                {% endfor %}
             </div>
             {% for i in range(10, num_movies, 10) %}
             <div class="flex-row zeitgeist-lower-row gappy">
                 {% for movie in data["movies"][i:i+10] %}
-                <img src="{{ movie['link'] }}" title="{{ movie["movie"] }}">
+                <img src="{{ static_url }}/images/movie-{{ slugify(movie['movie']) }}.jpg" title="{{ movie['movie'] }}">
                 {% endfor %}
             </div>
             {% endfor %}

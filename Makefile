@@ -4,6 +4,14 @@ symlink-assets:
 	rm -f ./docs/static/assets
 	ln -s ../../assets ./docs/static/assets
 
+# mirror the zeitgeist album/movie artwork into ../assets.purajit.github.io
+fetch-assets:
+	uv run fetch_assets.py
+
+# fetch, then commit + push the assets repo
+push-assets:
+	uv run fetch_assets.py --push
+
 run-server: symlink-assets
 	colima status > /dev/null 2>&1 || DYLD_LIBRARY_PATH=/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/ colima start
 	docker stop purajit.com || true
